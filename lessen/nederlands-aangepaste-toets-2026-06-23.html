@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0;padding:16px;color:#1f2a44;background:#fff;line-height:1.55}
+h1{font-size:21px;margin:.2em 0}
+h2{font-size:17px;margin:.2em 0 .1em}
+.intro{color:#6b7896;font-size:14px;margin-bottom:8px}
+.card{background:#f4f7fb;border-radius:14px;padding:15px 16px;margin:14px 0;box-shadow:0 2px 10px rgba(31,42,68,.06)}
+.tag{display:inline-block;background:#eaf2ff;color:#4a86e8;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:6px}
+.tag.sp{background:#e9f9f0;color:#16a766}
+ul{margin:6px 0 6px 18px;padding:0}li{margin:3px 0}
+.ex{background:#fff;border:1px solid #e6ecf5;border-radius:10px;padding:8px 10px;margin:6px 0;font-size:14px}
+.q{font-weight:700;margin-bottom:8px}
+button.opt{display:block;width:100%;text-align:left;border:2px solid #e6ecf5;background:#fff;border-radius:10px;padding:10px 12px;margin:6px 0;cursor:pointer;font-size:15px}
+button.opt:hover{border-color:#4a86e8}
+button.opt:disabled{cursor:default}
+button.opt.good{border-color:#16a766;background:#e9f9f0}
+button.opt.bad{border-color:#e0564a;background:#fde9e7}
+.fb{margin-top:8px;font-size:14px;min-height:18px}
+.done-msg{text-align:center;background:#e9f9f0;border-radius:12px;padding:14px;color:#16a766;font-weight:700;margin-top:10px}
+.counter{font-size:12px;color:#6b7896;margin-bottom:6px}
+</style></head><body>
+<h1>📝 Nederlands — Aangepaste toets</h1>
+<p class="intro">Dit is jouw aangepaste toetsstof (3GL). We oefenen stap voor stap met grammatica en spelling. Lees elk kadertje rustig en doe daarna de oefening. Je mag alles zo vaak herhalen als je wilt!</p>
+
+<!-- JOU / JOUW -->
+<div class="card">
+  <span class="tag">Grammatica</span>
+  <h2>Jou of jouw?</h2>
+  <ul>
+    <li><b>jou</b> (en u, mij) = persoonlijk voornaamwoord — je kunt het vervangen door een naam.</li>
+    <li><b>jouw</b> (en uw, mijn) = bezittelijk voornaamwoord — herken aan de -w, geeft bezit aan. Vaak staat er een zelfstandig naamwoord (een ding) direct achter.</li>
+  </ul>
+  <div class="ex">Ik geef <b>jou</b> de fiets. · Het is <b>jouw</b> fiets.</div>
+</div>
+
+<div class="card" data-q>
+  <div class="counter">Oefening 1 van 8</div>
+  <div class="q">Ik heb ___ boek meegenomen.</div>
+  <button class="opt" onclick="pick(this,1)">jou</button>
+  <button class="opt" onclick="pick(this,0)">jouw</button>
+  <div class="fb"></div>
+</div>
+
+<div class="card" data-q>
+  <div class="counter">Oefening 2 van 8</div>
+  <div class="q">Kan ik ___ helpen?</div>
+  <button class="opt" onclick="pick(this,0)">jou</button>
+  <button class="opt" onclick="pick(this,1)">jouw</button>
+  <div class="fb"></div>
+</div>
+
+<!-- ALS / DAN -->
+<div class="card">
+  <span class="tag">Grammatica</span>
+  <h2>Als of dan?</h2>
+  <ul>
+    <li><b>als</b> → bij vergelijken die gelijk zijn: net zo snel <b>als</b>, even groot <b>als</b>.</li>
+    <li><b>dan</b> → na de vergrotende trap (-er): sneller <b>dan</b>, groter <b>dan</b>, mooier <b>dan</b>.</li>
+  </ul>
+  <div class="ex">Tip: hoor je een woord met <b>-er</b> ervoor? Dan schrijf je <b>dan</b>.</div>
+</div>
+
+<div class="card" data-q>
+  <div class="counter">Oefening 3 van 8</div>
+  <div class="q">Jij rent sneller ___ ik.</div>
+  <button class="opt" onclick="pick(this,0)">als</button>
+  <button class="opt" onclick="pick(this,1)">dan</button>
+  <div class="fb"></div>
+</div>
+
+<div class="card" data-q>
+  <div class="counter">Oefening 4 van 8</div>
+  <div class="q">Zij is even lang ___ haar zus.</div>
+  <button class="opt" onclick="pick(this,1)">als</button>
+  <button class="opt" onclick="pick(this,0)">dan</button>
+  <div class="fb"></div>
+</div>
+
+<!-- BIJVOEGLIJK NAAMWOORD -->
+<div class="card">
+  <span class="tag sp">Spelling</span>
+  <h2>Stoffelijk bijvoeglijk naamwoord</h2>
+  <p>Zegt van welk <b>materiaal</b> iets gemaakt is. Het eindigt op <b>-en</b>.</p>
+  <ul>
+    <li>De ring is van goud → een <b>gouden</b> ring.</li>
+    <li>De broek is van katoen → een <b>katoenen</b> broek.</li>
+  </ul>
+  <p>Maar bij <b>bewerkt</b> materiaal schrijf je alleen het woord: een <b>plastic</b> tas, een <b>nylon</b> shirt.</p>
+</div>
+
+<div class="card" data-q>
+  <div class="counter">Oefening 5 van 8</div>
+  <div class="q">De tafel is van hout. Het is een ___ tafel.</div>
+  <button class="opt" onclick="pick(this,1)">houte</button>
+  <button class="opt" onclick="pick(this,0)">houten</button>
+  <div class="fb"></div>
+</div>
+
+<!-- VOLTOOID DEELWOORD ALS BN -->
+<div class="card">
+  <span class="tag sp">Spelling</span>
+  <h2>Voltooid deelwoord als bijvoeglijk naamwoord</h2>
+  <p>Schrijf het <b>zo kort mogelijk</b>.</p>
+  <ul>
+    <li>Het eten is aangebrand → het <b>aangebrande</b> eten.</li>
+    <li>De weg is verbreed → de <b>verbrede</b> weg (niet: verbreedde).</li>
+  </ul>
+</div>
+
+<div class="card" data-q>
+  <div class="counter">Oefening 6 van 8</div>
+  <div class="q">Die sokken zijn gekrompen. De ___ sokken.</div>
+  <button class="opt" onclick="pick(this,0)">gekrompen</button>
+  <button class="opt" onclick="pick(this,1)">gekrompene</button>
+  <div class="fb"></div>
+</div>
+
+<!-- SAMENSTELLINGEN -->
+<div class="card">
+  <span class="tag sp">Spelling</span>
+  <h2>Samenstellingen: tussen-n, tussen-s of streepje</h2>
+  <ul>
+    <li><b>Tussen-n</b>: eerste deel is een zelfstandig naamwoord met meervoud op <b>-en</b>: fiets<b>en</b>hok, kers<b>en</b>taart.</li>
+    <li><b>Tussen-s</b>: als je 'm hoort: jongen<b>s</b>boek, onderzoek<b>s</b>rapport.</li>
+    <li><b>Streepje</b>: bij een cijfer of afkorting: A4-papier, wc-bril.</li>
+  </ul>
+</div>
+
+<div class="card" data-q>
+  <div class="counter">Oefening 7 van 8</div>
+  <div class="q">Een taart met kersen is een...</div>
+  <button class="opt" onclick="pick(this,0)">kersentaart</button>
+  <button class="opt" onclick="pick(this,1)">kersetaart</button>
+  <div class="fb"></div>
+</div>
+
+<div class="card" data-q>
+  <div class="counter">Oefening 8 van 8</div>
+  <div class="q">Papier op A4-formaat schrijf je als...</div>
+  <button class="opt" onclick="pick(this,1)">A4 papier</button>
+  <button class="opt" onclick="pick(this,0)">A4-papier</button>
+  <div class="fb"></div>
+</div>
+
+<!-- LEZEN & WOORDEN -->
+<div class="card">
+  <span class="tag">Leren uit je boek</span>
+  <h2>Lezen &amp; Woorden</h2>
+  <p>Deze twee oefen je in je boek:</p>
+  <ul>
+    <li><b>Lezen</b>: hoofdstuk 1, 2, 3 en 4 — paragraaf 3 (kadervragen en -teksten).</li>
+    <li><b>Woorden</b>: hoofdstuk 3 en 4 — paragraaf 5 (betekenis van woorden geven).</li>
+  </ul>
+  <div class="ex">Tip voor Lezen: lees eerst de vraag, dan pas de tekst — zo weet je waar je op moet letten.</div>
+</div>
+
+<div id="done"></div>
+
+<script>
+var total=document.querySelectorAll('[data-q]').length, score=0, answered=0;
+function pick(btn,correct){
+  var card=btn.closest('[data-q]'); if(card.dataset.done) return; card.dataset.done=1;
+  var fb=card.querySelector('.fb');
+  card.querySelectorAll('.opt').forEach(function(b){b.disabled=true;});
+  if(correct){btn.className='opt good';fb.textContent='✅ Goed zo!';fb.style.color='#16a766';score++;}
+  else{btn.className='opt bad';fb.textContent='❌ Bijna! Kijk nog eens naar het kadertje hierboven.';fb.style.color='#e0564a';
+       card.querySelectorAll('.opt').forEach(function(b){if(b.getAttribute('onclick').indexOf(',1)')>-1)b.className='opt good';});}
+  answered++;
+  if(answered===total){
+    document.getElementById('done').innerHTML='<div class="done-msg">🎉 Klaar! Je had '+score+' van '+total+' goed.<br>Top gedaan, Tijn — je mag het zo vaak herhalen als je wilt.</div>';
+    document.getElementById('done').scrollIntoView({behavior:'smooth'});
+  }
+}
+</script>
+</body></html>
