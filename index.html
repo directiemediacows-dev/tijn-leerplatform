@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tijn's Leerplatform</title>
+<style>
+  :root{
+    --bg:#f4f7fb; --card:#ffffff; --ink:#1f2a44; --muted:#6b7896;
+    --accent:#4a86e8; --accent2:#16a766; --line:#e6ecf5; --gold:#ffce3a;
+    --shadow:0 6px 22px rgba(31,42,68,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+  header{background:linear-gradient(135deg,#4a86e8,#16a766);color:#fff;padding:22px 18px 16px}
+  header h1{margin:0;font-size:22px;font-weight:800;letter-spacing:.2px}
+  header p{margin:4px 0 0;opacity:.92;font-size:13px}
+  .wrap{max-width:880px;margin:0 auto;padding:16px}
+  nav{display:flex;gap:8px;max-width:880px;margin:0 auto;padding:12px 16px 0}
+  nav button{flex:1;border:none;background:#ffffff;color:var(--muted);padding:11px 8px;border-radius:12px;
+       font-weight:700;font-size:14px;cursor:pointer;box-shadow:var(--shadow);transition:.15s}
+  nav button.active{background:var(--accent);color:#fff}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:8px}
+  .tile{background:var(--card);border-radius:16px;padding:16px;box-shadow:var(--shadow);cursor:pointer;
+       border:2px solid transparent;transition:.15s;position:relative;overflow:hidden}
+  .tile:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .tile .emoji{font-size:30px}
+  .tile h3{margin:8px 0 2px;font-size:16px}
+  .tile .vak{font-size:12px;color:var(--muted);font-weight:600}
+  .tile .done{position:absolute;top:10px;right:12px;font-size:18px;color:var(--accent2)}
+  .tile .stars{margin-top:8px;font-size:14px;color:var(--gold);letter-spacing:1px}
+  .empty{background:var(--card);border-radius:16px;padding:30px;text-align:center;color:var(--muted);box-shadow:var(--shadow)}
+  .empty b{color:var(--ink)}
+  .status{font-size:12px;color:var(--muted);margin:6px 2px 0}
+  .lesson-view{background:var(--card);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  .lesson-bar{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .lesson-bar button{border:none;background:var(--accent);color:#fff;border-radius:10px;padding:8px 12px;font-weight:700;cursor:pointer}
+  .lesson-bar .title{font-weight:800;flex:1;font-size:15px}
+  .lesson-bar .markdone{background:var(--accent2)}
+  iframe.lesson{width:100%;height:72vh;border:0;background:#fff}
+  .progress-card{background:var(--card);border-radius:16px;padding:18px;box-shadow:var(--shadow);margin-bottom:12px}
+  .bar{height:14px;background:var(--line);border-radius:10px;overflow:hidden;margin:10px 0}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,#4a86e8,#16a766);width:0;transition:.4s}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .meta{font-size:12px;color:var(--muted)}
+  .starpick span{cursor:pointer;font-size:20px;color:#d9dfea}
+  .starpick span.on{color:var(--gold)}
+  footer{text-align:center;color:var(--muted);font-size:11px;padding:18px}
+</style>
+</head>
+<body>
+<header>
+  <h1>📚 Tijn's Leerplatform</h1>
+  <p>Lessen verschijnen hier vanzelf — leren op jouw manier, in jouw tempo.</p>
+</header>
+
+<nav>
+  <button id="tab-home" class="active" onclick="show('home')">🏠 Lessen</button>
+  <button id="tab-prog" onclick="show('prog')">📈 Voortgang</button>
+</nav>
+
+<div class="wrap">
+  <div id="home">
+    <div class="status" id="loadStatus">Lessen laden…</div>
+    <div class="grid" id="lessonGrid"></div>
+  </div>
+
+  <div id="prog" style="display:none">
+    <div class="progress-card">
+      <b>Voortgang van Tijn</b>
+      <div class="bar"><i id="progBar"></i></div>
+      <div class="meta" id="progText" style="color:var(--muted);font-size:13px"></div>
+    </div>
+    <div class="progress-card" id="progList"></div>
+  </div>
+
+  <div id="lesson" style="display:none">
+    <div class="lesson-view">
+      <div class="lesson-bar">
+        <button onclick="show('home')">← Terug</button>
+        <div class="title" id="lessonTitle"></div>
+        <button class="markdone" id="doneBtn" onclick="toggleDone()">✓ Klaar</button>
+      </div>
+      <iframe class="lesson" id="lessonFrame"></iframe>
+    </div>
+  </div>
+</div>
+
+<footer>Gemaakt voor Tijn ❤️ — lessen komen automatisch binnen via e-mail.</footer>
+
+<script>
+/* Lessen worden gelezen uit lessen/index.json in deze repo.
+   De automatisering (geplande taak) schrijft daar nieuwe lessen naartoe. */
+let LESSONS = [];
+const PROG_KEY = "tijn_progress_v1";
+
+function progress(){ try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return {}} }
+function saveProgress(p){ localStorage.setItem(PROG_KEY, JSON.stringify(p)); }
+
+function show(v){
+  ['home','prog','lesson'].forEach(id=>document.getElementById(id).style.display='none');
+  document.getElementById(v).style.display='block';
+  document.getElementById('tab-home').classList.toggle('active', v==='home');
+  document.getElementById('tab-prog').classList.toggle('active', v==='prog');
+  if(v==='prog') renderProgress();
+}
+
+async function loadLessons(){
+  const st = document.getElementById('loadStatus');
+  try{
+    const res = await fetch('lessen/index.json?t=' + Date.now());
+    if(!res.ok) throw new Error('index.json niet gevonden');
+    const data = await res.json();
+    LESSONS = Array.isArray(data) ? data : (data.lessen || []);
+    LESSONS.sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||''));
+    st.textContent = LESSONS.length ? `${LESSONS.length} lessen klaar om te oefenen` : '';
+    renderGrid();
+  }catch(e){
+    st.textContent = '';
+    LESSONS = [];
+    renderGrid();
+  }
+}
+
+function renderGrid(){
+  const g = document.getElementById('lessonGrid');
+  if(!LESSONS.length){
+    g.innerHTML = '<div class="empty">📭 <b>Nog geen lessen.</b><br>Stuur lesstof naar het e-mailadres en binnen een kwartier staat de les hier klaar.</div>';
+    return;
+  }
+  const p = progress();
+  g.innerHTML = LESSONS.map(l=>{
+    const pr = p[l.id]||{};
+    const stars = pr.stars ? '★'.repeat(pr.stars)+'☆'.repeat(5-pr.stars) : '';
+    return `<div class="tile" onclick="openLesson('${l.id}')">
+      ${pr.done?'<div class="done">✓</div>':''}
+      <div class="emoji">${l.emoji||'📝'}</div>
+      <h3>${escapeHtml(l.title||'Les')}</h3>
+      <div class="vak">${escapeHtml(l.vak||'')}</div>
+      ${stars?`<div class="stars">${stars}</div>`:''}
+    </div>`;
+  }).join('');
+}
+
+let CURRENT = null;
+function openLesson(id){
+  const l = LESSONS.find(x=>x.id===id); if(!l) return;
+  CURRENT = l;
+  document.getElementById('lessonTitle').textContent = (l.emoji||'📝')+' '+(l.title||'Les');
+  document.getElementById('lessonFrame').src = 'lessen/' + (l.file || (id+'.html'));
+  const p = progress();
+  document.getElementById('doneBtn').textContent = (p[id]&&p[id].done)?'✓ Gedaan':'✓ Klaar';
+  show('lesson');
+}
+
+function toggleDone(){
+  if(!CURRENT) return;
+  const p = progress(); const id=CURRENT.id;
+  p[id]=p[id]||{}; p[id].done=!p[id].done; p[id].date=new Date().toISOString();
+  saveProgress(p);
+  document.getElementById('doneBtn').textContent = p[id].done?'✓ Gedaan':'✓ Klaar';
+}
+
+function setStars(id,n){
+  const p=progress(); p[id]=p[id]||{}; p[id].stars=n; saveProgress(p); renderProgress();
+}
+
+function renderProgress(){
+  const p = progress();
+  const total = LESSONS.length;
+  const done = LESSONS.filter(l=>p[l.id]&&p[l.id].done).length;
+  document.getElementById('progBar').style.width = total?(done/total*100)+'%':'0%';
+  document.getElementById('progText').textContent = `${done} van ${total} lessen afgerond`;
+  const list = document.getElementById('progList');
+  if(!total){ list.innerHTML='<div class="meta" style="color:var(--muted)">Nog geen lessen.</div>'; return; }
+  list.innerHTML = LESSONS.map(l=>{
+    const pr=p[l.id]||{}; const s=pr.stars||0;
+    const starsHtml=[1,2,3,4,5].map(n=>`<span class="${n<=s?'on':''}" onclick="setStars('${l.id}',${n})">★</span>`).join('');
+    return `<div class="row">
+      <div><b>${l.emoji||'📝'} ${escapeHtml(l.title||'Les')}</b>
+        <div class="meta">${pr.done?'✓ afgerond':'nog te doen'}${pr.date?' · '+new Date(pr.date).toLocaleDateString('nl-NL'):''}</div></div>
+      <div class="starpick">${starsHtml}</div>
+    </div>`;
+  }).join('');
+}
+
+function escapeHtml(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+loadLessons();
+</script>
+</body>
+</html>
