@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samenstellingen: tussen-n, tussen-s of streepje</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#f4f7fb; color:#22303f; margin:0; padding:18px; line-height:1.55; }
+  .wrap { max-width:620px; margin:0 auto; }
+  h1 { font-size:1.5rem; margin:.2em 0; }
+  .vak { display:inline-block; background:#e3f0ff; color:#2a6ad6; padding:4px 12px; border-radius:999px; font-size:.85rem; font-weight:600; }
+  .card { background:#fff; border-radius:16px; padding:18px; margin:14px 0; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+  .intro { background:#eafaf1; }
+  .stap-titel { color:#2a6ad6; font-weight:700; margin-bottom:6px; }
+  .vb { background:#f4f7fb; border-radius:10px; padding:10px 12px; margin:8px 0; }
+  .vb b { color:#2a6ad6; }
+  table { border-collapse:collapse; width:100%; margin:8px 0; font-size:.95rem; }
+  td { border:1px solid #e3eaf3; padding:8px 10px; }
+  button { font-family:inherit; font-size:1rem; border:none; border-radius:12px; padding:12px 16px; cursor:pointer; background:#2a6ad6; color:#fff; font-weight:600; }
+  button:disabled { opacity:.5; cursor:default; }
+  .keuze { display:block; width:100%; text-align:left; background:#f4f7fb; color:#22303f; border:2px solid #e3eaf3; margin:8px 0; }
+  .keuze.goed { background:#d8f5e3; border-color:#27ae60; }
+  .keuze.fout { background:#fde2e2; border-color:#e74c3c; }
+  .feedback { margin-top:10px; padding:10px 12px; border-radius:10px; font-weight:600; }
+  .feedback.goed { background:#d8f5e3; color:#1e7e44; }
+  .feedback.fout { background:#fde2e2; color:#c0392b; }
+  .voortgang { font-size:.85rem; color:#6b7a8d; margin-top:6px; }
+  .verborgen { display:none; }
+  .balk { height:8px; background:#e3eaf3; border-radius:99px; overflow:hidden; margin:10px 0; }
+  .balk > div { height:100%; width:0; background:#27ae60; transition:width .3s; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="vak">📝 Nederlands</span>
+  <h1>Samenstellingen plakken 🧩</h1>
+
+  <div class="card intro">
+    <b>Wat ga je leren?</b><br>
+    Een samenstelling maak je door twee woorden aan elkaar te plakken. Soms komt er een <b>tussen-n</b>, een <b>tussen-s</b> of een <b>streepje</b> tussen. Je leert wanneer dat moet — rustig, stap voor stap.
+  </div>
+
+  <div id="lesdeel">
+    <div class="card stap" data-stap="0">
+      <div class="stap-titel">Stap 1 · Wat is een samenstelling?</div>
+      <p>Twee (of meer) woorden aan elkaar geplakt tot één nieuw woord.</p>
+      <div class="vb">tafel + poot = <b>tafelpoot</b><br>zonne + bloem = <b>zonnebloem</b></div>
+      <button onclick="volgende(0)">Ik snap het 👍</button>
+    </div>
+
+    <div class="card stap verborgen" data-stap="1">
+      <div class="stap-titel">Stap 2 · Tussen-n</div>
+      <p>Schrijf een <b>tussen-n</b> als het eerste woord een zelfstandig naamwoord is met een meervoud op <b>-en</b>.</p>
+      <div class="vb">fiets (meervoud: fiets<b>en</b>) + hok = <b>fietsenhok</b><br>kers (meervoud: kers<b>en</b>) + taart = <b>kersentaart</b></div>
+      <button onclick="volgende(1)">Ik snap het 👍</button>
+    </div>
+
+    <div class="card stap verborgen" data-stap="2">
+      <div class="stap-titel">Stap 3 · Geen tussen-n</div>
+      <p>Geen tussen-n in deze gevallen:</p>
+      <table>
+        <tr><td>Meervoud kan ook op -s</td><td>tafel + poot = tafelpoot</td></tr>
+        <tr><td>Geen meervoud</td><td>tarwe + meel = tarwemeel</td></tr>
+        <tr><td>Eerste deel is uniek (er is er maar één)</td><td>zonnebloem, maneschijn</td></tr>
+      </table>
+      <button onclick="volgende(2)">Ik snap het 👍</button>
+    </div>
+
+    <div class="card stap verborgen" data-stap="3">
+      <div class="stap-titel">Stap 4 · Tussen-s en streepje</div>
+      <p><b>Tussen-s:</b> schrijf je als je een s <i>hoort</i>.</p>
+      <div class="vb">jongen<b>s</b>boek, onderzoek<b>s</b>rapport</div>
+      <p><b>Streepje:</b> als het eerste deel een cijfer of een afkorting is.</p>
+      <div class="vb">A4-papier, wc-bril</div>
+      <button onclick="volgende(3)">Nu ga ik oefenen ✏️</button>
+    </div>
+  </div>
+
+  <div id="quizdeel" class="verborgen">
+    <div class="card">
+      <div class="balk"><div id="balk"></div></div>
+      <div id="vraagbox"></div>
+      <div id="feedback"></div>
+      <div class="voortgang" id="teller"></div>
+      <button id="volgendeBtn" class="verborgen" onclick="volgendeVraag()">Volgende vraag →</button>
+    </div>
+  </div>
+
+  <div id="klaar" class="verborgen">
+    <div class="card intro" style="text-align:center;">
+      <div style="font-size:2.4rem;">🌟</div>
+      <b>Knap gedaan, Tijn!</b><br>
+      Je hebt <span id="score"></span> goed. Samenstellingen plakken kun jij nu steeds beter. Super gewerkt!
+    </div>
+  </div>
+</div>
+
+<script>
+function volgende(n){
+  document.querySelector('.stap[data-stap="'+n+'"]').classList.add('verborgen');
+  var v = document.querySelector('.stap[data-stap="'+(n+1)+'"]');
+  if(v){ v.classList.remove('verborgen'); }
+  else { document.getElementById('lesdeel').classList.add('verborgen'); startQuiz(); }
+}
+
+var vragen = [
+  {z:"kers + taart =", opties:["kerstaart","kersentaart"], goed:"kersentaart", uitleg:"Meervoud van kers is 'kersen' (op -en) → tussen-n: kersentaart."},
+  {z:"tafel + poot =", opties:["tafelpoot","tafelenpoot"], goed:"tafelpoot", uitleg:"Tafel heeft ook meervoud op -s (tafels), dus geen tussen-n: tafelpoot."},
+  {z:"zonne + bloem =", opties:["zonnenbloem","zonnebloem"], goed:"zonnebloem", uitleg:"Er is maar één zon (uniek) → geen tussen-n: zonnebloem."},
+  {z:"jongen + boek =", opties:["jongensboek","jongenboek"], goed:"jongensboek", uitleg:"Je hoort hier een s → tussen-s: jongensboek."},
+  {z:"A4 + papier =", opties:["A4papier","A4-papier"], goed:"A4-papier", uitleg:"Het eerste deel is een cijfer/afkorting → streepje: A4-papier."},
+  {z:"fiets + hok =", opties:["fietsenhok","fietshok"], goed:"fietsenhok", uitleg:"Meervoud van fiets is 'fietsen' (op -en) → tussen-n: fietsenhok."},
+];
+
+var i=0, goedAantal=0;
+function startQuiz(){ document.getElementById('quizdeel').classList.remove('verborgen'); toonVraag(); }
+function toonVraag(){
+  var v = vragen[i];
+  document.getElementById('feedback').innerHTML='';
+  document.getElementById('volgendeBtn').classList.add('verborgen');
+  document.getElementById('balk').style.width = (i/vragen.length*100)+'%';
+  document.getElementById('teller').textContent = 'Vraag '+(i+1)+' van '+vragen.length;
+  var html = '<p style="font-size:1.1rem;">'+v.z+'</p>';
+  v.opties.forEach(function(opt){
+    html += '<button class="keuze" onclick="kies(this,\''+opt+'\')">'+opt+'</button>';
+  });
+  document.getElementById('vraagbox').innerHTML = html;
+}
+function kies(btn, opt){
+  var v = vragen[i];
+  var knoppen = document.querySelectorAll('.keuze');
+  knoppen.forEach(function(b){ b.disabled=true; });
+  var fb = document.getElementById('feedback');
+  if(opt===v.goed){
+    btn.classList.add('goed'); goedAantal++;
+    fb.className='feedback goed'; fb.textContent='Goed zo! '+v.uitleg;
+  } else {
+    btn.classList.add('fout');
+    knoppen.forEach(function(b){ if(b.textContent===v.goed) b.classList.add('goed'); });
+    fb.className='feedback fout'; fb.textContent='Bijna! Het juiste antwoord is "'+v.goed+'". '+v.uitleg;
+  }
+  document.getElementById('volgendeBtn').classList.remove('verborgen');
+}
+function volgendeVraag(){
+  i++;
+  if(i<vragen.length){ toonVraag(); }
+  else {
+    document.getElementById('quizdeel').classList.add('verborgen');
+    document.getElementById('klaar').classList.remove('verborgen');
+    document.getElementById('score').textContent = goedAantal+' van de '+vragen.length;
+  }
+}
+</script>
+</body>
+</html>
