@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samenstellingen: tussen-n, -s en streepje</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; padding: 18px; background: #f3f6fb; color: #1f2a37;
+    line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  .head {
+    background: #c2410c; color: #fff; border-radius: 18px;
+    padding: 20px 18px; margin-bottom: 16px;
+  }
+  .head .emoji { font-size: 34px; }
+  .head h1 { font-size: 22px; margin: 6px 0 4px; }
+  .head p { margin: 0; opacity: .92; font-size: 15px; }
+  .card {
+    background: #fff; border-radius: 16px; padding: 16px 18px;
+    margin-bottom: 14px; box-shadow: 0 1px 4px rgba(20,40,80,.06);
+  }
+  .intro { background: #fff8e6; border: 1px solid #ffe49c; }
+  .intro h2 { color: #9a6b00; }
+  h2 { font-size: 17px; margin: 0 0 8px; }
+  h3 { font-size: 15px; margin: 14px 0 4px; color: #c2410c; }
+  p { margin: 6px 0; }
+  .vb { background: #eef4ff; border-radius: 10px; padding: 8px 12px; margin: 8px 0; }
+  .vb b { color: #c2410c; }
+  ul { margin: 6px 0 6px 2px; padding-left: 20px; }
+  li { margin: 4px 0; }
+  .q-progress { font-size: 13px; color: #6b7280; margin-bottom: 8px; }
+  .q-text { font-weight: 600; font-size: 16px; margin-bottom: 12px; }
+  .opt {
+    display: block; width: 100%; text-align: left; cursor: pointer;
+    background: #f6f8fc; border: 2px solid #e3e9f3; border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 9px; font-size: 15px; color: #1f2a37;
+    transition: .12s;
+  }
+  .opt:hover { border-color: #c2410c; }
+  .opt.good { background: #e7f7ec; border-color: #46c46a; }
+  .opt.bad { background: #fdeaea; border-color: #e15b5b; }
+  .opt:disabled { cursor: default; }
+  .fb { margin-top: 6px; padding: 11px 13px; border-radius: 11px; font-size: 14px; display: none; }
+  .fb.show { display: block; }
+  .fb.ok { background: #e7f7ec; color: #166534; }
+  .fb.no { background: #fdeaea; color: #991b1b; }
+  .next {
+    margin-top: 12px; background: #c2410c; color: #fff; border: none;
+    border-radius: 12px; padding: 12px 18px; font-size: 15px; cursor: pointer; font-weight: 600;
+  }
+  .next:disabled { opacity: .4; cursor: default; }
+  .done { text-align: center; padding: 8px; }
+  .done .big { font-size: 40px; }
+  .bar { height: 9px; background: #e3e9f3; border-radius: 6px; overflow: hidden; margin-bottom: 14px; }
+  .bar > i { display: block; height: 100%; width: 0; background: #c2410c; transition: .3s; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="emoji">📝</div>
+    <h1>Samenstellingen: tussen-n, -s en streepje</h1>
+    <p>Nederlands &middot; oefenles voor Tijn</p>
+  </div>
+
+  <div class="card intro">
+    <h2>Wat ga je leren?</h2>
+    <p>Een samenstelling maak je door woorden aan elkaar te plakken. Soms komt er een <b>tussen-n</b>, een <b>tussen-s</b> of een <b>streepje</b> tussen. Je leert wanneer.</p>
+  </div>
+
+  <div class="card"><h2>Stap 1 &middot; Tussen-n</h2><p>Je schrijft een <b>tussen-n</b> als het eerste deel een zelfstandig naamwoord is met alleen een meervoud op <b>-en</b>.</p><div class='vb'>fiets &rarr; fiets<b>en</b> &rarr; <b>fietsenhok</b> &middot; kers &rarr; kers<b>en</b> &rarr; <b>kersentaart</b></div></div><div class="card"><h2>Stap 2 &middot; Geen tussen-n</h2><p>G&eacute;&eacute;n tussen-n als:</p><ul><li>het meervoud ook op -s kan: tafel + poot = <b>tafelpoot</b>;</li><li>het eerste deel geen meervoud heeft: tarwe + meel = <b>tarwemeel</b>;</li><li>het eerste deel uniek is (er is er maar &eacute;&eacute;n): <b>zonnebloem</b>, <b>maneschijn</b>;</li><li>het eerste deel geen zelfstandig naamwoord is: <b>rodekool</b>, <b>reuzefijn</b>.</li></ul></div><div class="card"><h2>Stap 3 &middot; Tussen-s en streepje</h2><p><b>Tussen-s:</b> schrijf je als je de s h&oacute;&oacute;rt: <b>jongensboek</b>, <b>onderzoeksrapport</b>. Begint het tweede deel al met een s, dan schrijf je de tussen-s ook: <b>damessjaal</b>.</p><p><b>Streepje:</b> als het eerste deel een cijfer of afkorting is: <b>A4-papier</b>, <b>wc-bril</b>.</p></div>
+
+  <div class="card">
+    <h2>Oefenen ✏️</h2>
+    <div class="bar"><i id="bar"></i></div>
+    <div id="quiz"></div>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [{"q": "Hoe schrijf je 'pan' + 'koek'?", "opts": ["pannenkoek", "pannekoek"], "a": 0, "uitleg": "Pan heeft meervoud op -en (pannen) &rarr; tussen-n &rarr; <b>pannenkoek</b>."}, {"q": "Hoe schrijf je 'zon' + 'bloem'?", "opts": ["zonnenbloem", "zonnebloem"], "a": 1, "uitleg": "Er is maar &eacute;&eacute;n zon (uniek) &rarr; geen tussen-n &rarr; <b>zonnebloem</b>."}, {"q": "Hoe schrijf je 'A4' + 'papier'?", "opts": ["A4papier", "A4-papier"], "a": 1, "uitleg": "Het eerste deel is een afkorting/cijfer &rarr; streepje &rarr; <b>A4-papier</b>."}, {"q": "Hoe schrijf je 'tafel' + 'poot'?", "opts": ["tafelenpoot", "tafelpoot"], "a": 1, "uitleg": "Tafel heeft meervoud op -s (tafels) mogelijk &rarr; geen tussen-n &rarr; <b>tafelpoot</b>."}, {"q": "Hoe schrijf je 'onderzoek' + 'rapport'?", "opts": ["onderzoeksrapport", "onderzoekrapport"], "a": 0, "uitleg": "Je h&oacute;&oacute;rt een s &rarr; tussen-s &rarr; <b>onderzoeksrapport</b>."}, {"q": "Hoe schrijf je 'kers' + 'taart'?", "opts": ["kerstaart", "kersentaart"], "a": 1, "uitleg": "Kers heeft meervoud op -en (kersen) &rarr; tussen-n &rarr; <b>kersentaart</b>."}];
+let idx = 0, answered = false;
+const quiz = document.getElementById('quiz');
+const bar = document.getElementById('bar');
+
+function render() {
+  if (idx >= QUESTIONS.length) {
+    bar.style.width = '100%';
+    quiz.innerHTML =
+      '<div class="done"><div class="big">🎉</div>' +
+      '<p><b>Top gedaan, Tijn!</b><br>Je hebt alle vragen afgerond. ' +
+      'Wil je het nog een keer oefenen? Ververs de pagina.</p></div>';
+    return;
+  }
+  answered = false;
+  bar.style.width = (idx / QUESTIONS.length * 100) + '%';
+  const q = QUESTIONS[idx];
+  let h = '<div class="q-progress">Vraag ' + (idx+1) + ' van ' + QUESTIONS.length + '</div>';
+  h += '<div class="q-text">' + q.q + '</div>';
+  q.opts.forEach(function(o, i) {
+    h += '<button class="opt" data-i="' + i + '">' + o + '</button>';
+  });
+  h += '<div class="fb" id="fb"></div>';
+  h += '<button class="next" id="next" disabled>Volgende vraag &rarr;</button>';
+  quiz.innerHTML = h;
+  quiz.querySelectorAll('.opt').forEach(function(b) {
+    b.addEventListener('click', pick);
+  });
+  document.getElementById('next').addEventListener('click', function() { idx++; render(); });
+}
+
+function pick(e) {
+  if (answered) return;
+  answered = true;
+  const q = QUESTIONS[idx];
+  const chosen = +e.target.dataset.i;
+  const opts = quiz.querySelectorAll('.opt');
+  opts.forEach(function(b, i) {
+    b.disabled = true;
+    if (i === q.a) b.classList.add('good');
+    else if (i === chosen) b.classList.add('bad');
+  });
+  const fb = document.getElementById('fb');
+  if (chosen === q.a) {
+    fb.className = 'fb show ok';
+    fb.innerHTML = '✅ Goed! ' + q.uitleg;
+  } else {
+    fb.className = 'fb show no';
+    fb.innerHTML = '❌ Bijna. ' + q.uitleg;
+  }
+  document.getElementById('next').disabled = false;
+}
+render();
+</script>
+</body>
+</html>
