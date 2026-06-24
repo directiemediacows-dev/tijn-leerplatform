@@ -1,77 +1,5 @@
 [
   {
-    "id": "jou-of-jouw-2026-06-24",
-    "title": "Jou of jouw",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "jou-of-jouw-2026-06-24.html",
-    "createdAt": "2026-06-24T07:42:04Z"
-  },
-  {
-    "id": "als-dan-bijvoeglijke-naamwoorden-2026-06-24",
-    "title": "Als of dan & bijvoeglijke naamwoorden",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "als-dan-bijvoeglijke-naamwoorden-2026-06-24.html",
-    "createdAt": "2026-06-24T07:42:04Z"
-  },
-  {
-    "id": "samenstellingen-2026-06-24",
-    "title": "Samenstellingen",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "samenstellingen-2026-06-24.html",
-    "createdAt": "2026-06-24T07:42:04Z"
-  },
-  {
-    "id": "nederlands-jou-jouw-2026-06-24",
-    "title": "Nederlands — Jou of Jouw",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-jou-jouw-2026-06-24.html",
-    "createdAt": "2026-06-24T00:00:00Z"
-  },
-  {
-    "id": "nederlands-als-dan-bijvoeglijk-2026-06-24",
-    "title": "Nederlands — Als of Dan & Bijvoeglijke naamwoorden",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-als-dan-bijvoeglijk-2026-06-24.html",
-    "createdAt": "2026-06-24T00:00:00Z"
-  },
-  {
-    "id": "nederlands-samenstellingen-2026-06-24",
-    "title": "Nederlands — Samenstellingen",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-samenstellingen-2026-06-24.html",
-    "createdAt": "2026-06-24T00:00:00Z"
-  },
-  {
-    "id": "nederlands-jou-jouw-2026-06-24",
-    "title": "Nederlands — Jou of jouw?",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-jou-jouw-2026-06-24.html",
-    "createdAt": "2026-06-24T07:41:19Z"
-  },
-  {
-    "id": "nederlands-als-dan-bijvoeglijk-2026-06-24",
-    "title": "Nederlands — Als/dan & bijvoeglijke naamwoorden",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-als-dan-bijvoeglijk-2026-06-24.html",
-    "createdAt": "2026-06-24T07:41:19Z"
-  },
-  {
-    "id": "nederlands-samenstellingen-2026-06-24",
-    "title": "Nederlands — Voltooid deelwoord & samenstellingen",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-samenstellingen-2026-06-24.html",
-    "createdAt": "2026-06-24T07:41:19Z"
-  },
-  {
     "id": "jou-jouw-20260624",
     "title": "Jou of jouw?",
     "vak": "Nederlands",
@@ -102,30 +30,6 @@
     "emoji": "📝",
     "file": "samenstellingen-20260624.html",
     "createdAt": "2026-06-24T07:40:45Z"
-  },
-  {
-    "id": "nederlands-extra-regels-2026-06-24",
-    "title": "Nederlands — Extra regels oefenen",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-extra-regels-2026-06-24.html",
-    "createdAt": "2026-06-24T07:40:17Z"
-  },
-  {
-    "id": "nederlands-spelling-grammatica-oefenen-2026-06-24",
-    "title": "Nederlands — Spelling & Grammatica oefenen",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-spelling-grammatica-oefenen-2026-06-24.html",
-    "createdAt": "2026-06-24T07:39:37Z"
-  },
-  {
-    "id": "nederlands-aangepaste-toets-2026-06-23",
-    "title": "Nederlands — Aangepaste toets",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-aangepaste-toets-2026-06-23.html",
-    "createdAt": "2026-06-23T11:45:00Z"
   },
   {
     "id": "welkom",
