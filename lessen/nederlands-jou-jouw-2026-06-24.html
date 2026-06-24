@@ -3,139 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jou of Jouw?</title>
+<title>Jou of jouw?</title>
 <style>
   * { box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#f4f7fb; color:#22303f; margin:0; padding:18px; line-height:1.55; }
-  .wrap { max-width:620px; margin:0 auto; }
-  h1 { font-size:1.5rem; margin:.2em 0; }
-  .vak { display:inline-block; background:#e3f0ff; color:#2a6ad6; padding:4px 12px; border-radius:999px; font-size:.85rem; font-weight:600; }
-  .card { background:#fff; border-radius:16px; padding:18px; margin:14px 0; box-shadow:0 2px 10px rgba(0,0,0,.05); }
-  .intro { background:#eafaf1; }
-  .stap-titel { color:#2a6ad6; font-weight:700; margin-bottom:6px; }
-  .vb { background:#f4f7fb; border-radius:10px; padding:10px 12px; margin:8px 0; }
-  .vb b { color:#2a6ad6; }
-  button { font-family:inherit; font-size:1rem; border:none; border-radius:12px; padding:12px 16px; cursor:pointer; background:#2a6ad6; color:#fff; font-weight:600; }
-  button.sec { background:#e3eaf3; color:#22303f; }
-  button:disabled { opacity:.5; cursor:default; }
-  .keuze { display:block; width:100%; text-align:left; background:#f4f7fb; color:#22303f; border:2px solid #e3eaf3; margin:8px 0; }
-  .keuze.goed { background:#d8f5e3; border-color:#27ae60; }
-  .keuze.fout { background:#fde2e2; border-color:#e74c3c; }
-  .feedback { margin-top:10px; padding:10px 12px; border-radius:10px; font-weight:600; }
-  .feedback.goed { background:#d8f5e3; color:#1e7e44; }
-  .feedback.fout { background:#fde2e2; color:#c0392b; }
-  .voortgang { font-size:.85rem; color:#6b7a8d; margin-top:6px; }
-  .verborgen { display:none; }
-  .balk { height:8px; background:#e3eaf3; border-radius:99px; overflow:hidden; margin:10px 0; }
-  .balk > div { height:100%; width:0; background:#27ae60; transition:width .3s; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; padding: 18px; background: #f3f6fb; color: #1d2b3a; line-height: 1.55; }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  h1 { font-size: 1.5em; margin: 0 0 4px; }
+  .vak { display: inline-block; background: #e3edff; color: #2b5dbd;
+    padding: 4px 12px; border-radius: 999px; font-size: .85em; font-weight: 600; margin-bottom: 14px; }
+  .card { background: #fff; border-radius: 16px; padding: 18px; margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(40,70,120,.07); }
+  .intro { background: #eafaf1; }
+  .step { display: none; }
+  .step.active { display: block; }
+  h2 { font-size: 1.15em; margin: 0 0 8px; color: #2b5dbd; }
+  .ex { background: #f6f8fc; border-left: 4px solid #9cc0ff; border-radius: 8px;
+    padding: 10px 14px; margin: 10px 0; }
+  .truc { background: #fff7e6; border-left: 4px solid #ffc24d; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  button { font-family: inherit; font-size: 1em; cursor: pointer; }
+  .next { background: #2b5dbd; color: #fff; border: none; border-radius: 10px;
+    padding: 11px 18px; font-weight: 600; margin-top: 6px; }
+  .next:hover { background: #224b9a; }
+  .dots { text-align: center; margin: 8px 0 0; }
+  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+    background: #cdd9ec; margin: 0 3px; }
+  .dot.on { background: #2b5dbd; }
+  .opt { display: block; width: 100%; text-align: left; background: #f6f8fc;
+    border: 2px solid #e0e8f5; border-radius: 10px; padding: 12px 14px; margin: 8px 0; }
+  .opt:hover { border-color: #9cc0ff; }
+  .opt.good { background: #e7f8ee; border-color: #34c46f; }
+  .opt.bad { background: #fdecec; border-color: #e36161; }
+  .fb { margin-top: 10px; padding: 11px 14px; border-radius: 10px; font-weight: 500; display: none; }
+  .fb.show { display: block; }
+  .fb.ok { background: #e7f8ee; color: #1c7a44; }
+  .fb.no { background: #fdecec; color: #b23b3b; }
+  .qcount { font-size: .85em; color: #6b7a90; margin-bottom: 4px; }
+  .bar { height: 8px; background: #e0e8f5; border-radius: 999px; overflow: hidden; margin-bottom: 16px; }
+  .bar > div { height: 100%; width: 0; background: #34c46f; transition: width .3s; }
+  .done { text-align: center; }
+  .done .big { font-size: 2.4em; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <span class="vak">📝 Nederlands</span>
-  <h1>Jou of Jouw? 🤔</h1>
+  <h1>Jou of jouw? 🤔</h1>
+  <div class="bar"><div id="bar"></div></div>
 
   <div class="card intro">
-    <b>Wat ga je leren?</b><br>
-    Je leert wanneer je <b>jou</b> schrijft en wanneer je <b>jouw</b> schrijft. Met een paar trucjes weet je het straks altijd zeker. We doen het stap voor stap — rustig aan, jij bepaalt het tempo.
+    <h2>Wat ga je leren?</h2>
+    <p>Wanneer schrijf je <strong>jou</strong> en wanneer <strong>jouw</strong>? Het scheelt maar één lettertje, maar het is een veelgemaakte fout. Met een handige truc heb je het zo onder de knie. We doen het rustig, stap voor stap.</p>
   </div>
 
-  <div id="lesdeel">
-    <div class="card stap" data-stap="0">
-      <div class="stap-titel">Stap 1 · Jou = een persoon</div>
-      <p><b>Jou</b>, <b>u</b> en <b>mij</b> zijn <i>persoonlijke voornaamwoorden</i>. Je kunt ze vervangen door een naam.</p>
-      <div class="vb">Ik geef <b>jou</b> de fiets. → Ik geef <b>Sam</b> de fiets.</div>
-      <button onclick="volgende(0)">Ik snap het 👍</button>
+  <div class="card">
+    <div id="lesson">
+      <div class="step active">
+        <h2>Stap 1 — Jou</h2>
+        <p><strong>Jou</strong> is een persoonlijk voornaamwoord. Je kunt het vervangen door een naam.</p>
+        <div class="ex">Ik geef <strong>jou</strong> de fiets. → Ik geef <strong>Tim</strong> de fiets. ✅</div>
+        <button class="next" onclick="nextStep()">Ik snap het 👍</button>
+      </div>
+      <div class="step">
+        <h2>Stap 2 — Jouw</h2>
+        <p><strong>Jouw</strong> (met een <strong>w</strong>) is een bezittelijk voornaamwoord. Het geeft een bezit aan. Vaak staat er meteen een zelfstandig naamwoord (een ding) achter.</p>
+        <div class="ex">Het is <strong>jouw</strong> fiets. (van wie is de fiets? → van jou)</div>
+        <button class="next" onclick="nextStep()">Ik snap het 👍</button>
+      </div>
+      <div class="step">
+        <h2>Stap 3 — De truc</h2>
+        <div class="truc">
+          <p>👉 Kun je het woord vervangen door een <strong>naam</strong>? Dan is het <strong>jou</strong>.</p>
+          <p>👉 Geeft het een <strong>bezit</strong> aan (er staat een ding achter)? Dan is het <strong>jouw</strong>.</p>
+        </div>
+        <p>Tip: <em>jou<strong>w</strong></em> en <em>mij<strong>n</strong></em> horen bij elkaar — allebei bezit.</p>
+        <button class="next" onclick="startQuiz()">Start de oefening ✏️</button>
+      </div>
+      <div class="dots" id="dots"></div>
     </div>
 
-    <div class="card stap verborgen" data-stap="1">
-      <div class="stap-titel">Stap 2 · Jouw = een bezit</div>
-      <p><b>Jouw</b>, <b>uw</b> en <b>mijn</b> zijn <i>bezittelijke voornaamwoorden</i>. Ze geven aan dat iets van iemand <b>is</b>.</p>
-      <div class="vb">Het is <b>jouw</b> fiets. (de fiets is van jou)</div>
-      <button onclick="volgende(1)">Ik snap het 👍</button>
+    <div id="quiz" style="display:none">
+      <div class="qcount" id="qcount"></div>
+      <h2 id="qtext"></h2>
+      <div id="opts"></div>
+      <div class="fb" id="fb"></div>
+      <button class="next" id="qnext" style="display:none" onclick="nextQ()">Volgende →</button>
     </div>
 
-    <div class="card stap verborgen" data-stap="2">
-      <div class="stap-titel">Stap 3 · Het trucje</div>
-      <p>Na <b>jouw</b> komt bijna altijd een zelfstandig naamwoord (een ding): <b>jouw</b> fiets, <b>jouw</b> hand, <b>jouw</b> verhaal.</p>
-      <p>Kun je er een ding achter zetten dat van iemand is? → <b>jouw</b> (met w).<br>Geef je iets aan iemand? → <b>jou</b> (zonder w).</p>
-      <button onclick="volgende(2)">Nu ga ik oefenen ✏️</button>
-    </div>
-  </div>
-
-  <div id="quizdeel" class="verborgen">
-    <div class="card">
-      <div class="balk"><div id="balk"></div></div>
-      <div id="vraagbox"></div>
-      <div id="feedback"></div>
-      <div class="voortgang" id="teller"></div>
-      <button id="volgendeBtn" class="verborgen" onclick="volgendeVraag()">Volgende vraag →</button>
-    </div>
-  </div>
-
-  <div id="klaar" class="verborgen">
-    <div class="card intro" style="text-align:center;">
-      <div style="font-size:2.4rem;">🌟</div>
-      <b>Top gedaan, Tijn!</b><br>
-      Je hebt <span id="score"></span> goed. Je weet nu het verschil tussen <b>jou</b> en <b>jouw</b>. Knap werk — je mag trots op jezelf zijn!
+    <div id="finish" class="done" style="display:none">
+      <div class="big">🌟</div>
+      <h2>Goed gedaan, Tijn!</h2>
+      <p id="score"></p>
+      <p>Je weet nu het verschil tussen <strong>jou</strong> en <strong>jouw</strong>. Wil je het nog eens oefenen? Klik dan opnieuw.</p>
+      <button class="next" onclick="location.reload()">Nog een keer 🔁</button>
     </div>
   </div>
 </div>
 
 <script>
-function volgende(n){
-  document.querySelector('.stap[data-stap="'+n+'"]').classList.add('verborgen');
-  var v = document.querySelector('.stap[data-stap="'+(n+1)+'"]');
-  if(v){ v.classList.remove('verborgen'); }
-  else { document.getElementById('lesdeel').classList.add('verborgen'); startQuiz(); }
-}
+var step = 0;
+var steps = document.querySelectorAll('.step');
+var dots = document.getElementById('dots');
+for (var i=0;i<steps.length;i++){ var d=document.createElement('span'); d.className='dot'+(i===0?' on':''); dots.appendChild(d); }
+function paintDots(){ var ds=dots.children; for(var i=0;i<ds.length;i++) ds[i].className='dot'+(i<=step?' on':''); }
+function nextStep(){ steps[step].classList.remove('active'); step++; steps[step].classList.add('active'); paintDots(); }
 
-var vragen = [
-  {z:"Ik heb ___ tas gevonden.", goed:"jouw", uitleg:"Het is een bezit (de tas is van jou) en er komt een ding achter → jouw."},
-  {z:"Mag ik ___ iets vragen?", goed:"jou", uitleg:"Je vraagt iets aan een persoon, geen bezit → jou."},
-  {z:"Is dit ___ jas?", goed:"jouw", uitleg:"De jas is van jou (bezit) → jouw."},
-  {z:"Wij hebben ___ gisteren gezien.", goed:"jou", uitleg:"Je kunt 'jou' vervangen door een naam → jou."},
-  {z:"___ broer zit bij mij in de klas.", goed:"jouw", uitleg:"De broer hoort bij jou (bezit) → jouw."},
-  {z:"Ik geef het boek aan ___.", goed:"jou", uitleg:"Je geeft iets aan een persoon → jou."},
+var questions = [
+  {q:"Is dit ___ jas?", o:["jou","jouw"], a:1, e:"Er staat een ding (jas) achter, het is een bezit → jouw."},
+  {q:"Ik heb ___ gisteren gezien.", o:["jou","jouw"], a:0, e:"Je kunt het vervangen door een naam: 'Ik heb Tim gezien' → jou."},
+  {q:"Mag ik ___ pen even lenen?", o:["jou","jouw"], a:1, e:"De pen is een bezit, er staat een ding achter → jouw."},
+  {q:"Dit cadeau is voor ___.", o:["jou","jouw"], a:0, e:"Vervang door een naam: 'voor Tim' → jou."},
+  {q:"Wat is ___ lievelingskleur?", o:["jou","jouw"], a:1, e:"Lievelingskleur is een bezit, een ding erachter → jouw."}
 ];
-
-var i=0, goedAantal=0;
-function startQuiz(){ document.getElementById('quizdeel').classList.remove('verborgen'); toonVraag(); }
-function toonVraag(){
-  var v = vragen[i];
-  document.getElementById('feedback').innerHTML='';
-  document.getElementById('volgendeBtn').classList.add('verborgen');
-  document.getElementById('balk').style.width = (i/vragen.length*100)+'%';
-  document.getElementById('teller').textContent = 'Vraag '+(i+1)+' van '+vragen.length;
-  var html = '<p style="font-size:1.1rem;">'+v.z.replace('___','<b>___</b>')+'</p>';
-  ['jou','jouw'].forEach(function(opt){
-    html += '<button class="keuze" onclick="kies(this,\''+opt+'\')">'+opt+'</button>';
-  });
-  document.getElementById('vraagbox').innerHTML = html;
+var qi=0, correct=0;
+function startQuiz(){ document.getElementById('lesson').style.display='none'; document.getElementById('quiz').style.display='block'; showQ(); }
+function showQ(){
+  var x=questions[qi];
+  document.getElementById('qcount').textContent='Vraag '+(qi+1)+' van '+questions.length;
+  document.getElementById('qtext').textContent=x.q;
+  var op=document.getElementById('opts'); op.innerHTML='';
+  for(var i=0;i<x.o.length;i++){ (function(i){
+    var b=document.createElement('button'); b.className='opt'; b.textContent=x.o[i];
+    b.onclick=function(){ pick(i,b); }; op.appendChild(b);
+  })(i); }
+  document.getElementById('fb').className='fb';
+  document.getElementById('qnext').style.display='none';
+  setBar();
 }
-function kies(btn, opt){
-  var v = vragen[i];
-  var knoppen = document.querySelectorAll('.keuze');
-  knoppen.forEach(function(b){ b.disabled=true; });
-  var fb = document.getElementById('feedback');
-  if(opt===v.goed){
-    btn.classList.add('goed'); goedAantal++;
-    fb.className='feedback goed'; fb.textContent='Goed zo! '+v.uitleg;
-  } else {
-    btn.classList.add('fout');
-    knoppen.forEach(function(b){ if(b.textContent===v.goed) b.classList.add('goed'); });
-    fb.className='feedback fout'; fb.textContent='Bijna! Het juiste antwoord is "'+v.goed+'". '+v.uitleg;
-  }
-  document.getElementById('volgendeBtn').classList.remove('verborgen');
+function pick(i,btn){
+  var x=questions[qi];
+  var all=document.getElementById('opts').children;
+  for(var k=0;k<all.length;k++) all[k].onclick=null;
+  var fb=document.getElementById('fb');
+  if(i===x.a){ btn.classList.add('good'); fb.className='fb ok show'; fb.textContent='Goed zo! '+x.e; correct++; }
+  else { btn.classList.add('bad'); all[x.a].classList.add('good'); fb.className='fb no show'; fb.textContent='Bijna! '+x.e; }
+  document.getElementById('qnext').style.display='inline-block';
+  document.getElementById('qnext').textContent = (qi===questions.length-1)?'Klaar ✅':'Volgende →';
 }
-function volgendeVraag(){
-  i++;
-  if(i<vragen.length){ toonVraag(); }
-  else {
-    document.getElementById('quizdeel').classList.add('verborgen');
-    document.getElementById('klaar').classList.remove('verborgen');
-    document.getElementById('score').textContent = goedAantal+' van de '+vragen.length;
-  }
+function nextQ(){ qi++; if(qi>=questions.length){ finish(); } else { showQ(); } }
+function setBar(){ document.getElementById('bar').style.width=Math.round(qi/questions.length*100)+'%'; }
+function finish(){
+  document.getElementById('bar').style.width='100%';
+  document.getElementById('quiz').style.display='none';
+  var f=document.getElementById('finish'); f.style.display='block';
+  document.getElementById('score').textContent='Je had '+correct+' van de '+questions.length+' goed.';
 }
 </script>
 </body>
