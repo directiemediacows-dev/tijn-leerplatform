@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Als of Dan & Bijvoeglijke naamwoorden</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#f4f7fb; color:#22303f; margin:0; padding:18px; line-height:1.55; }
+  .wrap { max-width:620px; margin:0 auto; }
+  h1 { font-size:1.5rem; margin:.2em 0; }
+  .vak { display:inline-block; background:#e3f0ff; color:#2a6ad6; padding:4px 12px; border-radius:999px; font-size:.85rem; font-weight:600; }
+  .card { background:#fff; border-radius:16px; padding:18px; margin:14px 0; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+  .intro { background:#eafaf1; }
+  .stap-titel { color:#2a6ad6; font-weight:700; margin-bottom:6px; }
+  .vb { background:#f4f7fb; border-radius:10px; padding:10px 12px; margin:8px 0; }
+  .vb b { color:#2a6ad6; }
+  button { font-family:inherit; font-size:1rem; border:none; border-radius:12px; padding:12px 16px; cursor:pointer; background:#2a6ad6; color:#fff; font-weight:600; }
+  button:disabled { opacity:.5; cursor:default; }
+  .keuze { display:block; width:100%; text-align:left; background:#f4f7fb; color:#22303f; border:2px solid #e3eaf3; margin:8px 0; }
+  .keuze.goed { background:#d8f5e3; border-color:#27ae60; }
+  .keuze.fout { background:#fde2e2; border-color:#e74c3c; }
+  .feedback { margin-top:10px; padding:10px 12px; border-radius:10px; font-weight:600; }
+  .feedback.goed { background:#d8f5e3; color:#1e7e44; }
+  .feedback.fout { background:#fde2e2; color:#c0392b; }
+  .voortgang { font-size:.85rem; color:#6b7a8d; margin-top:6px; }
+  .verborgen { display:none; }
+  .balk { height:8px; background:#e3eaf3; border-radius:99px; overflow:hidden; margin:10px 0; }
+  .balk > div { height:100%; width:0; background:#27ae60; transition:width .3s; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="vak">📝 Nederlands</span>
+  <h1>Als of Dan? & Bijvoeglijke naamwoorden 🪄</h1>
+
+  <div class="card intro">
+    <b>Wat ga je leren?</b><br>
+    Eerst leer je wanneer je <b>als</b> en wanneer je <b>dan</b> gebruikt. Daarna leer je over <b>bijvoeglijke naamwoorden</b> (zoals "gouden" en "katoenen"). Stap voor stap — jij bepaalt het tempo.
+  </div>
+
+  <div id="lesdeel">
+    <div class="card stap" data-stap="0">
+      <div class="stap-titel">Stap 1 · Als = gelijk</div>
+      <p>Gebruik <b>als</b> als twee dingen even veel of gelijk zijn: net zo … <b>als</b>, even … <b>als</b>.</p>
+      <div class="vb">Jij rent net zo snel <b>als</b> ik.</div>
+      <button onclick="volgende(0)">Ik snap het 👍</button>
+    </div>
+
+    <div class="card stap verborgen" data-stap="1">
+      <div class="stap-titel">Stap 2 · Dan = vergelijken (-er)</div>
+      <p>Gebruik <b>dan</b> na een woord met <b>-er</b> (de vergrotende trap): mooier, groter, sneller …</p>
+      <div class="vb">Jij rent sneller <b>dan</b> ik.</div>
+      <button onclick="volgende(1)">Ik snap het 👍</button>
+    </div>
+
+    <div class="card stap verborgen" data-stap="2">
+      <div class="stap-titel">Stap 3 · Stoffelijk bijvoeglijk naamwoord</div>
+      <p>Zegt waar iets van gemaakt is. Het eindigt op <b>-en</b>.</p>
+      <div class="vb">De ring is van goud → een <b>gouden</b> ring.<br>De broek is van katoen → een <b>katoenen</b> broek.</div>
+      <p>Is het materiaal bewerkt (plastic, nylon)? Dan schrijf je alleen het woord: een <b>plastic</b> tas.</p>
+      <button onclick="volgende(2)">Ik snap het 👍</button>
+    </div>
+
+    <div class="card stap verborgen" data-stap="3">
+      <div class="stap-titel">Stap 4 · Voltooid deelwoord als bijvoeglijk naamwoord</div>
+      <p>Je kunt ook een voltooid deelwoord ervoor zetten. Je schrijft het <b>zo kort mogelijk</b>.</p>
+      <div class="vb">Het eten is aangebrand → het <b>aangebrande</b> eten.<br>Het kind is gered → het <b>geredde</b> kind.</div>
+      <button onclick="volgende(3)">Nu ga ik oefenen ✏️</button>
+    </div>
+  </div>
+
+  <div id="quizdeel" class="verborgen">
+    <div class="card">
+      <div class="balk"><div id="balk"></div></div>
+      <div id="vraagbox"></div>
+      <div id="feedback"></div>
+      <div class="voortgang" id="teller"></div>
+      <button id="volgendeBtn" class="verborgen" onclick="volgendeVraag()">Volgende vraag →</button>
+    </div>
+  </div>
+
+  <div id="klaar" class="verborgen">
+    <div class="card intro" style="text-align:center;">
+      <div style="font-size:2.4rem;">🌟</div>
+      <b>Goed gedaan, Tijn!</b><br>
+      Je hebt <span id="score"></span> goed. Je weet nu meer over <b>als/dan</b> en bijvoeglijke naamwoorden. Top gewerkt!
+    </div>
+  </div>
+</div>
+
+<script>
+function volgende(n){
+  document.querySelector('.stap[data-stap="'+n+'"]').classList.add('verborgen');
+  var v = document.querySelector('.stap[data-stap="'+(n+1)+'"]');
+  if(v){ v.classList.remove('verborgen'); }
+  else { document.getElementById('lesdeel').classList.add('verborgen'); startQuiz(); }
+}
+
+var vragen = [
+  {z:"Mijn tas is even zwaar ___ die van jou.", opties:["als","dan"], goed:"als", uitleg:"Twee dingen zijn even zwaar (gelijk) → als."},
+  {z:"Een olifant is groter ___ een muis.", opties:["als","dan"], goed:"dan", uitleg:"'Groter' eindigt op -er, dus vergelijken → dan."},
+  {z:"Jij bent net zo lang ___ ik.", opties:["als","dan"], goed:"als", uitleg:"'Net zo … als' betekent gelijk → als."},
+  {z:"Vandaag is het warmer ___ gisteren.", opties:["als","dan"], goed:"dan", uitleg:"'Warmer' eindigt op -er → dan."},
+  {z:"De ___ ring glom prachtig. (van goud)", opties:["goude","gouden"], goed:"gouden", uitleg:"Stoffelijk bijvoeglijk naamwoord eindigt op -en → gouden."},
+  {z:"Hij draagt een ___ tas. (van plastic, bewerkt)", opties:["plastieken","plastic"], goed:"plastic", uitleg:"Plastic is bewerkt materiaal, dus alleen het woord → plastic."},
+  {z:"Het ___ eten rook niet lekker. (aangebrand)", opties:["aangebrande","aangebrandde"], goed:"aangebrande", uitleg:"Je schrijft het voltooid deelwoord zo kort mogelijk → aangebrande."},
+];
+
+var i=0, goedAantal=0;
+function startQuiz(){ document.getElementById('quizdeel').classList.remove('verborgen'); toonVraag(); }
+function toonVraag(){
+  var v = vragen[i];
+  document.getElementById('feedback').innerHTML='';
+  document.getElementById('volgendeBtn').classList.add('verborgen');
+  document.getElementById('balk').style.width = (i/vragen.length*100)+'%';
+  document.getElementById('teller').textContent = 'Vraag '+(i+1)+' van '+vragen.length;
+  var html = '<p style="font-size:1.1rem;">'+v.z.replace('___','<b>___</b>')+'</p>';
+  v.opties.forEach(function(opt){
+    html += '<button class="keuze" onclick="kies(this,\''+opt+'\')">'+opt+'</button>';
+  });
+  document.getElementById('vraagbox').innerHTML = html;
+}
+function kies(btn, opt){
+  var v = vragen[i];
+  var knoppen = document.querySelectorAll('.keuze');
+  knoppen.forEach(function(b){ b.disabled=true; });
+  var fb = document.getElementById('feedback');
+  if(opt===v.goed){
+    btn.classList.add('goed'); goedAantal++;
+    fb.className='feedback goed'; fb.textContent='Goed zo! '+v.uitleg;
+  } else {
+    btn.classList.add('fout');
+    knoppen.forEach(function(b){ if(b.textContent===v.goed) b.classList.add('goed'); });
+    fb.className='feedback fout'; fb.textContent='Bijna! Het juiste antwoord is "'+v.goed+'". '+v.uitleg;
+  }
+  document.getElementById('volgendeBtn').classList.remove('verborgen');
+}
+function volgendeVraag(){
+  i++;
+  if(i<vragen.length){ toonVraag(); }
+  else {
+    document.getElementById('quizdeel').classList.add('verborgen');
+    document.getElementById('klaar').classList.remove('verborgen');
+    document.getElementById('score').textContent = goedAantal+' van de '+vragen.length;
+  }
+}
+</script>
+</body>
+</html>
