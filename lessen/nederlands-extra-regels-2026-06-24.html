@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nederlands — Extra regels oefenen</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f7fb;
+    color: #1f2a37;
+    margin: 0;
+    padding: 18px;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  header {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  h1 { font-size: 1.4rem; margin: 0 0 6px; }
+  .sub { color: #5b6675; font-size: .95rem; margin: 0; }
+  .intro {
+    background: #eef4ff;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 16px;
+    font-size: .98rem;
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: none;
+  }
+  .card.active { display: block; }
+  .card h2 { font-size: 1.12rem; margin: 0 0 10px; color: #2563eb; }
+  .step {
+    background: #f7f9fc;
+    border-left: 4px solid #93b4f5;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 8px 0;
+    font-size: .96rem;
+  }
+  .step b { color: #1d4ed8; }
+  .voorbeeld {
+    background: #f0fbf4;
+    border-left: 4px solid #6ee7a8;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-size: .94rem;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: .92rem; }
+  th, td { border: 1px solid #dbe3ee; padding: 7px 9px; text-align: left; }
+  th { background: #eef4ff; }
+  .dots { text-align: center; margin: 4px 0 14px; }
+  .dot {
+    display: inline-block; width: 11px; height: 11px; border-radius: 50%;
+    background: #cdd8e8; margin: 0 4px;
+  }
+  .dot.done { background: #2563eb; }
+  .dot.cur { background: #60a5fa; }
+  .bar-wrap { background: #e3eaf4; border-radius: 999px; height: 12px; margin: 8px 0 4px; overflow: hidden; }
+  .bar { background: linear-gradient(90deg,#60a5fa,#2563eb); height: 100%; width: 0; transition: width .35s; }
+  button {
+    font-family: inherit; font-size: 1rem; cursor: pointer;
+    border: none; border-radius: 10px; padding: 11px 16px;
+    background: #2563eb; color: #fff; font-weight: 600;
+    margin-top: 6px;
+  }
+  button.ghost { background: #eef2f8; color: #2563eb; }
+  button:active { transform: translateY(1px); }
+  .nav { display: flex; justify-content: space-between; gap: 10px; }
+  .quiz-opt {
+    display: block; width: 100%; text-align: left;
+    background: #f7f9fc; color: #1f2a37; border: 2px solid #e3eaf4;
+    border-radius: 10px; padding: 11px 14px; margin: 7px 0; font-weight: 500;
+  }
+  .quiz-opt:hover { border-color: #93b4f5; }
+  .quiz-opt.good { background: #e7f8ee; border-color: #34d399; }
+  .quiz-opt.bad { background: #fdecec; border-color: #f87171; }
+  .feedback { margin-top: 8px; font-size: .95rem; padding: 10px 12px; border-radius: 10px; display:none; }
+  .feedback.good { background: #e7f8ee; color: #166534; display:block; }
+  .feedback.bad { background: #fdecec; color: #991b1b; display:block; }
+  .q-count { color: #5b6675; font-size: .9rem; margin-bottom: 4px; }
+  .done-screen { text-align: center; padding: 10px; }
+  .done-screen .big { font-size: 2.4rem; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+  .tabs button { flex: 1; background: #eef2f8; color: #2563eb; }
+  .tabs button.active { background: #2563eb; color: #fff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>📝 Nederlands — Extra regels oefenen</h1>
+    <p class="sub">Jou/jouw · Als/dan · Bijvoeglijke naamwoorden · Samenstellingen</p>
+  </header>
+
+  <div class="intro">
+    <b>Wat ga je leren?</b><br>
+    In deze les oefen je de vier extra regels voor je toets, stap voor stap.
+    Je leest steeds een klein stukje uitleg en klikt dan op <b>"Ik snap het"</b>.
+    Daarna ga je oefenen met vragen. Rustig aan — je mag alles zo vaak teruglezen als je wilt. 💪
+  </div>
+
+  <div class="tabs">
+    <button id="tab-leren" class="active" onclick="showTab('leren')">📘 Leren</button>
+    <button id="tab-oefenen" onclick="showTab('oefenen')">✏️ Oefenen</button>
+  </div>
+
+  <div id="leren-view">
+    <div class="bar-wrap"><div class="bar" id="bar"></div></div>
+    <div class="dots" id="dots"></div>
+
+    <!-- Stap 1: jou/jouw -->
+    <div class="card active">
+      <h2>1. Jou of jouw?</h2>
+      <div class="step"><b>Jou</b>, u en mij zijn <b>persoonlijke voornaamwoorden</b>. Je kunt ze vervangen door een naam.</div>
+      <div class="step"><b>Jouw</b>, uw en mijn zijn <b>bezittelijke voornaamwoorden</b>. Ze eindigen op <b>-w</b> of <b>-n</b> en geven een bezit aan. Vaak komt er meteen een zelfstandig naamwoord achter.</div>
+      <div class="voorbeeld">Ik geef <b>jou</b> de fiets. → Het is <b>jouw</b> fiets.<br>Geloof je <b>mij</b> niet? → <b>Mijn</b> verhaal is waar!</div>
+      <button onclick="nextStep()">Ik snap het ✓</button>
+    </div>
+
+    <!-- Stap 2: als/dan -->
+    <div class="card">
+      <h2>2. Als of dan?</h2>
+      <div class="step"><b>Als</b> gebruik je bij een vergelijking die <b>gelijk</b> is: net zo mooi <b>als</b>, even groot <b>als</b>.</div>
+      <div class="step"><b>Dan</b> gebruik je na de <b>vergrotende trap</b> (woorden op -er): mooier <b>dan</b>, groter <b>dan</b>, sneller <b>dan</b>.</div>
+      <div class="voorbeeld">Jij rent net zo snel <b>als</b> ik.<br>Jij rent sneller <b>dan</b> ik.</div>
+      <div class="step">💡 Tip: maak de zin langer om te horen wat erbij past — "Ik fiets langzamer <b>dan</b> jij (fietst)."</div>
+      <button onclick="nextStep()">Ik snap het ✓</button>
+    </div>
+
+    <!-- Stap 3: stoffelijk bijv nw -->
+    <div class="card">
+      <h2>3. Stoffelijk bijvoeglijk naamwoord</h2>
+      <div class="step">Een <b>bijvoeglijk naamwoord</b> zegt iets over een zelfstandig naamwoord: de <b>rode</b> schoen, het <b>lange</b> haar.</div>
+      <div class="step">Een <b>stoffelijk</b> bijvoeglijk naamwoord zegt van welk <b>materiaal</b> iets is. Het eindigt op <b>-en</b>.</div>
+      <div class="voorbeeld">De ring is van goud → een <b>gouden</b> ring.<br>De broek is van katoen → een <b>katoenen</b> broek.</div>
+      <div class="step">Is het materiaal <b>bewerkt</b> (plastic, nylon)? Dan schrijf je gewoon het woord zonder -en: een <b>plastic</b> tas, een <b>nylon</b> shirt.</div>
+      <button onclick="nextStep()">Ik snap het ✓</button>
+    </div>
+
+    <!-- Stap 4: voltooid deelwoord als bijv nw -->
+    <div class="card">
+      <h2>4. Voltooid deelwoord als bijvoeglijk naamwoord</h2>
+      <div class="step">Je kunt een <b>voltooid deelwoord</b> ook als bijvoeglijk naamwoord gebruiken.</div>
+      <div class="voorbeeld">Het eten is aangebrand → het <b>aangebrande</b> eten.<br>Het kind is gered → het <b>geredde</b> kind.</div>
+      <div class="step">Je schrijft het zo <b>kort mogelijk</b> — net als de stam, met de gewone regels.</div>
+      <div class="voorbeeld">De weg is verbreed → de <b>verbrede</b> weg.<br>Die sokken zijn gekrompen → de <b>gekrompen</b> sokken.</div>
+      <button onclick="nextStep()">Ik snap het ✓</button>
+    </div>
+
+    <!-- Stap 5: samenstellingen -->
+    <div class="card">
+      <h2>5. Samenstellingen: tussen-n, tussen-s of streepje</h2>
+      <div class="step">Een <b>samenstelling</b> maak je door twee of meer woorden aan elkaar te plakken. Soms komt er een tussenletter of streepje tussen.</div>
+      <table>
+        <tr><th>Wanneer?</th><th>Voorbeeld</th></tr>
+        <tr><td><b>Tussen-n</b>: eerste deel is een zelfstandig naamwoord met meervoud op -en</td><td>fietsen­hok, kersen­taart</td></tr>
+        <tr><td><b>Tussen-s</b>: als je de s hoort</td><td>jongens­boek, onderzoeks­rapport</td></tr>
+        <tr><td><b>Streepje</b>: eerste deel is een cijfer of afkorting</td><td>A4-papier, wc-bril</td></tr>
+      </table>
+      <div class="step"><b>Geen tussen-n</b> als het eerste deel ook meervoud op -s heeft (tafel→tafelpoot), geen meervoud heeft (tarwemeel), uniek is (zonnebloem) of geen zelfstandig naamwoord is (rodekool).</div>
+      <button onclick="nextStep()">Klaar met leren! 🎉</button>
+    </div>
+
+    <!-- Klaar -->
+    <div class="card">
+      <div class="done-screen">
+        <div class="big">🌟</div>
+        <h2 style="color:#16a34a">Goed gedaan, Tijn!</h2>
+        <p>Je hebt alle vijf de stukjes uitleg gelezen. Nu ga je het oefenen met vragen.</p>
+        <button onclick="showTab('oefenen')">Start het oefenen ✏️</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="oefenen-view" style="display:none">
+    <div class="card active" id="quiz-card">
+      <div class="q-count" id="qcount"></div>
+      <h2 id="qtext"></h2>
+      <div id="qopts"></div>
+      <div class="feedback" id="qfeedback"></div>
+      <div class="nav">
+        <span></span>
+        <button id="qnext" class="ghost" style="display:none" onclick="nextQuestion()">Volgende vraag →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---- Leren: stappen ----
+  var cards = document.querySelectorAll('#leren-view .card');
+  var totalSteps = cards.length;
+  var cur = 0;
+  function renderProgress() {
+    var dots = '';
+    for (var i=0; i<totalSteps; i++) {
+      var c = i < cur ? 'done' : (i === cur ? 'cur' : '');
+      dots += '<span class="dot '+c+'"></span>';
+    }
+    document.getElementById('dots').innerHTML = dots;
+    document.getElementById('bar').style.width = Math.round((cur/(totalSteps-1))*100) + '%';
+  }
+  function nextStep() {
+    if (cur < totalSteps - 1) {
+      cards[cur].classList.remove('active');
+      cur++;
+      cards[cur].classList.add('active');
+      renderProgress();
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  }
+  renderProgress();
+
+  // ---- Tabs ----
+  function showTab(name) {
+    document.getElementById('tab-leren').classList.toggle('active', name==='leren');
+    document.getElementById('tab-oefenen').classList.toggle('active', name==='oefenen');
+    document.getElementById('leren-view').style.display = name==='leren' ? 'block' : 'none';
+    document.getElementById('oefenen-view').style.display = name==='oefenen' ? 'block' : 'none';
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  // ---- Oefenen ----
+  var questions = [
+    { q: 'Ik geef ___ mijn telefoon.', opts: ['jou','jouw'], correct:0,
+      uitleg:'"Jou" is een persoonlijk voornaamwoord — je kunt het vervangen door een naam (Ik geef Tijn mijn telefoon).' },
+    { q: 'Is dit ___ jas?', opts: ['jou','jouw'], correct:1,
+      uitleg:'"Jouw" is bezittelijk (-w aan het eind) en er komt een zelfstandig naamwoord (jas) achter.' },
+    { q: 'Hij is even lang ___ zijn broer.', opts: ['als','dan'], correct:0,
+      uitleg:'Bij een gelijke vergelijking (even lang) gebruik je "als".' },
+    { q: 'Zij loopt sneller ___ ik.', opts: ['als','dan'], correct:1,
+      uitleg:'Na de vergrotende trap (sneller) gebruik je "dan".' },
+    { q: 'De ring is van goud. Het is een ___ ring.', opts: ['gouden','goude'], correct:0,
+      uitleg:'Een stoffelijk bijvoeglijk naamwoord eindigt op -en: gouden.' },
+    { q: 'De tas is van plastic. Het is een ___ tas.', opts: ['plastieken','plastic'], correct:1,
+      uitleg:'Plastic is bewerkt materiaal, dus geen -en: een plastic tas.' },
+    { q: 'Het eten is aangebrand. Het is het ___ eten.', opts: ['aangebrande','aangebrandde'], correct:0,
+      uitleg:'Een voltooid deelwoord als bijvoeglijk naamwoord schrijf je zo kort mogelijk: aangebrande.' },
+    { q: 'Welke samenstelling heeft een streepje nodig?', opts: ['fietsenhok','A4-papier'], correct:1,
+      uitleg:'Bij een cijfer of afkorting (A4) gebruik je een streepje: A4-papier.' }
+  ];
+  var qi = 0, answered = false;
+  function renderQuestion() {
+    answered = false;
+    var item = questions[qi];
+    document.getElementById('qcount').textContent = 'Vraag ' + (qi+1) + ' van ' + questions.length;
+    document.getElementById('qtext').textContent = item.q;
+    var html = '';
+    for (var i=0; i<item.opts.length; i++) {
+      html += '<button class="quiz-opt" data-i="'+i+'" onclick="answer('+i+')">'+item.opts[i]+'</button>';
+    }
+    document.getElementById('qopts').innerHTML = html;
+    var fb = document.getElementById('qfeedback');
+    fb.className = 'feedback'; fb.textContent = '';
+    document.getElementById('qnext').style.display = 'none';
+  }
+  function answer(i) {
+    if (answered) return;
+    answered = true;
+    var item = questions[qi];
+    var opts = document.querySelectorAll('#qopts .quiz-opt');
+    opts[item.correct].classList.add('good');
+    var fb = document.getElementById('qfeedback');
+    if (i === item.correct) {
+      fb.className = 'feedback good';
+      fb.textContent = '✅ Goed! ' + item.uitleg;
+    } else {
+      opts[i].classList.add('bad');
+      fb.className = 'feedback bad';
+      fb.textContent = '❌ Bijna. ' + item.uitleg;
+    }
+    document.getElementById('qnext').style.display = 'inline-block';
+    if (qi === questions.length - 1) {
+      document.getElementById('qnext').textContent = 'Bekijk resultaat 🎉';
+    }
+  }
+  function nextQuestion() {
+    if (qi < questions.length - 1) {
+      qi++;
+      renderQuestion();
+      window.scrollTo({top:0, behavior:'smooth'});
+    } else {
+      document.getElementById('quiz-card').innerHTML =
+        '<div class="done-screen"><div class="big">🏆</div>' +
+        '<h2 style="color:#16a34a">Top gedaan, Tijn!</h2>' +
+        '<p>Je hebt alle oefenvragen afgerond. Wil je nog een keer oefenen? ' +
+        'Dat mag zo vaak je wilt — herhalen helpt echt.</p>' +
+        '<button onclick="restartQuiz()">Nog een keer oefenen 🔁</button></div>';
+    }
+  }
+  function restartQuiz() {
+    qi = 0;
+    document.getElementById('quiz-card').innerHTML =
+      '<div class="q-count" id="qcount"></div><h2 id="qtext"></h2><div id="qopts"></div>' +
+      '<div class="feedback" id="qfeedback"></div>' +
+      '<div class="nav"><span></span>' +
+      '<button id="qnext" class="ghost" style="display:none" onclick="nextQuestion()">Volgende vraag →</button></div>';
+    renderQuestion();
+  }
+  renderQuestion();
+</script>
+</body>
+</html>
