@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samenstellingen: tussen-n, tussen-s en streepje</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f7fb; color: #222; margin: 0; padding: 18px; line-height: 1.6; }
+  .card { background: #fff; max-width: 640px; margin: 0 auto 16px; border-radius: 16px; padding: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+  h1 { font-size: 1.5em; margin: 0 0 4px; }
+  .vak { color: #6a7891; font-size: 0.95em; margin-bottom: 8px; }
+  h2 { font-size: 1.15em; color: #2a5db0; margin: 0 0 8px; }
+  .intro { background: #eaf2ff; border-radius: 12px; padding: 14px 16px; }
+  .vb { background: #f0f4f9; border-left: 4px solid #9bb7e0; border-radius: 8px; padding: 8px 12px; margin: 8px 0; }
+  .dots { text-align: center; margin: 6px 0 12px; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #cdd7e6; margin: 0 3px; }
+  .dot.active { background: #2a5db0; }
+  .dot.done { background: #58c08a; }
+  button { font-family: inherit; font-size: 1em; border: none; border-radius: 10px; padding: 12px 18px; cursor: pointer; background: #2a5db0; color: #fff; margin-top: 8px; }
+  button.ghost { background: #e7edf6; color: #2a5db0; }
+  .opt { display: block; width: 100%; text-align: left; background: #f0f4f9; color: #222; border: 2px solid transparent; border-radius: 10px; padding: 12px 14px; margin: 8px 0; cursor: pointer; }
+  .opt:hover { border-color: #9bb7e0; }
+  .opt.good { background: #e3f6ec; border-color: #58c08a; }
+  .opt.bad { background: #fdecec; border-color: #e08a8a; }
+  .fb { margin-top: 10px; padding: 10px 12px; border-radius: 10px; display: none; }
+  .fb.good { background: #e3f6ec; }
+  .fb.bad { background: #fdecec; }
+  .bar { height: 10px; background: #e7edf6; border-radius: 6px; overflow: hidden; margin-top: 6px; }
+  .bar > div { height: 100%; width: 0; background: #58c08a; transition: width 0.3s; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>📝 Samenstellingen</h1>
+  <div class="vak">Nederlands · spelling</div>
+  <div class="intro">
+    <strong>Wat ga je leren?</strong><br>
+    Soms plak je twee woorden aan elkaar. Dan komt er soms een <b>tussen-n</b>, een <b>tussen-s</b> of een <b>streepje</b> tussen. Je leert wanneer je welke gebruikt. We doen het rustig, stap voor stap. 👍
+  </div>
+</div>
+
+<div class="card" id="leerkaart">
+  <div class="dots" id="dots"></div>
+  <div id="stap"></div>
+  <button id="next">Ik snap het →</button>
+</div>
+
+<div class="card hidden" id="oefenkaart">
+  <h2>✏️ Oefenen</h2>
+  <div class="bar"><div id="quizbar"></div></div>
+  <div id="vraag" style="margin-top:14px;"></div>
+  <div class="fb" id="fb"></div>
+  <button id="qnext" class="hidden">Volgende vraag →</button>
+</div>
+
+<div class="card hidden" id="klaar">
+  <h2>🎉 Knap gedaan, Tijn!</h2>
+  <p id="score"></p>
+  <p>Je hebt de hele les afgerond. Samenstellingen zijn lastig, dus dit is echt goed werk! Doe hem later nog eens, dan onthoud je het nog beter.</p>
+  <button class="ghost" onclick="location.reload()">Nog een keer oefenen</button>
+</div>
+
+<script>
+const stappen = [
+  { k: "Wat is een samenstelling?", h: "Een samenstelling maak je door <b>twee of meer woorden aan elkaar te plakken</b>.<div class='vb'>fiets + hok = fietsenhok<br>jongens + boek = jongensboek</div>Soms zet je er een tussenletter of streepje tussen." },
+  { k: "Tussen-n", h: "Je schrijft een <b>tussen-n</b> als het eerste woord een zelfstandig naamwoord is met een meervoud op <b>-en</b>.<div class='vb'>fiets → fietsen → <b>fietsen</b>hok<br>kers → kersen → <b>kersen</b>taart</div>" },
+  { k: "Géén tussen-n (let op!)", h: "Geen tussen-n als:<br>• het meervoud ook op <b>-s</b> kan: tafel → tafels → <b>tafelpoot</b><br>• er geen meervoud is: <b>tarwemeel</b><br>• het eerste deel uniek is: <b>zonnebloem</b>, <b>maneschijn</b><br>• het eerste deel geen zelfstandig naamwoord is: <b>rodekool</b>, <b>reuzefijn</b>" },
+  { k: "Tussen-s", h: "Je schrijft een <b>tussen-s</b> als je die <b>hoort</b>.<div class='vb'><b>jongens</b>boek, <b>onderzoeks</b>rapport</div>Begint het tweede woord met een s? Dan schrijf je de tussen-s tóch: <b>damessjaal</b>." },
+  { k: "Streepje", h: "Je gebruikt een <b>streepje</b> als het eerste deel een <b>cijfer</b> of een <b>afkorting</b> is.<div class='vb'><b>A4-papier</b>, <b>wc-bril</b></div>Nu ga je oefenen!" }
+];
+
+const vragen = [
+  { v: "Hoe schrijf je het hok voor de fietsen?", o: ["fietshok", "fietsenhok"], a: 1, u: "Fiets heeft meervoud op -en → tussen-n: <b>fietsenhok</b>." },
+  { v: "Hoe schrijf je de poot van een tafel?", o: ["tafelpoot", "tafelenpoot"], a: 0, u: "Tafel heeft ook meervoud op -s (tafels) → géén tussen-n: <b>tafelpoot</b>." },
+  { v: "Hoe schrijf je een boek voor jongens?", o: ["jongenboek", "jongensboek"], a: 1, u: "Je hoort de s → tussen-s: <b>jongensboek</b>." },
+  { v: "Hoe schrijf je papier van A4-formaat?", o: ["A4papier", "A4-papier"], a: 1, u: "Het eerste deel is een afkorting/cijfer → streepje: <b>A4-papier</b>." },
+  { v: "Hoe schrijf je een taart met kersen?", o: ["kerstaart", "kersentaart"], a: 1, u: "Kers → kersen (meervoud op -en) → tussen-n: <b>kersentaart</b>." },
+  { v: "Hoe schrijf je meel van tarwe?", o: ["tarwemeel", "tarwenmeel"], a: 0, u: "Tarwe heeft geen meervoud → géén tussen-n: <b>tarwemeel</b>." }
+];
+
+let s = 0, q = 0, goed = 0, answered = false;
+const dotsEl = document.getElementById('dots');
+function renderDots(){ dotsEl.innerHTML = stappen.map((_,i)=>`<span class="dot ${i<s?'done':i===s?'active':''}"></span>`).join(''); }
+function renderStap(){
+  const st = stappen[s];
+  document.getElementById('stap').innerHTML = `<h2>${st.k}</h2><div>${st.h}</div>`;
+  document.getElementById('next').textContent = s === stappen.length-1 ? "Start het oefenen →" : "Ik snap het →";
+  renderDots();
+}
+document.getElementById('next').onclick = ()=>{
+  s++;
+  if(s>=stappen.length){ document.getElementById('leerkaart').classList.add('hidden'); document.getElementById('oefenkaart').classList.remove('hidden'); renderVraag(); }
+  else renderStap();
+};
+function renderVraag(){
+  answered = false;
+  document.getElementById('quizbar').style.width = (q/vragen.length*100)+'%';
+  const vr = vragen[q];
+  document.getElementById('vraag').innerHTML = `<p><b>Vraag ${q+1} van ${vragen.length}</b></p><p>${vr.v}</p>` +
+    vr.o.map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join('');
+  document.getElementById('fb').style.display='none';
+  document.getElementById('qnext').classList.add('hidden');
+  document.querySelectorAll('.opt').forEach(b=> b.onclick = ()=>kies(parseInt(b.dataset.i)));
+}
+function kies(i){
+  if(answered) return; answered = true;
+  const vr = vragen[q];
+  const opts = document.querySelectorAll('.opt');
+  opts[vr.a].classList.add('good');
+  const fb = document.getElementById('fb');
+  if(i===vr.a){ goed++; fb.className='fb good'; fb.innerHTML = '✅ Goed! '+vr.u; }
+  else { opts[i].classList.add('bad'); fb.className='fb bad'; fb.innerHTML = '❌ Net niet. '+vr.u; }
+  fb.style.display='block';
+  document.getElementById('qnext').classList.remove('hidden');
+}
+document.getElementById('qnext').onclick = ()=>{
+  q++;
+  if(q>=vragen.length){ document.getElementById('quizbar').style.width='100%'; document.getElementById('oefenkaart').classList.add('hidden'); document.getElementById('klaar').classList.remove('hidden'); document.getElementById('score').textContent = `Je had ${goed} van de ${vragen.length} vragen goed.`; }
+  else renderVraag();
+};
+renderStap();
+</script>
+</body>
+</html>
