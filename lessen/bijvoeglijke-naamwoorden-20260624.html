@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bijvoeglijke naamwoorden</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0; padding: 18px; background: #f3f6fb; color: #1f2a37;
+    line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  .head {
+    background: #7c3aed; color: #fff; border-radius: 18px;
+    padding: 20px 18px; margin-bottom: 16px;
+  }
+  .head .emoji { font-size: 34px; }
+  .head h1 { font-size: 22px; margin: 6px 0 4px; }
+  .head p { margin: 0; opacity: .92; font-size: 15px; }
+  .card {
+    background: #fff; border-radius: 16px; padding: 16px 18px;
+    margin-bottom: 14px; box-shadow: 0 1px 4px rgba(20,40,80,.06);
+  }
+  .intro { background: #fff8e6; border: 1px solid #ffe49c; }
+  .intro h2 { color: #9a6b00; }
+  h2 { font-size: 17px; margin: 0 0 8px; }
+  h3 { font-size: 15px; margin: 14px 0 4px; color: #7c3aed; }
+  p { margin: 6px 0; }
+  .vb { background: #eef4ff; border-radius: 10px; padding: 8px 12px; margin: 8px 0; }
+  .vb b { color: #7c3aed; }
+  ul { margin: 6px 0 6px 2px; padding-left: 20px; }
+  li { margin: 4px 0; }
+  .q-progress { font-size: 13px; color: #6b7280; margin-bottom: 8px; }
+  .q-text { font-weight: 600; font-size: 16px; margin-bottom: 12px; }
+  .opt {
+    display: block; width: 100%; text-align: left; cursor: pointer;
+    background: #f6f8fc; border: 2px solid #e3e9f3; border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 9px; font-size: 15px; color: #1f2a37;
+    transition: .12s;
+  }
+  .opt:hover { border-color: #7c3aed; }
+  .opt.good { background: #e7f7ec; border-color: #46c46a; }
+  .opt.bad { background: #fdeaea; border-color: #e15b5b; }
+  .opt:disabled { cursor: default; }
+  .fb { margin-top: 6px; padding: 11px 13px; border-radius: 11px; font-size: 14px; display: none; }
+  .fb.show { display: block; }
+  .fb.ok { background: #e7f7ec; color: #166534; }
+  .fb.no { background: #fdeaea; color: #991b1b; }
+  .next {
+    margin-top: 12px; background: #7c3aed; color: #fff; border: none;
+    border-radius: 12px; padding: 12px 18px; font-size: 15px; cursor: pointer; font-weight: 600;
+  }
+  .next:disabled { opacity: .4; cursor: default; }
+  .done { text-align: center; padding: 8px; }
+  .done .big { font-size: 40px; }
+  .bar { height: 9px; background: #e3e9f3; border-radius: 6px; overflow: hidden; margin-bottom: 14px; }
+  .bar > i { display: block; height: 100%; width: 0; background: #7c3aed; transition: .3s; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="emoji">📝</div>
+    <h1>Bijvoeglijke naamwoorden</h1>
+    <p>Nederlands &middot; oefenles voor Tijn</p>
+  </div>
+
+  <div class="card intro">
+    <h2>Wat ga je leren?</h2>
+    <p>Een bijvoeglijk naamwoord zegt iets over een zelfstandig naamwoord. Je leert de <b>stoffelijke</b> vorm (-en) en het <b>voltooid deelwoord</b> als bijvoeglijk naamwoord.</p>
+  </div>
+
+  <div class="card"><h2>Stap 1 &middot; Wat is het?</h2><p>Een bijvoeglijk naamwoord vertelt iets over een ding (zelfstandig naamwoord).</p><div class='vb'>de <b>rode</b> schoen &middot; het <b>lange</b> haar &middot; een <b>groot</b> raam</div></div><div class="card"><h2>Stap 2 &middot; Stoffelijk: eindigt op -en</h2><p>Een <b>stoffelijk</b> bijvoeglijk naamwoord zegt van welk materiaal iets gemaakt is. Het eindigt op <b>-en</b>.</p><ul><li>De ring is van goud &rarr; een <b>gouden</b> ring.</li><li>De broek is van katoen &rarr; een <b>katoenen</b> broek.</li></ul><p><b>Let op:</b> bij bewerkt materiaal schrijf je alleen het woord (geen -en): een <b>plastic</b> tas, een <b>nylon</b> shirt.</p></div><div class="card"><h2>Stap 3 &middot; Voltooid deelwoord als bijvoeglijk naamwoord</h2><p>Je kunt ook een voltooid deelwoord v&oacute;&oacute;r een woord zetten. Schrijf het dan <b>zo kort mogelijk</b>.</p><ul><li>Het eten is aangebrand &rarr; het <b>aangebrande</b> eten.</li><li>Het kind is gered &rarr; het <b>geredde</b> kind.</li><li>De weg is verbreed &rarr; de <b>verbrede</b> weg (niet 'verbreedde').</li></ul></div>
+
+  <div class="card">
+    <h2>Oefenen ✏️</h2>
+    <div class="bar"><i id="bar"></i></div>
+    <div id="quiz"></div>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [{"q": "De deur is van hout. Het is een ___ deur.", "opts": ["houte", "houten"], "a": 1, "uitleg": "Stoffelijk bijvoeglijk naamwoord van een materiaal eindigt op -en &rarr; <b>houten</b>."}, {"q": "De tas is van plastic. Het is een ___ tas.", "opts": ["plastic", "plasticen"], "a": 0, "uitleg": "Plastic is bewerkt materiaal: alleen het woord, g&eacute;&eacute;n -en &rarr; <b>plastic</b>."}, {"q": "De sokken zijn gekrompen. Het zijn de ___ sokken.", "opts": ["gekrompen", "gekrompene"], "a": 0, "uitleg": "Voltooid deelwoord zo kort mogelijk &rarr; <b>gekrompen</b>."}, {"q": "Het glas is van kristal. Het is een ___ glas.", "opts": ["kristallen", "kristalle"], "a": 0, "uitleg": "Materiaal &rarr; eindigt op -en &rarr; <b>kristallen</b>."}, {"q": "De weg is verbreed. Het is de ___ weg.", "opts": ["verbreedde", "verbrede"], "a": 1, "uitleg": "Zo kort mogelijk schrijven &rarr; <b>verbrede</b> weg."}, {"q": "Welke is een stoffelijk bijvoeglijk naamwoord?", "opts": ["snelle", "zilveren"], "a": 1, "uitleg": "<b>zilveren</b> zegt van welk materiaal iets is en eindigt op -en."}];
+let idx = 0, answered = false;
+const quiz = document.getElementById('quiz');
+const bar = document.getElementById('bar');
+
+function render() {
+  if (idx >= QUESTIONS.length) {
+    bar.style.width = '100%';
+    quiz.innerHTML =
+      '<div class="done"><div class="big">🎉</div>' +
+      '<p><b>Top gedaan, Tijn!</b><br>Je hebt alle vragen afgerond. ' +
+      'Wil je het nog een keer oefenen? Ververs de pagina.</p></div>';
+    return;
+  }
+  answered = false;
+  bar.style.width = (idx / QUESTIONS.length * 100) + '%';
+  const q = QUESTIONS[idx];
+  let h = '<div class="q-progress">Vraag ' + (idx+1) + ' van ' + QUESTIONS.length + '</div>';
+  h += '<div class="q-text">' + q.q + '</div>';
+  q.opts.forEach(function(o, i) {
+    h += '<button class="opt" data-i="' + i + '">' + o + '</button>';
+  });
+  h += '<div class="fb" id="fb"></div>';
+  h += '<button class="next" id="next" disabled>Volgende vraag &rarr;</button>';
+  quiz.innerHTML = h;
+  quiz.querySelectorAll('.opt').forEach(function(b) {
+    b.addEventListener('click', pick);
+  });
+  document.getElementById('next').addEventListener('click', function() { idx++; render(); });
+}
+
+function pick(e) {
+  if (answered) return;
+  answered = true;
+  const q = QUESTIONS[idx];
+  const chosen = +e.target.dataset.i;
+  const opts = quiz.querySelectorAll('.opt');
+  opts.forEach(function(b, i) {
+    b.disabled = true;
+    if (i === q.a) b.classList.add('good');
+    else if (i === chosen) b.classList.add('bad');
+  });
+  const fb = document.getElementById('fb');
+  if (chosen === q.a) {
+    fb.className = 'fb show ok';
+    fb.innerHTML = '✅ Goed! ' + q.uitleg;
+  } else {
+    fb.className = 'fb show no';
+    fb.innerHTML = '❌ Bijna. ' + q.uitleg;
+  }
+  document.getElementById('next').disabled = false;
+}
+render();
+</script>
+</body>
+</html>
