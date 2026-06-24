@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Als of dan?</title>
+<style>
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:#f4f7fb;color:#22303f;line-height:1.6}
+  .wrap{max-width:680px;margin:0 auto;padding:20px}
+  .top{background:#3b82f6;color:#fff;border-radius:16px;padding:22px;margin-bottom:18px}
+  .top .vak{font-size:14px;opacity:.9}
+  .top h1{margin:6px 0 0;font-size:26px}
+  .intro{background:#fff;border-radius:14px;padding:18px;margin-bottom:16px;border:1px solid #e3ebf3}
+  .intro h2{margin:0 0 8px;font-size:18px}
+  .kader{background:#eef5ff;border:2px solid #bcd8ff;border-radius:14px;padding:16px;margin-bottom:16px}
+  .kader h3{margin:0 0 8px;font-size:17px;color:#1d4ed8}
+  .kader p{margin:8px 0}
+  .voorbeeld{background:#fff;border-radius:10px;padding:10px 12px;margin:8px 0;border:1px dashed #bcd8ff}
+  .card{background:#fff;border-radius:14px;padding:18px;margin-bottom:14px;border:1px solid #e3ebf3}
+  .counter{font-size:13px;color:#7a8aa0;margin-bottom:6px}
+  .q{font-size:18px;font-weight:600;margin-bottom:12px}
+  .opt{display:block;width:100%;text-align:left;background:#f4f7fb;border:2px solid #dbe6f1;border-radius:10px;padding:12px 14px;margin:8px 0;font-size:16px;cursor:pointer;transition:.15s}
+  .opt:hover:not(:disabled){border-color:#3b82f6}
+  .opt:disabled{cursor:default}
+  .opt.good{background:#e3f7ec;border-color:#16a766}
+  .opt.bad{background:#fdeceb;border-color:#e0564a}
+  .fb{margin-top:8px;font-weight:600;min-height:20px}
+  #done{margin:10px 0 40px}
+  .done-msg{background:#16a766;color:#fff;border-radius:14px;padding:18px;font-size:20px;text-align:center;font-weight:700}
+  .tip{font-size:15px;color:#42566b}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="vak">📝 Nederlands</div>
+    <h1>Als of dan?</h1>
+  </div>
+
+  <div class="intro">
+    <h2>Wat ga je leren?</h2>
+    <p>Je leert wanneer je <b>als</b> gebruikt en wanneer je <b>dan</b> gebruikt bij een vergelijking. Daarna oefen je het zelf, stap voor stap.</p>
+  </div>
+
+  <div class="kader">
+    <h3>De regel</h3>
+    <p><b>als</b> gebruik je als twee dingen <b>gelijk</b> zijn: <i>net zo … als</i>, <i>even … als</i>, <i>twee keer zo … als</i>.</p>
+    <div class="voorbeeld">Jij rent <b>net zo snel als</b> ik.</div>
+    <p><b>dan</b> gebruik je na de vergrotende trap (een woord op <b>-er</b>, of <i>meer</i>): <i>mooier dan</i>, <i>groter dan</i>, <i>sneller dan</i>.</p>
+    <div class="voorbeeld">Jij rent <b>sneller dan</b> ik.</div>
+    <p class="tip">💡 Truc: zie je een woord op <b>-er</b> of het woord <b>meer</b>? Dan komt er <b>dan</b>. Zie je <b>net zo / even</b>? Dan komt er <b>als</b>.</p>
+  </div>
+
+  <div class="card" data-q data-correct="als">
+    <div class="counter">Oefening 1 van 6</div>
+    <div class="q">Jij bent net zo lang ___ ik.</div>
+    <button class="opt" onclick="pick(this)">als</button>
+    <button class="opt" onclick="pick(this)">dan</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="card" data-q data-correct="dan">
+    <div class="counter">Oefening 2 van 6</div>
+    <div class="q">Een fiets is sneller ___ lopen.</div>
+    <button class="opt" onclick="pick(this)">als</button>
+    <button class="opt" onclick="pick(this)">dan</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="card" data-q data-correct="dan">
+    <div class="counter">Oefening 3 van 6</div>
+    <div class="q">Deze tas is mooier ___ die andere.</div>
+    <button class="opt" onclick="pick(this)">als</button>
+    <button class="opt" onclick="pick(this)">dan</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="card" data-q data-correct="als">
+    <div class="counter">Oefening 4 van 6</div>
+    <div class="q">Hij is even sterk ___ zijn broer.</div>
+    <button class="opt" onclick="pick(this)">als</button>
+    <button class="opt" onclick="pick(this)">dan</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="card" data-q data-correct="dan">
+    <div class="counter">Oefening 5 van 6</div>
+    <div class="q">Ik heb meer boeken ___ jij.</div>
+    <button class="opt" onclick="pick(this)">als</button>
+    <button class="opt" onclick="pick(this)">dan</button>
+    <div class="fb"></div>
+  </div>
+
+  <div class="card" data-q data-correct="als">
+    <div class="counter">Oefening 6 van 6</div>
+    <div class="q">Zij rent twee keer zo hard ___ ik.</div>
+    <button class="opt" onclick="pick(this)">als</button>
+    <button class="opt" onclick="pick(this)">dan</button>
+    <div class="fb"></div>
+  </div>
+
+  <div id="done"></div>
+</div>
+
+<script>
+  var qs=document.querySelectorAll('[data-q]'), total=qs.length, score=0, answered=0;
+  function pick(btn){var card=btn.closest('[data-q]'); if(card.dataset.done) return; card.dataset.done=1;
+    var correct=card.dataset.correct.trim(); var fb=card.querySelector('.fb');
+    card.querySelectorAll('.opt').forEach(function(b){b.disabled=true; if(b.textContent.trim()===correct) b.classList.add('good');});
+    if(btn.textContent.trim()===correct){fb.textContent='✅ Goed zo!';fb.style.color='#16a766';score++;}
+    else{btn.classList.add('bad');fb.textContent='❌ Bijna! Kijk nog eens naar het kadertje hierboven.';fb.style.color='#e0564a';}
+    answered++; if(answered===total){var d=document.getElementById('done'); d.innerHTML='<div class="done-msg">🎉 Klaar! Je had '+score+' van '+total+' goed. Goed bezig, Tijn!</div>'; d.scrollIntoView({behavior:'smooth'});}}
+</script>
+</body>
+</html>
