@@ -1,43 +1,35 @@
 [
   {
-    "id": "jou-jouw",
-    "title": "Jou of Jouw",
+    "id": "nederlands-jou-jouw-2026-06-24",
+    "title": "Nederlands — Jou of jouw?",
     "vak": "Nederlands",
     "emoji": "📝",
-    "file": "jou-jouw.html",
-    "createdAt": "2026-06-24T07:43:38Z"
+    "file": "nederlands-jou-jouw-2026-06-24.html",
+    "createdAt": "2026-06-24T07:45:00Z"
   },
   {
-    "id": "als-dan",
-    "title": "Als of Dan",
+    "id": "nederlands-als-dan-bijvoeglijk-2026-06-24",
+    "title": "Nederlands — Als/dan & bijvoeglijke naamwoorden",
     "vak": "Nederlands",
     "emoji": "📝",
-    "file": "als-dan.html",
-    "createdAt": "2026-06-24T07:43:38Z"
+    "file": "nederlands-als-dan-bijvoeglijk-2026-06-24.html",
+    "createdAt": "2026-06-24T07:45:00Z"
   },
   {
-    "id": "bijvoeglijke-naamwoorden",
-    "title": "Bijvoeglijke naamwoorden",
+    "id": "nederlands-samenstellingen-2026-06-24",
+    "title": "Nederlands — Voltooid deelwoord & samenstellingen",
     "vak": "Nederlands",
     "emoji": "📝",
-    "file": "bijvoeglijke-naamwoorden.html",
-    "createdAt": "2026-06-24T07:43:38Z"
+    "file": "nederlands-samenstellingen-2026-06-24.html",
+    "createdAt": "2026-06-24T07:45:00Z"
   },
   {
-    "id": "samenstellingen",
-    "title": "Samenstellingen",
+    "id": "nederlands-aangepaste-toets-2026-06-23",
+    "title": "Nederlands — Aangepaste toets (volledig)",
     "vak": "Nederlands",
     "emoji": "📝",
-    "file": "samenstellingen.html",
-    "createdAt": "2026-06-24T07:43:38Z"
-  },
-  {
-    "id": "nederlands-oefenen-grammatica-spelling-2026-06-24",
-    "title": "Nederlands — Oefenen: grammatica & spelling",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-oefenen-grammatica-spelling-2026-06-24.html",
-    "createdAt": "2026-06-24T07:42:29Z"
+    "file": "nederlands-aangepaste-toets-2026-06-23.html",
+    "createdAt": "2026-06-23T11:45:00Z"
   },
   {
     "id": "welkom",
