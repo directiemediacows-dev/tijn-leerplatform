@@ -1,6 +1,30 @@
 [
   {
     "id": "nederlands-jou-jouw-2026-06-24",
+    "title": "Nederlands — Jou of Jouw",
+    "vak": "Nederlands",
+    "emoji": "📝",
+    "file": "nederlands-jou-jouw-2026-06-24.html",
+    "createdAt": "2026-06-24T00:00:00Z"
+  },
+  {
+    "id": "nederlands-als-dan-bijvoeglijk-2026-06-24",
+    "title": "Nederlands — Als of Dan & Bijvoeglijke naamwoorden",
+    "vak": "Nederlands",
+    "emoji": "📝",
+    "file": "nederlands-als-dan-bijvoeglijk-2026-06-24.html",
+    "createdAt": "2026-06-24T00:00:00Z"
+  },
+  {
+    "id": "nederlands-samenstellingen-2026-06-24",
+    "title": "Nederlands — Samenstellingen",
+    "vak": "Nederlands",
+    "emoji": "📝",
+    "file": "nederlands-samenstellingen-2026-06-24.html",
+    "createdAt": "2026-06-24T00:00:00Z"
+  },
+  {
+    "id": "nederlands-jou-jouw-2026-06-24",
     "title": "Nederlands — Jou of jouw?",
     "vak": "Nederlands",
     "emoji": "📝",
