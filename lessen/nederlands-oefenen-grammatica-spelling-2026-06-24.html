@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nederlands — Oefenen: grammatica & spelling</title>
+<style>
+  :root{
+    --bg:#f4f7fb; --card:#ffffff; --ink:#243042; --soft:#5b6b82;
+    --accent:#3f7cc0; --accent-soft:#e7f0fa; --good:#2e9e6b; --good-soft:#e4f6ec;
+    --bad:#d2694a; --bad-soft:#fbeae3; --line:#e3e9f1;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:var(--bg); color:var(--ink); margin:0; padding:18px;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px; margin:0 auto}
+  header.top{text-align:center; margin-bottom:18px}
+  header.top .emoji{font-size:40px}
+  header.top h1{font-size:22px; margin:8px 0 4px}
+  header.top p{color:var(--soft); margin:0; font-size:15px}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:18px; margin-bottom:16px; box-shadow:0 1px 3px rgba(40,60,90,.05);
+  }
+  .card h2{font-size:18px; margin:0 0 10px; display:flex; align-items:center; gap:8px}
+  .card h3{font-size:15px; margin:14px 0 4px; color:var(--accent)}
+  .intro{background:var(--accent-soft); border-color:#d4e4f5}
+  .tip{background:#fffdf3; border-color:#f0e7c4}
+  ul{margin:6px 0; padding-left:20px}
+  li{margin:4px 0}
+  .ex{background:var(--accent-soft); border-radius:10px; padding:10px 12px; margin:8px 0; font-size:15px}
+  .ex b{color:var(--accent)}
+  table{width:100%; border-collapse:collapse; margin:10px 0; font-size:14px}
+  th,td{border:1px solid var(--line); padding:8px 10px; text-align:left}
+  th{background:var(--accent-soft)}
+  /* quiz */
+  #quiz .qcount{color:var(--soft); font-size:14px; margin-bottom:6px}
+  #quiz .q{font-size:17px; font-weight:600; margin-bottom:14px}
+  .opt{
+    display:block; width:100%; text-align:left; background:#fff; color:var(--ink);
+    border:1.5px solid var(--line); border-radius:12px; padding:13px 15px;
+    margin:8px 0; font-size:16px; cursor:pointer; transition:.15s;
+  }
+  .opt:hover{border-color:var(--accent); background:var(--accent-soft)}
+  .opt:disabled{cursor:default}
+  .opt.correct{border-color:var(--good); background:var(--good-soft)}
+  .opt.wrong{border-color:var(--bad); background:var(--bad-soft)}
+  .feedback{margin-top:12px; padding:12px 14px; border-radius:12px; font-size:15px; display:none}
+  .feedback.show{display:block}
+  .feedback.ok{background:var(--good-soft); color:#1f6f4a}
+  .feedback.no{background:var(--bad-soft); color:#9c4326}
+  .btn{
+    background:var(--accent); color:#fff; border:none; border-radius:12px;
+    padding:12px 18px; font-size:16px; font-weight:600; cursor:pointer; margin-top:14px;
+  }
+  .btn:disabled{opacity:.45; cursor:default}
+  .bar{height:8px; background:var(--line); border-radius:99px; overflow:hidden; margin:4px 0 16px}
+  .bar > div{height:100%; width:0; background:var(--accent); transition:width .3s}
+  .done-box{text-align:center; display:none}
+  .done-box .big{font-size:46px}
+  .score{font-size:20px; font-weight:700; margin:6px 0}
+  .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:16px}
+  .nav button{
+    background:#fff; border:1.5px solid var(--line); border-radius:99px;
+    padding:8px 14px; font-size:14px; cursor:pointer; color:var(--soft)
+  }
+  .nav button.active{background:var(--accent); color:#fff; border-color:var(--accent)}
+  .section{display:none}
+  .section.active{display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="emoji">📝</div>
+    <h1>Oefenen: grammatica &amp; spelling</h1>
+    <p>Jou/jouw · als/dan · bijvoeglijke naamwoorden · samenstellingen</p>
+  </header>
+
+  <div class="card intro">
+    <h2>👋 Wat ga je leren?</h2>
+    <p>Hoi Tijn! In deze les oefen je de extra onderdelen voor je toets Nederlands.
+    We doen het stap voor stap — eerst lees je een klein stukje uitleg, daarna oefen je het meteen.
+    Neem rustig de tijd en lees elk voorbeeld even hardop. Klaar? Begin bij <b>Uitleg</b> hieronder.</p>
+  </div>
+
+  <div class="nav">
+    <button data-go="leren" class="active">📖 Uitleg</button>
+    <button data-go="oefenen">✏️ Oefenen</button>
+  </div>
+
+  <!-- ============ UITLEG ============ -->
+  <div id="leren" class="section active">
+
+    <div class="card">
+      <h2>1️⃣ Jou of jouw?</h2>
+      <p>Dit lijkt op elkaar, maar er is een makkelijke truc.</p>
+      <h3>Jou = een persoon</h3>
+      <p><b>Jou</b>, u en mij zijn <b>persoonlijke</b> voornaamwoorden. Je kunt ze vervangen door een naam.</p>
+      <div class="ex">Ik geef <b>jou</b> de fiets. → Ik geef <b>Sander</b> de fiets. ✅</div>
+      <h3>Jouw = een bezit</h3>
+      <p><b>Jouw</b>, uw en mijn zijn <b>bezittelijke</b> voornaamwoorden. Ze eindigen op <b>-w</b> of <b>-n</b> en er staat meestal een zelfstandig naamwoord direct achter.</p>
+      <div class="ex">Het is <b>jouw</b> fiets. → het bezit: <b>jouw fiets</b> ✅</div>
+      <p style="color:var(--soft); font-size:14px">💡 Truc: kun je er een naam voor invullen? Dan is het <b>jou</b>. Hoort er een ding bij? Dan is het <b>jouw</b>.</p>
+    </div>
+
+    <div class="card">
+      <h2>2️⃣ Als of dan?</h2>
+      <h3>Als = bij vergelijken (gelijk)</h3>
+      <p>Gebruik <b>als</b> bij: net zo … als, even … als, twee keer zo … als.</p>
+      <div class="ex">Jij rent net zo snel <b>als</b> ik.</div>
+      <h3>Dan = na de vergrotende trap</h3>
+      <p>Gebruik <b>dan</b> na woorden als mooier, groter, sneller (-er).</p>
+      <div class="ex">Jij rent sneller <b>dan</b> ik.</div>
+      <p style="color:var(--soft); font-size:14px">💡 Truc: maak de zin langer en zeg het hardop:
+      "Ik fiets langzamer <b>dan</b> jij (fietst)."</p>
+    </div>
+
+    <div class="card">
+      <h2>3️⃣ Bijvoeglijke naamwoorden</h2>
+      <p>Een bijvoeglijk naamwoord zegt iets over een zelfstandig naamwoord: de <b>rode</b> schoen, het <b>lange</b> haar.</p>
+      <h3>Stoffelijk (van welk materiaal?)</h3>
+      <p>Zegt waar iets van gemaakt is. Eindigt meestal op <b>-en</b>.</p>
+      <table>
+        <tr><th>Materiaal</th><th>Bijvoeglijk</th></tr>
+        <tr><td>De ring is van goud</td><td>de <b>gouden</b> ring</td></tr>
+        <tr><td>De broek is van katoen</td><td>de <b>katoenen</b> broek</td></tr>
+      </table>
+      <p>Is het <b>bewerkt</b> materiaal? Dan schrijf je alleen het woord (géén -en):</p>
+      <div class="ex">van plastic → de <b>plastic</b> tas &nbsp;·&nbsp; van nylon → het <b>nylon</b> shirt</div>
+      <h3>Voltooid deelwoord als bijvoeglijk naamwoord</h3>
+      <p>Schrijf het zo <b>kort mogelijk</b>.</p>
+      <table>
+        <tr><th>Zin</th><th>Bijvoeglijk</th></tr>
+        <tr><td>Het eten is aangebrand</td><td>het <b>aangebrande</b> eten</td></tr>
+        <tr><td>Het kind is gered</td><td>het <b>geredde</b> kind</td></tr>
+        <tr><td>De weg is verbreed</td><td>de <b>verbrede</b> weg</td></tr>
+        <tr><td>De sokken zijn gekrompen</td><td>de <b>gekrompen</b> sokken</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>4️⃣ Samenstellingen</h2>
+      <p>Twee of meer woorden aan elkaar geplakt. Soms komt er een <b>tussen-n</b>, <b>tussen-s</b> of <b>streepje</b> tussen.</p>
+      <h3>Tussen-n</h3>
+      <p>Wel een tussen-n als het eerste deel een zelfstandig naamwoord is met een meervoud op <b>-en</b>.</p>
+      <div class="ex"><b>fietsenhok</b> (fietsen) · <b>kersentaart</b> (kersen)</div>
+      <p><b>Geen</b> tussen-n als:</p>
+      <ul>
+        <li>het meervoud ook op -(')s kan: <b>tafelpoot</b>, <b>analysefase</b></li>
+        <li>het eerste deel geen meervoud heeft: <b>tarwemeel</b></li>
+        <li>het eerste deel uniek is: <b>zonnebloem</b>, <b>maneschijn</b></li>
+        <li>het eerste deel geen zelfstandig naamwoord is: <b>rodekool</b>, <b>reuzefijn</b></li>
+      </ul>
+      <h3>Tussen-s</h3>
+      <p>Schrijf een tussen-s als je hem <b>hoort</b>: <b>jongensboek</b>, <b>onderzoeksrapport</b>.
+      Begint het tweede deel met een s, dan schrijf je de tussen-s ook: <b>damessjaal</b>.</p>
+      <h3>Streepje</h3>
+      <p>Een streepje als het eerste deel een cijfer of afkorting is: <b>A4-papier</b>, <b>wc-bril</b>.</p>
+    </div>
+
+    <div class="card tip">
+      <p style="margin:0">✅ Klaar met lezen? Ga nu naar <b>✏️ Oefenen</b> bovenaan en test wat je weet!</p>
+    </div>
+  </div>
+
+  <!-- ============ OEFENEN ============ -->
+  <div id="oefenen" class="section">
+    <div class="card" id="quiz">
+      <div class="bar"><div id="barFill"></div></div>
+      <div class="qcount" id="qcount"></div>
+      <div class="q" id="qtext"></div>
+      <div id="opts"></div>
+      <div class="feedback" id="fb"></div>
+      <button class="btn" id="next" disabled>Volgende →</button>
+
+      <div class="done-box" id="doneBox">
+        <div class="big">🎉</div>
+        <div class="score" id="scoreTxt"></div>
+        <p id="cheer"></p>
+        <button class="btn" id="again">Opnieuw oefenen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---- navigatie ----
+document.querySelectorAll('.nav button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.getElementById(b.dataset.go).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+// ---- quiz ----
+var questions = [
+  {q:'Welke zin is goed?',
+   o:['Het is jou beurt.','Het is jouw beurt.'], a:1,
+   e:'"Beurt" is een bezit, dus jouw (met -w).'},
+  {q:'Ik heb dit cadeau voor ___ gekocht.',
+   o:['jou','jouw'], a:0,
+   e:'Je kunt er een naam invullen ("voor Tijn"), dus jou.'},
+  {q:'Jij bent net zo lang ___ je broer.',
+   o:['als','dan'], a:0,
+   e:'"Net zo … als" is vergelijken op gelijk niveau → als.'},
+  {q:'Een fiets is sneller ___ lopen.',
+   o:['als','dan'], a:1,
+   e:'Na de vergrotende trap "sneller" komt dan.'},
+  {q:'De ring is van goud. Het is een ___ ring.',
+   o:['goude','gouden'], a:1,
+   e:'Stoffelijk bijvoeglijk naamwoord eindigt op -en: gouden.'},
+  {q:'De tas is van plastic. Het is een ___ tas.',
+   o:['plastieken','plastic'], a:1,
+   e:'Plastic is bewerkt materiaal: je schrijft alleen het woord, zonder -en.'},
+  {q:'Het kind is gered. Het is het ___ kind.',
+   o:['gerede','geredde'], a:1,
+   e:'Voltooid deelwoord "gered" → geredde (zo kort mogelijk, met dd).'},
+  {q:'Welke samenstelling heeft een tussen-n?',
+   o:['kersentaart','tafelpoot'], a:0,
+   e:'Kersen heeft alleen meervoud op -en → kersentaart. Tafel kan tafels, dus tafelpoot.'},
+  {q:'Hoe schrijf je dit samengestelde woord?',
+   o:['A4 papier','A4-papier'], a:1,
+   e:'Eerste deel is een cijfer/afkorting → streepje: A4-papier.'},
+  {q:'Welke zin is goed?',
+   o:['Geloof je mij niet?','Geloof je mijn niet?'], a:0,
+   e:'"Mij" is een persoon (persoonlijk vnw). Mijn hoort bij een bezit.'}
+];
+
+var idx=0, score=0;
+var qcount=document.getElementById('qcount'),
+    qtext=document.getElementById('qtext'),
+    opts=document.getElementById('opts'),
+    fb=document.getElementById('fb'),
+    next=document.getElementById('next'),
+    barFill=document.getElementById('barFill'),
+    doneBox=document.getElementById('doneBox');
+
+function render(){
+  var q=questions[idx];
+  qcount.textContent='Vraag '+(idx+1)+' van '+questions.length;
+  qtext.textContent=q.q;
+  barFill.style.width=(idx/questions.length*100)+'%';
+  opts.innerHTML='';
+  fb.className='feedback'; fb.textContent='';
+  next.disabled=true;
+  q.o.forEach(function(txt,i){
+    var b=document.createElement('button');
+    b.className='opt'; b.textContent=txt;
+    b.addEventListener('click',function(){pick(i,b)});
+    opts.appendChild(b);
+  });
+}
+function pick(i,btn){
+  var q=questions[idx];
+  var all=opts.querySelectorAll('.opt');
+  all.forEach(function(x){x.disabled=true});
+  if(i===q.a){
+    btn.classList.add('correct'); score++;
+    fb.className='feedback show ok'; fb.textContent='Goed gedaan! '+q.e;
+  }else{
+    btn.classList.add('wrong');
+    all[q.a].classList.add('correct');
+    fb.className='feedback show no'; fb.textContent='Bijna! '+q.e;
+  }
+  next.disabled=false;
+}
+next.addEventListener('click',function(){
+  idx++;
+  if(idx<questions.length){render();}
+  else{finish();}
+});
+function finish(){
+  qcount.style.display='none'; qtext.style.display='none';
+  opts.style.display='none'; fb.style.display='none'; next.style.display='none';
+  barFill.style.width='100%';
+  doneBox.style.display='block';
+  document.getElementById('scoreTxt').textContent='Je had '+score+' van de '+questions.length+' goed!';
+  var cheer=document.getElementById('cheer');
+  if(score===questions.length){cheer.textContent='Helemaal top, Tijn! Je kent de regels goed. 🌟';}
+  else if(score>=questions.length-3){cheer.textContent='Goed bezig! Lees de lastige stukjes nog een keer en probeer het opnieuw. 💪';}
+  else{cheer.textContent='Mooi geoefend! Kijk de uitleg nog eens rustig na en oefen daarna nog een rondje. Je kunt dit! 😊';}
+}
+document.getElementById('again').addEventListener('click',function(){
+  idx=0; score=0;
+  qcount.style.display=''; qtext.style.display='';
+  opts.style.display=''; fb.style.display=''; next.style.display='';
+  doneBox.style.display='none';
+  render();
+});
+render();
+</script>
+</body>
+</html>
