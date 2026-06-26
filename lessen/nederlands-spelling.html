@@ -6,40 +6,30 @@
 <title>Nederlands — Spelling</title>
 <style>
   * { box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    margin: 0; background: #f4f7fb; color: #1f2a37; line-height: 1.6; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; background: #f4f7fb; color: #1f2a37; line-height: 1.6; }
   .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 80px; }
-  header { background: linear-gradient(135deg, #7a5cd0, #5a3fb0); color: #fff;
-    border-radius: 18px; padding: 22px; margin-bottom: 18px; }
-  header .emoji { font-size: 34px; }
-  header h1 { margin: 6px 0 4px; font-size: 22px; }
-  header p { margin: 0; opacity: .92; font-size: 15px; }
+  header { background: linear-gradient(135deg, #7a5cd0, #5a3fb0); color: #fff; border-radius: 18px; padding: 22px; margin-bottom: 18px; }
+  header .emoji { font-size: 34px; } header h1 { margin: 6px 0 4px; font-size: 22px; } header p { margin: 0; opacity: .92; font-size: 15px; }
   .intro { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:18px; border:1px solid #e4eaf2; }
-  .intro h2 { margin:0 0 8px; font-size:17px; color:#5a3fb0; }
-  .intro ul { margin:8px 0 0; padding-left:20px; }
+  .intro h2 { margin:0 0 8px; font-size:17px; color:#5a3fb0; } .intro ul { margin:8px 0 0; padding-left:20px; }
   section.step { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
   section.step h3 { margin:0 0 8px; font-size:16px; color:#4a2f9a; }
-  .tag { display:inline-block; background:#efeaff; color:#5a3fb0; font-size:12px; font-weight:600;
-    padding:3px 10px; border-radius:999px; margin-bottom:8px; }
+  .tag { display:inline-block; background:#efeaff; color:#5a3fb0; font-size:12px; font-weight:600; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
   table { width:100%; border-collapse:collapse; margin:8px 0 2px; font-size:14.5px; }
-  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid #eef2f7; vertical-align:top; }
-  th { background:#f3f0fd; color:#5a3fb0; }
-  .kader { background:#fff8e7; border:1px solid #f3e2b3; border-radius:12px; padding:12px 14px; margin-top:10px; }
-  .kader strong { color:#9a6b00; }
-  h2.block { font-size:19px; color:#1f2a37; margin:26px 4px 10px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid #eef2f7; vertical-align:top; } th { background:#f3f0fd; color:#5a3fb0; }
+  .kader { background:#fff8e7; border:1px solid #f3e2b3; border-radius:12px; padding:12px 14px; margin-top:10px; } .kader strong { color:#9a6b00; }
+  .round-head { display:flex; align-items:center; gap:12px; margin:28px 4px 12px; }
+  .round-num { background:#5a3fb0; color:#fff; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; flex:0 0 auto; }
+  .round-title { font-size:19px; font-weight:800; }
   .card { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
-  .counter { font-size:12px; color:#7a8aa0; font-weight:600; margin-bottom:6px; }
-  .q { font-weight:600; margin-bottom:12px; }
-  .opt { display:block; width:100%; text-align:left; background:#f6f9fd; border:1.5px solid #d9e3f0;
-    border-radius:10px; padding:11px 14px; margin:7px 0; font-size:15px; cursor:pointer; transition:all .12s; color:#1f2a37; }
-  .opt:hover:not(:disabled){ border-color:#7a5cd0; background:#f3eefd; }
-  .opt:disabled{ cursor:default; opacity:.95; }
-  .opt.good{ background:#e6f7ee; border-color:#16a766; color:#0d6b41; font-weight:600; }
-  .opt.bad{ background:#fdecea; border-color:#e0564a; color:#a3271c; }
+  .counter { font-size:12px; color:#7a8aa0; font-weight:600; margin-bottom:6px; } .q { font-weight:600; margin-bottom:12px; }
+  .opt { display:block; width:100%; text-align:left; background:#f6f9fd; border:1.5px solid #d9e3f0; border-radius:10px; padding:11px 14px; margin:7px 0; font-size:15px; cursor:pointer; transition:all .12s; color:#1f2a37; }
+  .opt:hover:not(:disabled){ border-color:#7a5cd0; background:#f3eefd; } .opt:disabled{ cursor:default; opacity:.95; }
+  .opt.good{ background:#e6f7ee; border-color:#16a766; color:#0d6b41; font-weight:600; } .opt.bad{ background:#fdecea; border-color:#e0564a; color:#a3271c; }
   .fb{ margin-top:8px; font-weight:600; min-height:20px; }
-  #done{ margin-top:8px; }
-  .done-msg{ background:linear-gradient(135deg,#16a766,#0d8a52); color:#fff; border-radius:14px; padding:18px; text-align:center; font-size:18px; font-weight:700; }
-  .cheer{ background:#eef7f1; border:1px solid #cfe9da; border-radius:12px; padding:14px 16px; color:#0d6b41; font-weight:600; text-align:center; margin-top:6px; }
+  .round-end{ margin:2px 0 4px; } .round-msg{ background:#f3eefd; border:1px solid #ddd0f5; border-radius:12px; padding:13px 16px; font-weight:700; color:#4a2f9a; text-align:center; }
+  #done{ margin-top:18px; } .done-msg{ background:linear-gradient(135deg,#16a766,#0d8a52); color:#fff; border-radius:14px; padding:18px; text-align:center; font-size:18px; font-weight:700; }
+  .cheer{ background:#eef7f1; border:1px solid #cfe9da; border-radius:12px; padding:14px 16px; color:#0d6b41; font-weight:600; text-align:center; margin-top:14px; }
 </style>
 </head>
 <body>
@@ -54,141 +44,176 @@
   <div class="intro">
     <h2>Wat ga je leren? 🎯</h2>
     <ul>
-      <li><strong>Werkwoordspelling</strong>: tegenwoordige tijd, verleden tijd en het voltooid deelwoord.</li>
+      <li><strong>Werkwoordspelling</strong>: tegenwoordige tijd, verleden tijd en voltooid deelwoord.</li>
       <li><strong>Bijvoeglijke naamwoorden</strong> van materiaal en van een voltooid deelwoord.</li>
       <li><strong>Samenstellingen</strong> met tussen-n, tussen-s of een streepje.</li>
     </ul>
-    <p style="margin:10px 0 0; font-size:14px; color:#5a6b82;">Lees per stukje, daarna oefenen. Eén vraag tegelijk, rustig aan. 💪</p>
+    <p style="margin:10px 0 0; font-size:14px; color:#5a6b82;">Lees de uitleg en doe daarna de <strong>3 oefenrondes</strong>. Je mag zelf kiezen waar je begint. 💪</p>
   </div>
 
   <section class="step">
-    <span class="tag">Stap 1</span>
+    <span class="tag">Uitleg 1</span>
     <h3>Werkwoordspelling</h3>
-    <p><strong>Tegenwoordige tijd (nu):</strong> ik-vorm = de <em>stam</em>. Bij hij/zij/het komt er een <strong>-t</strong> bij.<br>
-    👉 ik vind → hij <strong>vindt</strong> (stam "vind" + t).</p>
-    <p><strong>Verleden tijd:</strong> gebruik <strong>'t kofschip</strong>. Eindigt de stam op een letter uit <em>t&nbsp;k&nbsp;f&nbsp;s&nbsp;ch&nbsp;p</em>? Dan <strong>-te(n)</strong>. Anders <strong>-de(n)</strong>.<br>
-    👉 werken → stam "werk" (k zit in 't kofschip) → <strong>werkte</strong>.<br>
-    👉 bellen → stam "bel" (l zit er niet in) → <strong>belde</strong>.</p>
-    <p><strong>Voltooid deelwoord:</strong> begint vaak met ge-. Of het op <strong>-t</strong> of <strong>-d</strong> eindigt, bepaalt óók 't kofschip.<br>
-    👉 maken → ge<strong>maakt</strong> (k → t). horen → ge<strong>hoord</strong> (r → d).</p>
-    <div class="kader"><strong>Trucje:</strong> Zit de laatste letter van de stam in <em>'t kofschip</em>? → schrijf een <strong>t</strong>. Zo niet → schrijf een <strong>d</strong>.</div>
+    <p><strong>Tegenwoordige tijd:</strong> ik = de stam; hij/zij/het = stam + <strong>t</strong>. <em>ik vind → hij vindt.</em></p>
+    <p><strong>Verleden tijd:</strong> gebruik <strong>'t kofschip</strong>. Stam eindigt op t&nbsp;k&nbsp;f&nbsp;s&nbsp;ch&nbsp;p → <strong>-te(n)</strong>, anders <strong>-de(n)</strong>. <em>werken → werkte. bellen → belde.</em></p>
+    <p><strong>Voltooid deelwoord:</strong> -t of -d bepaal je óók met 't kofschip. <em>maken → gemaakt. horen → gehoord.</em></p>
+    <div class="kader"><strong>Trucje:</strong> Laatste letter van de stam in <em>'t kofschip</em>? → <strong>t</strong>. Zo niet → <strong>d</strong>.</div>
   </section>
 
   <section class="step">
-    <span class="tag">Stap 2</span>
+    <span class="tag">Uitleg 2</span>
     <h3>Bijvoeglijke naamwoorden</h3>
-    <p>Een <strong>stoffelijk</strong> bijvoeglijk naamwoord zegt van welk <em>materiaal</em> iets is. Het eindigt op <strong>-en</strong>.<br>
-    👉 De ring is van goud → een <strong>gouden</strong> ring. De broek is van katoen → een <strong>katoenen</strong> broek.</p>
-    <p>Is het materiaal <em>bewerkt</em> (zoals plastic of nylon)? Dan verandert het woord <strong>niet</strong>.<br>
-    👉 De tas is van plastic → een <strong>plastic</strong> tas. Het shirt is van nylon → een <strong>nylon</strong> shirt.</p>
-    <p>Een <strong>voltooid deelwoord</strong> kan ook bijvoeglijk gebruikt worden. Je schrijft het dan zo <em>kort mogelijk</em>, maar wel correct.<br>
-    👉 Het eten is aangebrand → het <strong>aangebrande</strong> eten. Het kind is gered → het <strong>geredde</strong> kind. De weg is verbreed → de <strong>verbrede</strong> weg.</p>
-    <div class="kader"><strong>Let op:</strong> "gered" → "ge<strong>redde</strong>" (korte e blijft kort: dubbele d). "verbreed" → "verbr<strong>ede</strong>" (lange ee wordt één e). Spreek het woord hardop uit om het te horen.</div>
+    <p><strong>Stoffelijk</strong> (van welk materiaal) eindigt op <strong>-en</strong>: <em>goud → gouden ring; katoen → katoenen broek.</em></p>
+    <p><strong>Bewerkt materiaal</strong> (plastic, nylon) verandert <strong>niet</strong>: <em>een plastic tas, een nylon shirt.</em></p>
+    <p><strong>Voltooid deelwoord</strong> als bijvoeglijk naamwoord, zo kort mogelijk maar correct: <em>aangebrand → het aangebrande eten; gered → het geredde kind; verbreed → de verbrede weg.</em></p>
+    <div class="kader"><strong>Let op:</strong> "gered" → "ge<strong>redde</strong>" (dubbele d, korte e). "verbreed" → "verbr<strong>ede</strong>" (één e). Spreek het hardop uit.</div>
   </section>
 
   <section class="step">
-    <span class="tag">Stap 3</span>
-    <h3>Samenstellingen: tussen-n, tussen-s of streepje</h3>
-    <p>Een samenstelling maak je door woorden aan elkaar te plakken. Soms komt er een tussenletter bij.</p>
+    <span class="tag">Uitleg 3</span>
+    <h3>Samenstellingen</h3>
     <table>
       <tr><th>Regel</th><th>Wanneer?</th><th>Voorbeeld</th></tr>
-      <tr><td><strong>tussen-n</strong></td><td>Eerste deel is een zelfstandig naamwoord met meervoud op <em>-en</em></td><td>fiets<strong>en</strong>hok, kers<strong>en</strong>taart</td></tr>
-      <tr><td><strong>tussen-s</strong></td><td>Als je de s hoort (of het tweede deel met een s begint)</td><td>jongen<strong>s</strong>boek, dame<strong>s</strong>sjaal</td></tr>
-      <tr><td><strong>streepje</strong></td><td>Eerste deel is een cijfer of een afkorting</td><td>A4-papier, wc-bril</td></tr>
+      <tr><td><strong>tussen-n</strong></td><td>eerste deel: zelfst. nw met meervoud op <em>-en</em></td><td>fiets<strong>en</strong>hok</td></tr>
+      <tr><td><strong>geen tussen-n</strong></td><td>meervoud ook op -s, of geen meervoud</td><td>tafelpoot, tarwemeel</td></tr>
+      <tr><td><strong>tussen-s</strong></td><td>als je de s hoort</td><td>jongen<strong>s</strong>boek</td></tr>
+      <tr><td><strong>streepje</strong></td><td>eerste deel is cijfer of afkorting</td><td>A4-papier, wc-bril</td></tr>
     </table>
-    <div class="kader"><strong>Let op:</strong> Begint het tweede deel met een s én hoor je een tussen-s? Dan krijg je <em>dubbel s</em>: dame<strong>ss</strong>jaal.</div>
+    <div class="kader"><strong>Let op:</strong> Tweede deel begint met s én je hoort een tussen-s? Dan dubbel s: dame<strong>ss</strong>jaal.</div>
   </section>
 
-  <h2 class="block">✏️ Nu ga jij oefenen!</h2>
-  <p style="margin:0 4px 14px; color:#5a6b82;">Eén vraag tegelijk. Klik je antwoord — je ziet meteen of het goed is. Geen haast! 🐢</p>
+  <h2 style="font-size:20px;margin:26px 4px 4px;">✏️ Oefenrondes</h2>
+  <p style="margin:0 4px 8px; color:#5a6b82;">3 rondes — samen oefen je álle stof. Eén vraag tegelijk! 🐢</p>
 
-  <div class="card" data-q data-correct="vindt">
-    <div class="counter">Oefening 1 van 9</div>
-    <div class="q">Tegenwoordige tijd: Hij ___ de bal. <em>(vinden)</em></div>
-    <button class="opt" onclick="pick(this)">vind</button>
-    <button class="opt" onclick="pick(this)">vindt</button>
-    <div class="fb"></div>
-  </div>
+  <!-- RONDE 1 -->
+  <section class="round" data-round="1">
+    <div class="round-head"><div class="round-num">1</div><div class="round-title">Werkwoordspelling</div></div>
 
-  <div class="card" data-q data-correct="werkte">
-    <div class="counter">Oefening 2 van 9</div>
-    <div class="q">Verleden tijd: Gisteren ___ hij hard. <em>(werken)</em></div>
-    <button class="opt" onclick="pick(this)">werkte</button>
-    <button class="opt" onclick="pick(this)">werkde</button>
-    <div class="fb"></div>
-  </div>
+    <div class="card" data-q data-correct="vindt">
+      <div class="counter">Ronde 1 · vraag 1</div><div class="q">Tegenwoordige tijd: Hij ___ de bal. <em>(vinden)</em></div>
+      <button class="opt" onclick="pick(this)">vind</button><button class="opt" onclick="pick(this)">vindt</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="werkt">
+      <div class="counter">Ronde 1 · vraag 2</div><div class="q">Tegenwoordige tijd: Zij ___ elke dag. <em>(werken)</em></div>
+      <button class="opt" onclick="pick(this)">werk</button><button class="opt" onclick="pick(this)">werkt</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="werkte">
+      <div class="counter">Ronde 1 · vraag 3</div><div class="q">Verleden tijd: Gisteren ___ hij hard. <em>(werken)</em></div>
+      <button class="opt" onclick="pick(this)">werkte</button><button class="opt" onclick="pick(this)">werkde</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="belde">
+      <div class="counter">Ronde 1 · vraag 4</div><div class="q">Verleden tijd: Ze ___ mij gisteren op. <em>(bellen)</em></div>
+      <button class="opt" onclick="pick(this)">belte</button><button class="opt" onclick="pick(this)">belde</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="gemaakt">
+      <div class="counter">Ronde 1 · vraag 5</div><div class="q">Voltooid deelwoord: Ik heb mijn huiswerk ___. <em>(maken)</em></div>
+      <button class="opt" onclick="pick(this)">gemaakt</button><button class="opt" onclick="pick(this)">gemaakd</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="gehoord">
+      <div class="counter">Ronde 1 · vraag 6</div><div class="q">Voltooid deelwoord: Heb je dat liedje al ___? <em>(horen)</em></div>
+      <button class="opt" onclick="pick(this)">gehoort</button><button class="opt" onclick="pick(this)">gehoord</button><div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
-  <div class="card" data-q data-correct="gemaakt">
-    <div class="counter">Oefening 3 van 9</div>
-    <div class="q">Voltooid deelwoord: Ik heb mijn huiswerk ___. <em>(maken)</em></div>
-    <button class="opt" onclick="pick(this)">gemaakt</button>
-    <button class="opt" onclick="pick(this)">gemaakd</button>
-    <div class="fb"></div>
-  </div>
+  <!-- RONDE 2 -->
+  <section class="round" data-round="2">
+    <div class="round-head"><div class="round-num">2</div><div class="round-title">Bijvoeglijke naamwoorden</div></div>
 
-  <div class="card" data-q data-correct="gouden">
-    <div class="counter">Oefening 4 van 9</div>
-    <div class="q">De ring is van goud. Het is een ___ ring.</div>
-    <button class="opt" onclick="pick(this)">gouden</button>
-    <button class="opt" onclick="pick(this)">goud</button>
-    <div class="fb"></div>
-  </div>
+    <div class="card" data-q data-correct="gouden">
+      <div class="counter">Ronde 2 · vraag 1</div><div class="q">De ring is van goud. Het is een ___ ring.</div>
+      <button class="opt" onclick="pick(this)">gouden</button><button class="opt" onclick="pick(this)">goud</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="katoenen">
+      <div class="counter">Ronde 2 · vraag 2</div><div class="q">De broek is van katoen. Het is een ___ broek.</div>
+      <button class="opt" onclick="pick(this)">katoen</button><button class="opt" onclick="pick(this)">katoenen</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="houten">
+      <div class="counter">Ronde 2 · vraag 3</div><div class="q">De tafel is van hout. Het is een ___ tafel.</div>
+      <button class="opt" onclick="pick(this)">houte</button><button class="opt" onclick="pick(this)">houten</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="plastic">
+      <div class="counter">Ronde 2 · vraag 4</div><div class="q">De tas is van plastic. Het is een ___ tas. <em>(bewerkt materiaal!)</em></div>
+      <button class="opt" onclick="pick(this)">plasticen</button><button class="opt" onclick="pick(this)">plastic</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="aangebrande">
+      <div class="counter">Ronde 2 · vraag 5</div><div class="q">Het eten is aangebrand. Het ___ eten.</div>
+      <button class="opt" onclick="pick(this)">aangebrande</button><button class="opt" onclick="pick(this)">aangebrandde</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="geredde">
+      <div class="counter">Ronde 2 · vraag 6</div><div class="q">Het kind is gered. Het ___ kind.</div>
+      <button class="opt" onclick="pick(this)">gerede</button><button class="opt" onclick="pick(this)">geredde</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="verbrede">
+      <div class="counter">Ronde 2 · vraag 7</div><div class="q">De weg is verbreed. De ___ weg.</div>
+      <button class="opt" onclick="pick(this)">verbreedde</button><button class="opt" onclick="pick(this)">verbrede</button><div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
-  <div class="card" data-q data-correct="plastic">
-    <div class="counter">Oefening 5 van 9</div>
-    <div class="q">De tas is van plastic. Het is een ___ tas. <em>(let op: bewerkt materiaal!)</em></div>
-    <button class="opt" onclick="pick(this)">plasticen</button>
-    <button class="opt" onclick="pick(this)">plastic</button>
-    <div class="fb"></div>
-  </div>
+  <!-- RONDE 3 -->
+  <section class="round" data-round="3">
+    <div class="round-head"><div class="round-num">3</div><div class="round-title">Samenstellingen</div></div>
 
-  <div class="card" data-q data-correct="geredde">
-    <div class="counter">Oefening 6 van 9</div>
-    <div class="q">Het kind is gered. Het ___ kind.</div>
-    <button class="opt" onclick="pick(this)">gerede</button>
-    <button class="opt" onclick="pick(this)">geredde</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="fietsenhok">
-    <div class="counter">Oefening 7 van 9</div>
-    <div class="q">Een hok voor fietsen is een…</div>
-    <button class="opt" onclick="pick(this)">fietshok</button>
-    <button class="opt" onclick="pick(this)">fietsenhok</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="jongensboek">
-    <div class="counter">Oefening 8 van 9</div>
-    <div class="q">Een boek voor jongens is een… <em>(je hoort een s)</em></div>
-    <button class="opt" onclick="pick(this)">jongenboek</button>
-    <button class="opt" onclick="pick(this)">jongensboek</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="damessjaal">
-    <div class="counter">Oefening 9 van 9</div>
-    <div class="q">Een sjaal voor dames schrijf je als… <em>(tweede deel begint met s)</em></div>
-    <button class="opt" onclick="pick(this)">damesjaal</button>
-    <button class="opt" onclick="pick(this)">damessjaal</button>
-    <div class="fb"></div>
-  </div>
+    <div class="card" data-q data-correct="fietsenhok">
+      <div class="counter">Ronde 3 · vraag 1</div><div class="q">Een hok voor fietsen is een…</div>
+      <button class="opt" onclick="pick(this)">fietshok</button><button class="opt" onclick="pick(this)">fietsenhok</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="kersentaart">
+      <div class="counter">Ronde 3 · vraag 2</div><div class="q">Een taart met kersen is een…</div>
+      <button class="opt" onclick="pick(this)">kersentaart</button><button class="opt" onclick="pick(this)">kersetaart</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="tafelpoot">
+      <div class="counter">Ronde 3 · vraag 3</div><div class="q">Een poot van een tafel is een… <em>(meervoud = tafels, dus geen tussen-n)</em></div>
+      <button class="opt" onclick="pick(this)">tafelenpoot</button><button class="opt" onclick="pick(this)">tafelpoot</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="jongensboek">
+      <div class="counter">Ronde 3 · vraag 4</div><div class="q">Een boek voor jongens is een… <em>(je hoort een s)</em></div>
+      <button class="opt" onclick="pick(this)">jongenboek</button><button class="opt" onclick="pick(this)">jongensboek</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="damessjaal">
+      <div class="counter">Ronde 3 · vraag 5</div><div class="q">Een sjaal voor dames schrijf je als… <em>(tweede deel begint met s)</em></div>
+      <button class="opt" onclick="pick(this)">damesjaal</button><button class="opt" onclick="pick(this)">damessjaal</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="A4-papier">
+      <div class="counter">Ronde 3 · vraag 6</div><div class="q">Papier op A4-formaat schrijf je als…</div>
+      <button class="opt" onclick="pick(this)">A4papier</button><button class="opt" onclick="pick(this)">A4-papier</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="wc-bril">
+      <div class="counter">Ronde 3 · vraag 7</div><div class="q">De bril op de wc schrijf je als… <em>(afkorting)</em></div>
+      <button class="opt" onclick="pick(this)">wcbril</button><button class="opt" onclick="pick(this)">wc-bril</button><div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
   <div id="done"></div>
-  <div class="cheer">Top gedaan, Tijn! Spelling wordt makkelijker als je vaker oefent. 🌟</div>
+  <div class="cheer">Top gedaan, Tijn! Je hebt nu alle spelling-onderdelen geoefend. 🌟</div>
 
 </div>
 
 <script>
-  var qs = document.querySelectorAll('[data-q]'), total = qs.length, score = 0, answered = 0;
+  var totalQ = document.querySelectorAll('[data-q]').length, totalScore = 0, totalAnswered = 0;
   function pick(btn){
-    var card = btn.closest('[data-q]'); if(card.dataset.done) return; card.dataset.done = 1;
+    var card = btn.closest('[data-q]'); if(card.dataset.done) return; card.dataset.done = '1';
     var correct = card.dataset.correct.trim(); var fb = card.querySelector('.fb');
     card.querySelectorAll('.opt').forEach(function(b){ b.disabled = true; if(b.textContent.trim() === correct) b.classList.add('good'); });
-    if(btn.textContent.trim() === correct){ fb.textContent = '✅ Goed zo!'; fb.style.color = '#16a766'; score++; }
-    else { btn.classList.add('bad'); fb.textContent = '❌ Bijna! Kijk nog eens naar het kadertje hierboven.'; fb.style.color = '#e0564a'; }
-    answered++;
-    if(answered === total){ var d = document.getElementById('done'); d.innerHTML = '<div class="done-msg">🎉 Klaar! Je had ' + score + ' van ' + total + ' goed.</div>'; d.scrollIntoView({behavior:'smooth'}); }
+    if(btn.textContent.trim() === correct){ fb.textContent = '✅ Goed zo!'; fb.style.color = '#16a766'; totalScore++; card.dataset.ok = '1'; }
+    else { btn.classList.add('bad'); fb.textContent = '❌ Bijna! Kijk nog eens naar de uitleg hierboven.'; fb.style.color = '#e0564a'; }
+    totalAnswered++;
+    var round = card.closest('[data-round]');
+    if(round && !round.dataset.fin){
+      var rc = round.querySelectorAll('[data-q]'), rd = round.querySelectorAll('[data-q][data-done]');
+      if(rc.length === rd.length){ round.dataset.fin = '1';
+        var good = round.querySelectorAll('[data-q][data-ok]').length;
+        var box = round.querySelector('.round-end');
+        if(box) box.innerHTML = '<div class="round-msg">✔️ Ronde klaar — ' + good + ' van ' + rc.length + ' goed.</div>';
+      }
+    }
+    if(totalAnswered === totalQ){
+      var d = document.getElementById('done');
+      d.innerHTML = '<div class="done-msg">🎉 Klaar met alle rondes! Je had in totaal ' + totalScore + ' van ' + totalQ + ' goed.</div>';
+      d.scrollIntoView({behavior:'smooth'});
+    }
   }
 </script>
 </body>
