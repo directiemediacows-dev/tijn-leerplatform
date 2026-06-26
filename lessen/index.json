@@ -1,5 +1,13 @@
 [
   {
+    "id": "nederlands-woorden",
+    "title": "Nederlands — Woorden",
+    "vak": "Nederlands",
+    "emoji": "📖",
+    "file": "nederlands-woorden.html",
+    "createdAt": "2026-06-26T14:35:00Z"
+  },
+  {
     "id": "nederlands-grammatica",
     "title": "Nederlands — Grammatica",
     "vak": "Nederlands",
