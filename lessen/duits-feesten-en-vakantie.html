@@ -3,202 +3,471 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Duits — Feesten & vakantie</title>
+<title>Duits — Feesten &amp; vakantie</title>
 <style>
-  *{box-sizing:border-box}
-  body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:#f4f7fb;color:#22303f;line-height:1.6}
-  .wrap{max-width:680px;margin:0 auto;padding:20px}
-  .top{background:#7c3aed;color:#fff;border-radius:16px;padding:22px;margin-bottom:18px}
-  .top .vak{font-size:14px;opacity:.9}
-  .top h1{margin:6px 0 0;font-size:26px}
-  .intro{background:#fff;border-radius:14px;padding:18px;margin-bottom:16px;border:1px solid #e3ebf3}
-  .intro h2{margin:0 0 8px;font-size:18px}
-  .kader{background:#f3edff;border:2px solid #d7c4ff;border-radius:14px;padding:16px;margin-bottom:16px}
-  .kader h3{margin:0 0 8px;font-size:17px;color:#6d28d9}
-  table{width:100%;border-collapse:collapse;margin:6px 0}
-  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid #e3d9fb;font-size:15px}
-  th{color:#6d28d9;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
-  td b{color:#5b21b6}
-  .tip{font-size:15px;color:#42566b}
-  .card{background:#fff;border-radius:14px;padding:18px;margin-bottom:14px;border:1px solid #e3ebf3}
-  .counter{font-size:13px;color:#7a8aa0;margin-bottom:6px}
-  .q{font-size:18px;font-weight:600;margin-bottom:12px}
-  .q .de{color:#6d28d9}
-  .opt{display:block;width:100%;text-align:left;background:#f4f7fb;border:2px solid #dbe6f1;border-radius:10px;padding:12px 14px;margin:8px 0;font-size:16px;cursor:pointer;transition:.15s}
-  .opt:hover:not(:disabled){border-color:#7c3aed}
-  .opt:disabled{cursor:default}
-  .opt.good{background:#e3f7ec;border-color:#16a766}
-  .opt.bad{background:#fdeceb;border-color:#e0564a}
-  .fb{margin-top:8px;font-weight:600;min-height:20px}
-  #done{margin:10px 0 40px}
-  .done-msg{background:#16a766;color:#fff;border-radius:14px;padding:18px;font-size:20px;text-align:center;font-weight:700}
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; background: #f4f7fb; color: #1f2a37; line-height: 1.6; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 80px; }
+  header { background: linear-gradient(135deg, #e0a020, #b9791a); color: #fff; border-radius: 18px; padding: 22px; margin-bottom: 18px; }
+  header .emoji { font-size: 34px; } header h1 { margin: 6px 0 4px; font-size: 22px; } header p { margin: 0; opacity: .92; font-size: 15px; }
+  .intro { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:18px; border:1px solid #e4eaf2; }
+  .intro h2 { margin:0 0 8px; font-size:17px; color:#b9791a; } .intro ul { margin:8px 0 0; padding-left:20px; }
+  section.step { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
+  section.step h3 { margin:0 0 8px; font-size:16px; color:#946012; }
+  .tag { display:inline-block; background:#fbf0d8; color:#946012; font-size:12px; font-weight:600; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 2px; font-size:14.5px; }
+  th, td { text-align:left; padding:7px 10px; border-bottom:1px solid #eef2f7; } th { background:#fbf4e4; color:#946012; }
+  .round-head { display:flex; align-items:center; gap:12px; margin:28px 4px 12px; }
+  .round-num { background:#b9791a; color:#fff; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; flex:0 0 auto; }
+  .round-title { font-size:17px; font-weight:800; }
+  .card { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
+  .counter { font-size:12px; color:#7a8aa0; font-weight:600; margin-bottom:6px; } .q { font-weight:600; margin-bottom:12px; }
+  .opt { display:block; width:100%; text-align:left; background:#f6f9fd; border:1.5px solid #d9e3f0; border-radius:10px; padding:11px 14px; margin:7px 0; font-size:15px; cursor:pointer; transition:all .12s; color:#1f2a37; }
+  .opt:hover:not(:disabled){ border-color:#e0a020; background:#fdf7ea; } .opt:disabled{ cursor:default; opacity:.95; }
+  .opt.good{ background:#e6f7ee; border-color:#16a766; color:#0d6b41; font-weight:600; } .opt.bad{ background:#fdecea; border-color:#e0564a; color:#a3271c; }
+  .fb{ margin-top:8px; font-weight:600; min-height:20px; }
+  .round-end{ margin:2px 0 4px; } .round-msg{ background:#fbf4e4; border:1px solid #f0e1bf; border-radius:12px; padding:13px 16px; font-weight:700; color:#946012; text-align:center; }
+  #done{ margin-top:18px; } .done-msg{ background:linear-gradient(135deg,#16a766,#0d8a52); color:#fff; border-radius:14px; padding:18px; text-align:center; font-size:18px; font-weight:700; }
+  .cheer{ background:#eef7f1; border:1px solid #cfe9da; border-radius:12px; padding:14px 16px; color:#0d6b41; font-weight:600; text-align:center; margin-top:14px; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top">
-    <div class="vak">🇩🇪 Duits</div>
+
+  <header>
+    <div class="emoji">🇩🇪</div>
     <h1>Feesten &amp; vakantie</h1>
-  </div>
+    <p>Duits · woordjes oefenen</p>
+  </header>
 
   <div class="intro">
-    <h2>Wat ga je leren?</h2>
-    <p>Je leert Duitse woordjes over <b>feesten, familie en vakantie</b>. Eerst bekijk je de woordenlijstjes rustig. Daarna oefen je ze, één vraag tegelijk. Je hoeft niet alles in één keer te onthouden — gewoon stap voor stap.</p>
+    <h2>Wat ga je leren? 🎯</h2>
+    <ul>
+      <li>Alle Duitse woordjes over <strong>feest &amp; familie</strong>, <strong>feestdagen</strong> en <strong>vakantie</strong>.</li>
+    </ul>
+    <p style="margin:10px 0 0; font-size:14px; color:#5a6b82;">Bekijk eerst de woordenlijsten. Daarna oefen je <strong>alle 40 woorden</strong> in 3 rondes. Eén vraag tegelijk, geen haast! 💪</p>
   </div>
 
-  <div class="kader">
-    <h3>Woordenlijst 1 — Feest &amp; familie</h3>
-    <table>
-      <tr><th>Duits</th><th>Nederlands</th></tr>
-      <tr><td><b>der Geburtstag</b></td><td>de verjaardag</td></tr>
-      <tr><td><b>das Geschenk</b></td><td>het cadeau</td></tr>
-      <tr><td><b>die Party</b></td><td>het feest</td></tr>
-      <tr><td><b>der Karneval</b></td><td>het carnaval</td></tr>
-      <tr><td><b>der Osterhase</b></td><td>de paashaas</td></tr>
-      <tr><td><b>die Familie</b></td><td>het gezin / de familie</td></tr>
-      <tr><td><b>der Gast</b></td><td>de gast</td></tr>
-      <tr><td><b>der Onkel</b></td><td>de oom</td></tr>
-      <tr><td><b>die Tante</b></td><td>de tante</td></tr>
-      <tr><td><b>der Großvater</b></td><td>de opa</td></tr>
-      <tr><td><b>die Großmutter</b></td><td>de oma</td></tr>
-      <tr><td><b>der Vater</b></td><td>de vader</td></tr>
-      <tr><td><b>die Mutter</b></td><td>de moeder</td></tr>
-    </table>
-  </div>
+  <section class="step">
+    <span class="tag">Woordenlijst 1</span><h3>Feest &amp; familie</h3>
+    <table><tr><th>Duits</th><th>Nederlands</th></tr><tr><td>der Geburtstag</td><td>de verjaardag</td></tr><tr><td>das Geschenk</td><td>het cadeau</td></tr><tr><td>die Party</td><td>het feest</td></tr><tr><td>der Karneval</td><td>het carnaval</td></tr><tr><td>der Osterhase</td><td>de paashaas</td></tr><tr><td>die Familie</td><td>het gezin / de familie</td></tr><tr><td>der Gast</td><td>de gast</td></tr><tr><td>der Onkel</td><td>de oom</td></tr><tr><td>die Tante</td><td>de tante</td></tr><tr><td>der Großvater</td><td>de opa</td></tr><tr><td>die Großmutter</td><td>de oma</td></tr><tr><td>der Vater</td><td>de vader</td></tr><tr><td>die Mutter</td><td>de moeder</td></tr></table>
+  </section>
+  <section class="step">
+    <span class="tag">Woordenlijst 2</span><h3>Feestdagen</h3>
+    <table><tr><th>Duits</th><th>Nederlands</th></tr><tr><td>der Advent</td><td>de advent</td></tr><tr><td>der Weihnachtsbaum</td><td>de kerstboom</td></tr><tr><td>Weihnachten</td><td>Kerst</td></tr><tr><td>Neujahr</td><td>Nieuwjaar</td></tr><tr><td>Silvester</td><td>oud en nieuw</td></tr><tr><td>die Geburt</td><td>de geboorte</td></tr><tr><td>die Hochzeit</td><td>de bruiloft</td></tr><tr><td>die Verlobung</td><td>de verloving</td></tr><tr><td>feiern</td><td>vieren</td></tr><tr><td>verkleiden</td><td>verkleden</td></tr><tr><td>verstehen</td><td>begrijpen</td></tr></table>
+  </section>
+  <section class="step">
+    <span class="tag">Woordenlijst 3</span><h3>Vakantie &amp; algemeen</h3>
+    <table><tr><th>Duits</th><th>Nederlands</th></tr><tr><td>der Ausflug</td><td>het uitstapje</td></tr><tr><td>der Urlaub</td><td>de vakantie</td></tr><tr><td>die Einladung</td><td>de uitnodiging</td></tr><tr><td>einladen</td><td>uitnodigen</td></tr><tr><td>der Rucksack</td><td>de rugzak</td></tr><tr><td>die Tasche</td><td>de tas</td></tr><tr><td>der Eingang</td><td>de ingang</td></tr><tr><td>das Wochenende</td><td>het weekend</td></tr><tr><td>das Essen</td><td>het eten</td></tr><tr><td>kaufen</td><td>kopen</td></tr><tr><td>überraschen</td><td>verrassen</td></tr><tr><td>zum Beispiel</td><td>bijvoorbeeld</td></tr><tr><td>heute</td><td>vandaag</td></tr><tr><td>gestern</td><td>gisteren</td></tr><tr><td>süß</td><td>zoet</td></tr><tr><td>salzig</td><td>zout</td></tr></table>
+  </section>
 
-  <div class="kader">
-    <h3>Woordenlijst 2 — Feestdagen</h3>
-    <table>
-      <tr><th>Duits</th><th>Nederlands</th></tr>
-      <tr><td><b>der Advent</b></td><td>de advent</td></tr>
-      <tr><td><b>der Weihnachtsbaum</b></td><td>de kerstboom</td></tr>
-      <tr><td><b>Weihnachten</b></td><td>Kerst</td></tr>
-      <tr><td><b>Neujahr</b></td><td>Nieuwjaar</td></tr>
-      <tr><td><b>Silvester</b></td><td>oud en nieuw</td></tr>
-      <tr><td><b>die Geburt</b></td><td>de geboorte</td></tr>
-      <tr><td><b>die Hochzeit</b></td><td>de bruiloft</td></tr>
-      <tr><td><b>die Verlobung</b></td><td>de verloving</td></tr>
-      <tr><td><b>feiern</b></td><td>vieren</td></tr>
-      <tr><td><b>verkleiden</b></td><td>verkleden</td></tr>
-      <tr><td><b>verstehen</b></td><td>begrijpen</td></tr>
-    </table>
-  </div>
+  <h2 style="font-size:20px;margin:26px 4px 4px;">✏️ Oefenrondes</h2>
+  <p style="margin:0 4px 8px; color:#5a6b82;">3 rondes — samen oefen je álle 40 woorden! 🐢</p>
 
-  <div class="kader">
-    <h3>Woordenlijst 3 — Vakantie &amp; algemeen</h3>
-    <table>
-      <tr><th>Duits</th><th>Nederlands</th></tr>
-      <tr><td><b>der Ausflug</b></td><td>het uitstapje</td></tr>
-      <tr><td><b>der Urlaub</b></td><td>de vakantie</td></tr>
-      <tr><td><b>die Einladung</b></td><td>de uitnodiging</td></tr>
-      <tr><td><b>einladen</b></td><td>uitnodigen</td></tr>
-      <tr><td><b>der Rucksack</b></td><td>de rugzak</td></tr>
-      <tr><td><b>die Tasche</b></td><td>de tas</td></tr>
-      <tr><td><b>der Eingang</b></td><td>de ingang</td></tr>
-      <tr><td><b>das Wochenende</b></td><td>het weekend</td></tr>
-      <tr><td><b>das Essen</b></td><td>het eten</td></tr>
-      <tr><td><b>kaufen</b></td><td>kopen</td></tr>
-      <tr><td><b>überraschen</b></td><td>verrassen</td></tr>
-      <tr><td><b>zum Beispiel</b></td><td>bijvoorbeeld</td></tr>
-      <tr><td><b>heute</b></td><td>vandaag</td></tr>
-      <tr><td><b>gestern</b></td><td>gisteren</td></tr>
-      <tr><td><b>süß</b></td><td>zoet</td></tr>
-      <tr><td><b>salzig</b></td><td>zout</td></tr>
-    </table>
-    <p class="tip">💡 Tip: lees een woord eerst hardop in het Duits, en zeg er meteen het Nederlandse woord achteraan. Herhalen helpt!</p>
-  </div>
+  <section class="round" data-round="1">
+    <div class="round-head"><div class="round-num">1</div><div class="round-title">Woordenlijst 1 — Feest &amp; familie</div></div>
+    <div class="card" data-q data-correct="de verjaardag">
+      <div class="counter">Ronde 1 · vraag 1</div>
+      <div class="q">Wat betekent <strong>der Geburtstag</strong>?</div>
+      <button class="opt" onclick="pick(this)">het feest</button>
+      <button class="opt" onclick="pick(this)">de verjaardag</button>
+      <button class="opt" onclick="pick(this)">de vader</button>
+      <button class="opt" onclick="pick(this)">het cadeau</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="het cadeau">
+      <div class="counter">Ronde 1 · vraag 2</div>
+      <div class="q">Wat betekent <strong>das Geschenk</strong>?</div>
+      <button class="opt" onclick="pick(this)">het cadeau</button>
+      <button class="opt" onclick="pick(this)">het feest</button>
+      <button class="opt" onclick="pick(this)">de opa</button>
+      <button class="opt" onclick="pick(this)">het carnaval</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="het feest">
+      <div class="counter">Ronde 1 · vraag 3</div>
+      <div class="q">Wat betekent <strong>die Party</strong>?</div>
+      <button class="opt" onclick="pick(this)">het feest</button>
+      <button class="opt" onclick="pick(this)">het cadeau</button>
+      <button class="opt" onclick="pick(this)">de verjaardag</button>
+      <button class="opt" onclick="pick(this)">de moeder</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="het carnaval">
+      <div class="counter">Ronde 1 · vraag 4</div>
+      <div class="q">Wat betekent <strong>der Karneval</strong>?</div>
+      <button class="opt" onclick="pick(this)">de moeder</button>
+      <button class="opt" onclick="pick(this)">de paashaas</button>
+      <button class="opt" onclick="pick(this)">de opa</button>
+      <button class="opt" onclick="pick(this)">het carnaval</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de paashaas">
+      <div class="counter">Ronde 1 · vraag 5</div>
+      <div class="q">Wat betekent <strong>der Osterhase</strong>?</div>
+      <button class="opt" onclick="pick(this)">de oma</button>
+      <button class="opt" onclick="pick(this)">de paashaas</button>
+      <button class="opt" onclick="pick(this)">de verjaardag</button>
+      <button class="opt" onclick="pick(this)">het gezin / de familie</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="het gezin / de familie">
+      <div class="counter">Ronde 1 · vraag 6</div>
+      <div class="q">Wat betekent <strong>die Familie</strong>?</div>
+      <button class="opt" onclick="pick(this)">het feest</button>
+      <button class="opt" onclick="pick(this)">de gast</button>
+      <button class="opt" onclick="pick(this)">het gezin / de familie</button>
+      <button class="opt" onclick="pick(this)">de paashaas</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de gast">
+      <div class="counter">Ronde 1 · vraag 7</div>
+      <div class="q">Wat betekent <strong>der Gast</strong>?</div>
+      <button class="opt" onclick="pick(this)">het cadeau</button>
+      <button class="opt" onclick="pick(this)">de gast</button>
+      <button class="opt" onclick="pick(this)">de oom</button>
+      <button class="opt" onclick="pick(this)">de moeder</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de oom">
+      <div class="counter">Ronde 1 · vraag 8</div>
+      <div class="q">Wat betekent <strong>der Onkel</strong>?</div>
+      <button class="opt" onclick="pick(this)">de opa</button>
+      <button class="opt" onclick="pick(this)">de oom</button>
+      <button class="opt" onclick="pick(this)">de tante</button>
+      <button class="opt" onclick="pick(this)">de verjaardag</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de tante">
+      <div class="counter">Ronde 1 · vraag 9</div>
+      <div class="q">Wat betekent <strong>die Tante</strong>?</div>
+      <button class="opt" onclick="pick(this)">de paashaas</button>
+      <button class="opt" onclick="pick(this)">de opa</button>
+      <button class="opt" onclick="pick(this)">de tante</button>
+      <button class="opt" onclick="pick(this)">de oma</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de opa">
+      <div class="counter">Ronde 1 · vraag 10</div>
+      <div class="q">Wat betekent <strong>der Großvater</strong>?</div>
+      <button class="opt" onclick="pick(this)">de verjaardag</button>
+      <button class="opt" onclick="pick(this)">de moeder</button>
+      <button class="opt" onclick="pick(this)">de opa</button>
+      <button class="opt" onclick="pick(this)">het cadeau</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de oma">
+      <div class="counter">Ronde 1 · vraag 11</div>
+      <div class="q">Wat betekent <strong>die Großmutter</strong>?</div>
+      <button class="opt" onclick="pick(this)">het carnaval</button>
+      <button class="opt" onclick="pick(this)">de oma</button>
+      <button class="opt" onclick="pick(this)">het cadeau</button>
+      <button class="opt" onclick="pick(this)">de gast</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de vader">
+      <div class="counter">Ronde 1 · vraag 12</div>
+      <div class="q">Wat betekent <strong>der Vater</strong>?</div>
+      <button class="opt" onclick="pick(this)">het feest</button>
+      <button class="opt" onclick="pick(this)">de vader</button>
+      <button class="opt" onclick="pick(this)">de oma</button>
+      <button class="opt" onclick="pick(this)">het gezin / de familie</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de moeder">
+      <div class="counter">Ronde 1 · vraag 13</div>
+      <div class="q">Wat betekent <strong>die Mutter</strong>?</div>
+      <button class="opt" onclick="pick(this)">de moeder</button>
+      <button class="opt" onclick="pick(this)">de vader</button>
+      <button class="opt" onclick="pick(this)">het cadeau</button>
+      <button class="opt" onclick="pick(this)">de oma</button>
+      <div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
-  <div class="card" data-q data-correct="de verjaardag">
-    <div class="counter">Oefening 1 van 8</div>
-    <div class="q">Wat betekent <span class="de">der Geburtstag</span>?</div>
-    <button class="opt" onclick="pick(this)">de verjaardag</button>
-    <button class="opt" onclick="pick(this)">de bruiloft</button>
-    <button class="opt" onclick="pick(this)">de geboorte</button>
-    <button class="opt" onclick="pick(this)">het cadeau</button>
-    <div class="fb"></div>
-  </div>
+  <section class="round" data-round="2">
+    <div class="round-head"><div class="round-num">2</div><div class="round-title">Woordenlijst 2 — Feestdagen</div></div>
+    <div class="card" data-q data-correct="de advent">
+      <div class="counter">Ronde 2 · vraag 1</div>
+      <div class="q">Wat betekent <strong>der Advent</strong>?</div>
+      <button class="opt" onclick="pick(this)">vieren</button>
+      <button class="opt" onclick="pick(this)">Nieuwjaar</button>
+      <button class="opt" onclick="pick(this)">de advent</button>
+      <button class="opt" onclick="pick(this)">de verloving</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de kerstboom">
+      <div class="counter">Ronde 2 · vraag 2</div>
+      <div class="q">Wat betekent <strong>der Weihnachtsbaum</strong>?</div>
+      <button class="opt" onclick="pick(this)">de kerstboom</button>
+      <button class="opt" onclick="pick(this)">oud en nieuw</button>
+      <button class="opt" onclick="pick(this)">de advent</button>
+      <button class="opt" onclick="pick(this)">de bruiloft</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Kerst">
+      <div class="counter">Ronde 2 · vraag 3</div>
+      <div class="q">Wat betekent <strong>Weihnachten</strong>?</div>
+      <button class="opt" onclick="pick(this)">Kerst</button>
+      <button class="opt" onclick="pick(this)">de kerstboom</button>
+      <button class="opt" onclick="pick(this)">de geboorte</button>
+      <button class="opt" onclick="pick(this)">oud en nieuw</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Nieuwjaar">
+      <div class="counter">Ronde 2 · vraag 4</div>
+      <div class="q">Wat betekent <strong>Neujahr</strong>?</div>
+      <button class="opt" onclick="pick(this)">vieren</button>
+      <button class="opt" onclick="pick(this)">Nieuwjaar</button>
+      <button class="opt" onclick="pick(this)">de verloving</button>
+      <button class="opt" onclick="pick(this)">Kerst</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="oud en nieuw">
+      <div class="counter">Ronde 2 · vraag 5</div>
+      <div class="q">Wat betekent <strong>Silvester</strong>?</div>
+      <button class="opt" onclick="pick(this)">verkleden</button>
+      <button class="opt" onclick="pick(this)">begrijpen</button>
+      <button class="opt" onclick="pick(this)">de geboorte</button>
+      <button class="opt" onclick="pick(this)">oud en nieuw</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de geboorte">
+      <div class="counter">Ronde 2 · vraag 6</div>
+      <div class="q">Wat betekent <strong>die Geburt</strong>?</div>
+      <button class="opt" onclick="pick(this)">Nieuwjaar</button>
+      <button class="opt" onclick="pick(this)">Kerst</button>
+      <button class="opt" onclick="pick(this)">de bruiloft</button>
+      <button class="opt" onclick="pick(this)">de geboorte</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de bruiloft">
+      <div class="counter">Ronde 2 · vraag 7</div>
+      <div class="q">Wat betekent <strong>die Hochzeit</strong>?</div>
+      <button class="opt" onclick="pick(this)">Kerst</button>
+      <button class="opt" onclick="pick(this)">de kerstboom</button>
+      <button class="opt" onclick="pick(this)">verkleden</button>
+      <button class="opt" onclick="pick(this)">de bruiloft</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de verloving">
+      <div class="counter">Ronde 2 · vraag 8</div>
+      <div class="q">Wat betekent <strong>die Verlobung</strong>?</div>
+      <button class="opt" onclick="pick(this)">begrijpen</button>
+      <button class="opt" onclick="pick(this)">de bruiloft</button>
+      <button class="opt" onclick="pick(this)">de verloving</button>
+      <button class="opt" onclick="pick(this)">vieren</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="vieren">
+      <div class="counter">Ronde 2 · vraag 9</div>
+      <div class="q">Wat betekent <strong>feiern</strong>?</div>
+      <button class="opt" onclick="pick(this)">vieren</button>
+      <button class="opt" onclick="pick(this)">verkleden</button>
+      <button class="opt" onclick="pick(this)">de kerstboom</button>
+      <button class="opt" onclick="pick(this)">oud en nieuw</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="verkleden">
+      <div class="counter">Ronde 2 · vraag 10</div>
+      <div class="q">Wat betekent <strong>verkleiden</strong>?</div>
+      <button class="opt" onclick="pick(this)">verkleden</button>
+      <button class="opt" onclick="pick(this)">Kerst</button>
+      <button class="opt" onclick="pick(this)">de verloving</button>
+      <button class="opt" onclick="pick(this)">de bruiloft</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="begrijpen">
+      <div class="counter">Ronde 2 · vraag 11</div>
+      <div class="q">Wat betekent <strong>verstehen</strong>?</div>
+      <button class="opt" onclick="pick(this)">Kerst</button>
+      <button class="opt" onclick="pick(this)">vieren</button>
+      <button class="opt" onclick="pick(this)">begrijpen</button>
+      <button class="opt" onclick="pick(this)">de kerstboom</button>
+      <div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
-  <div class="card" data-q data-correct="het cadeau">
-    <div class="counter">Oefening 2 van 8</div>
-    <div class="q">Wat betekent <span class="de">das Geschenk</span>?</div>
-    <button class="opt" onclick="pick(this)">het feest</button>
-    <button class="opt" onclick="pick(this)">het cadeau</button>
-    <button class="opt" onclick="pick(this)">de gast</button>
-    <button class="opt" onclick="pick(this)">de tas</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="de paashaas">
-    <div class="counter">Oefening 3 van 8</div>
-    <div class="q">Wat betekent <span class="de">der Osterhase</span>?</div>
-    <button class="opt" onclick="pick(this)">de kerstboom</button>
-    <button class="opt" onclick="pick(this)">de paashaas</button>
-    <button class="opt" onclick="pick(this)">de oom</button>
-    <button class="opt" onclick="pick(this)">de opa</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="de bruiloft">
-    <div class="counter">Oefening 4 van 8</div>
-    <div class="q">Wat betekent <span class="de">die Hochzeit</span>?</div>
-    <button class="opt" onclick="pick(this)">de verloving</button>
-    <button class="opt" onclick="pick(this)">de geboorte</button>
-    <button class="opt" onclick="pick(this)">de bruiloft</button>
-    <button class="opt" onclick="pick(this)">de vakantie</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="verkleden">
-    <div class="counter">Oefening 5 van 8</div>
-    <div class="q">Wat betekent <span class="de">verkleiden</span>?</div>
-    <button class="opt" onclick="pick(this)">vieren</button>
-    <button class="opt" onclick="pick(this)">verkleden</button>
-    <button class="opt" onclick="pick(this)">begrijpen</button>
-    <button class="opt" onclick="pick(this)">verrassen</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="de vakantie">
-    <div class="counter">Oefening 6 van 8</div>
-    <div class="q">Wat betekent <span class="de">der Urlaub</span>?</div>
-    <button class="opt" onclick="pick(this)">het uitstapje</button>
-    <button class="opt" onclick="pick(this)">de uitnodiging</button>
-    <button class="opt" onclick="pick(this)">de vakantie</button>
-    <button class="opt" onclick="pick(this)">de ingang</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="zoet">
-    <div class="counter">Oefening 7 van 8</div>
-    <div class="q">Wat betekent <span class="de">süß</span>?</div>
-    <button class="opt" onclick="pick(this)">zout</button>
-    <button class="opt" onclick="pick(this)">zoet</button>
-    <button class="opt" onclick="pick(this)">vandaag</button>
-    <button class="opt" onclick="pick(this)">gisteren</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="de rugzak">
-    <div class="counter">Oefening 8 van 8</div>
-    <div class="q">Wat betekent <span class="de">der Rucksack</span>?</div>
-    <button class="opt" onclick="pick(this)">de tas</button>
-    <button class="opt" onclick="pick(this)">de rugzak</button>
-    <button class="opt" onclick="pick(this)">het weekend</button>
-    <button class="opt" onclick="pick(this)">het eten</button>
-    <div class="fb"></div>
-  </div>
+  <section class="round" data-round="3">
+    <div class="round-head"><div class="round-num">3</div><div class="round-title">Woordenlijst 3 — Vakantie &amp; algemeen</div></div>
+    <div class="card" data-q data-correct="het uitstapje">
+      <div class="counter">Ronde 3 · vraag 1</div>
+      <div class="q">Wat betekent <strong>der Ausflug</strong>?</div>
+      <button class="opt" onclick="pick(this)">het uitstapje</button>
+      <button class="opt" onclick="pick(this)">uitnodigen</button>
+      <button class="opt" onclick="pick(this)">gisteren</button>
+      <button class="opt" onclick="pick(this)">de ingang</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de vakantie">
+      <div class="counter">Ronde 3 · vraag 2</div>
+      <div class="q">Wat betekent <strong>der Urlaub</strong>?</div>
+      <button class="opt" onclick="pick(this)">het eten</button>
+      <button class="opt" onclick="pick(this)">de ingang</button>
+      <button class="opt" onclick="pick(this)">de vakantie</button>
+      <button class="opt" onclick="pick(this)">verrassen</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de uitnodiging">
+      <div class="counter">Ronde 3 · vraag 3</div>
+      <div class="q">Wat betekent <strong>die Einladung</strong>?</div>
+      <button class="opt" onclick="pick(this)">zoet</button>
+      <button class="opt" onclick="pick(this)">de uitnodiging</button>
+      <button class="opt" onclick="pick(this)">zout</button>
+      <button class="opt" onclick="pick(this)">gisteren</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="uitnodigen">
+      <div class="counter">Ronde 3 · vraag 4</div>
+      <div class="q">Wat betekent <strong>einladen</strong>?</div>
+      <button class="opt" onclick="pick(this)">uitnodigen</button>
+      <button class="opt" onclick="pick(this)">verrassen</button>
+      <button class="opt" onclick="pick(this)">de vakantie</button>
+      <button class="opt" onclick="pick(this)">de rugzak</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de rugzak">
+      <div class="counter">Ronde 3 · vraag 5</div>
+      <div class="q">Wat betekent <strong>der Rucksack</strong>?</div>
+      <button class="opt" onclick="pick(this)">gisteren</button>
+      <button class="opt" onclick="pick(this)">de rugzak</button>
+      <button class="opt" onclick="pick(this)">zoet</button>
+      <button class="opt" onclick="pick(this)">de vakantie</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de tas">
+      <div class="counter">Ronde 3 · vraag 6</div>
+      <div class="q">Wat betekent <strong>die Tasche</strong>?</div>
+      <button class="opt" onclick="pick(this)">de uitnodiging</button>
+      <button class="opt" onclick="pick(this)">de rugzak</button>
+      <button class="opt" onclick="pick(this)">kopen</button>
+      <button class="opt" onclick="pick(this)">de tas</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="de ingang">
+      <div class="counter">Ronde 3 · vraag 7</div>
+      <div class="q">Wat betekent <strong>der Eingang</strong>?</div>
+      <button class="opt" onclick="pick(this)">vandaag</button>
+      <button class="opt" onclick="pick(this)">de ingang</button>
+      <button class="opt" onclick="pick(this)">de rugzak</button>
+      <button class="opt" onclick="pick(this)">het weekend</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="het weekend">
+      <div class="counter">Ronde 3 · vraag 8</div>
+      <div class="q">Wat betekent <strong>das Wochenende</strong>?</div>
+      <button class="opt" onclick="pick(this)">zoet</button>
+      <button class="opt" onclick="pick(this)">het weekend</button>
+      <button class="opt" onclick="pick(this)">uitnodigen</button>
+      <button class="opt" onclick="pick(this)">de vakantie</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="het eten">
+      <div class="counter">Ronde 3 · vraag 9</div>
+      <div class="q">Wat betekent <strong>das Essen</strong>?</div>
+      <button class="opt" onclick="pick(this)">het eten</button>
+      <button class="opt" onclick="pick(this)">uitnodigen</button>
+      <button class="opt" onclick="pick(this)">verrassen</button>
+      <button class="opt" onclick="pick(this)">kopen</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="kopen">
+      <div class="counter">Ronde 3 · vraag 10</div>
+      <div class="q">Wat betekent <strong>kaufen</strong>?</div>
+      <button class="opt" onclick="pick(this)">kopen</button>
+      <button class="opt" onclick="pick(this)">het uitstapje</button>
+      <button class="opt" onclick="pick(this)">vandaag</button>
+      <button class="opt" onclick="pick(this)">bijvoorbeeld</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="verrassen">
+      <div class="counter">Ronde 3 · vraag 11</div>
+      <div class="q">Wat betekent <strong>überraschen</strong>?</div>
+      <button class="opt" onclick="pick(this)">zoet</button>
+      <button class="opt" onclick="pick(this)">de vakantie</button>
+      <button class="opt" onclick="pick(this)">verrassen</button>
+      <button class="opt" onclick="pick(this)">de tas</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="bijvoorbeeld">
+      <div class="counter">Ronde 3 · vraag 12</div>
+      <div class="q">Wat betekent <strong>zum Beispiel</strong>?</div>
+      <button class="opt" onclick="pick(this)">de uitnodiging</button>
+      <button class="opt" onclick="pick(this)">het eten</button>
+      <button class="opt" onclick="pick(this)">uitnodigen</button>
+      <button class="opt" onclick="pick(this)">bijvoorbeeld</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="vandaag">
+      <div class="counter">Ronde 3 · vraag 13</div>
+      <div class="q">Wat betekent <strong>heute</strong>?</div>
+      <button class="opt" onclick="pick(this)">uitnodigen</button>
+      <button class="opt" onclick="pick(this)">de ingang</button>
+      <button class="opt" onclick="pick(this)">vandaag</button>
+      <button class="opt" onclick="pick(this)">gisteren</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="gisteren">
+      <div class="counter">Ronde 3 · vraag 14</div>
+      <div class="q">Wat betekent <strong>gestern</strong>?</div>
+      <button class="opt" onclick="pick(this)">de ingang</button>
+      <button class="opt" onclick="pick(this)">de tas</button>
+      <button class="opt" onclick="pick(this)">zoet</button>
+      <button class="opt" onclick="pick(this)">gisteren</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="zoet">
+      <div class="counter">Ronde 3 · vraag 15</div>
+      <div class="q">Wat betekent <strong>süß</strong>?</div>
+      <button class="opt" onclick="pick(this)">gisteren</button>
+      <button class="opt" onclick="pick(this)">zout</button>
+      <button class="opt" onclick="pick(this)">zoet</button>
+      <button class="opt" onclick="pick(this)">verrassen</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="zout">
+      <div class="counter">Ronde 3 · vraag 16</div>
+      <div class="q">Wat betekent <strong>salzig</strong>?</div>
+      <button class="opt" onclick="pick(this)">de tas</button>
+      <button class="opt" onclick="pick(this)">vandaag</button>
+      <button class="opt" onclick="pick(this)">zout</button>
+      <button class="opt" onclick="pick(this)">bijvoorbeeld</button>
+      <div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
   <div id="done"></div>
+  <div class="cheer">Sehr gut, Tijn! Je hebt nu alle Duitse woorden geoefend. 🌟</div>
+
 </div>
 
 <script>
-  var qs=document.querySelectorAll('[data-q]'), total=qs.length, score=0, answered=0;
-  function pick(btn){var card=btn.closest('[data-q]'); if(card.dataset.done) return; card.dataset.done=1;
-    var correct=card.dataset.correct.trim(); var fb=card.querySelector('.fb');
-    card.querySelectorAll('.opt').forEach(function(b){b.disabled=true; if(b.textContent.trim()===correct) b.classList.add('good');});
-    if(btn.textContent.trim()===correct){fb.textContent='✅ Goed zo!';fb.style.color='#16a766';score++;}
-    else{btn.classList.add('bad');fb.textContent='❌ Bijna! Kijk nog eens in het woordenlijstje hierboven.';fb.style.color='#e0564a';}
-    answered++; if(answered===total){var d=document.getElementById('done'); d.innerHTML='<div class="done-msg">🎉 Klaar! Je had '+score+' van '+total+' goed. Goed bezig, Tijn!</div>'; d.scrollIntoView({behavior:'smooth'});}}
+  var totalQ = document.querySelectorAll('[data-q]').length, totalScore = 0, totalAnswered = 0;
+  function pick(btn){
+    var card = btn.closest('[data-q]'); if(card.dataset.done) return; card.dataset.done = '1';
+    var correct = card.dataset.correct.trim(); var fb = card.querySelector('.fb');
+    card.querySelectorAll('.opt').forEach(function(b){ b.disabled = true; if(b.textContent.trim() === correct) b.classList.add('good'); });
+    if(btn.textContent.trim() === correct){ fb.textContent = '✅ Goed zo!'; fb.style.color = '#16a766'; totalScore++; card.dataset.ok = '1'; }
+    else { btn.classList.add('bad'); fb.textContent = '❌ Bijna! Kijk nog eens in de woordenlijst hierboven.'; fb.style.color = '#e0564a'; }
+    totalAnswered++;
+    var round = card.closest('[data-round]');
+    if(round && !round.dataset.fin){
+      var rc = round.querySelectorAll('[data-q]'), rd = round.querySelectorAll('[data-q][data-done]');
+      if(rc.length === rd.length){ round.dataset.fin = '1';
+        var good = round.querySelectorAll('[data-q][data-ok]').length;
+        var box = round.querySelector('.round-end');
+        if(box) box.innerHTML = '<div class="round-msg">✔️ Ronde klaar — ' + good + ' van ' + rc.length + ' goed.</div>';
+      }
+    }
+    if(totalAnswered === totalQ){
+      var d = document.getElementById('done');
+      d.innerHTML = '<div class="done-msg">🎉 Klaar met alle rondes! Je had in totaal ' + totalScore + ' van ' + totalQ + ' goed.</div>';
+      d.scrollIntoView({behavior:'smooth'});
+    }
+  }
 </script>
 </body>
 </html>
