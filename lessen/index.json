@@ -1,5 +1,21 @@
 [
   {
+    "id": "nederlands-grammatica",
+    "title": "Nederlands — Grammatica",
+    "vak": "Nederlands",
+    "emoji": "📝",
+    "file": "nederlands-grammatica.html",
+    "createdAt": "2026-06-26T14:25:00Z"
+  },
+  {
+    "id": "nederlands-spelling",
+    "title": "Nederlands — Spelling",
+    "vak": "Nederlands",
+    "emoji": "✍️",
+    "file": "nederlands-spelling.html",
+    "createdAt": "2026-06-26T14:24:00Z"
+  },
+  {
     "id": "nederlands-lezen-strategieen-2026-06-26",
     "title": "Nederlands — Lezen: strategieën & tekstopbouw",
     "vak": "Nederlands",
@@ -14,70 +30,6 @@
     "emoji": "🇩🇪",
     "file": "duits-feesten-en-vakantie.html",
     "createdAt": "2026-06-26T12:07:30Z"
-  },
-  {
-    "id": "jou-of-jouw",
-    "title": "Jou of jouw?",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "jou-of-jouw.html",
-    "createdAt": "2026-06-24T15:10:23Z"
-  },
-  {
-    "id": "als-of-dan",
-    "title": "Als of dan?",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "als-of-dan.html",
-    "createdAt": "2026-06-24T15:10:23Z"
-  },
-  {
-    "id": "bijvoeglijke-naamwoorden",
-    "title": "Bijvoeglijke naamwoorden",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "bijvoeglijke-naamwoorden.html",
-    "createdAt": "2026-06-24T15:10:23Z"
-  },
-  {
-    "id": "samenstellingen",
-    "title": "Samenstellingen: tussen-n, -s en streepje",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "samenstellingen.html",
-    "createdAt": "2026-06-24T15:10:23Z"
-  },
-  {
-    "id": "nederlands-jou-jouw-2026-06-24",
-    "title": "Nederlands — Jou of jouw?",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-jou-jouw-2026-06-24.html",
-    "createdAt": "2026-06-24T07:45:00Z"
-  },
-  {
-    "id": "nederlands-als-dan-bijvoeglijk-2026-06-24",
-    "title": "Nederlands — Als/dan & bijvoeglijke naamwoorden",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-als-dan-bijvoeglijk-2026-06-24.html",
-    "createdAt": "2026-06-24T07:45:00Z"
-  },
-  {
-    "id": "nederlands-samenstellingen-2026-06-24",
-    "title": "Nederlands — Voltooid deelwoord & samenstellingen",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-samenstellingen-2026-06-24.html",
-    "createdAt": "2026-06-24T07:45:00Z"
-  },
-  {
-    "id": "nederlands-aangepaste-toets-2026-06-23",
-    "title": "Nederlands — Aangepaste toets (volledig)",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-aangepaste-toets-2026-06-23.html",
-    "createdAt": "2026-06-23T11:45:00Z"
   },
   {
     "id": "welkom",
