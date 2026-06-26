@@ -9,37 +9,29 @@
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     margin: 0; background: #f4f7fb; color: #1f2a37; line-height: 1.6; }
   .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 80px; }
-  header { background: linear-gradient(135deg, #4a86e8, #2563a6); color: #fff;
-    border-radius: 18px; padding: 22px; margin-bottom: 18px; }
-  header .emoji { font-size: 34px; }
-  header h1 { margin: 6px 0 4px; font-size: 22px; }
-  header p { margin: 0; opacity: .92; font-size: 15px; }
+  header { background: linear-gradient(135deg, #4a86e8, #2563a6); color: #fff; border-radius: 18px; padding: 22px; margin-bottom: 18px; }
+  header .emoji { font-size: 34px; } header h1 { margin: 6px 0 4px; font-size: 22px; } header p { margin: 0; opacity: .92; font-size: 15px; }
   .intro { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:18px; border:1px solid #e4eaf2; }
-  .intro h2 { margin:0 0 8px; font-size:17px; color:#2563a6; }
-  .intro ul { margin:8px 0 0; padding-left:20px; }
+  .intro h2 { margin:0 0 8px; font-size:17px; color:#2563a6; } .intro ul { margin:8px 0 0; padding-left:20px; }
   section.step { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
   section.step h3 { margin:0 0 8px; font-size:16px; color:#1f4e82; }
-  .tag { display:inline-block; background:#e8f1fb; color:#2563a6; font-size:12px; font-weight:600;
-    padding:3px 10px; border-radius:999px; margin-bottom:8px; }
+  .tag { display:inline-block; background:#e8f1fb; color:#2563a6; font-size:12px; font-weight:600; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
   table { width:100%; border-collapse:collapse; margin:8px 0 2px; font-size:14.5px; }
-  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid #eef2f7; vertical-align:top; }
-  th { background:#f0f6fd; color:#2563a6; }
-  .kader { background:#fff8e7; border:1px solid #f3e2b3; border-radius:12px; padding:12px 14px; margin-top:10px; }
-  .kader strong { color:#9a6b00; }
-  h2.block { font-size:19px; color:#1f2a37; margin:26px 4px 10px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid #eef2f7; vertical-align:top; } th { background:#f0f6fd; color:#2563a6; }
+  .kader { background:#fff8e7; border:1px solid #f3e2b3; border-radius:12px; padding:12px 14px; margin-top:10px; } .kader strong { color:#9a6b00; }
+  .round-head { display:flex; align-items:center; gap:12px; margin:28px 4px 12px; }
+  .round-num { background:#2563a6; color:#fff; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; flex:0 0 auto; }
+  .round-title { font-size:19px; font-weight:800; }
   .card { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
   .counter { font-size:12px; color:#7a8aa0; font-weight:600; margin-bottom:6px; }
   .q { font-weight:600; margin-bottom:12px; }
-  .opt { display:block; width:100%; text-align:left; background:#f6f9fd; border:1.5px solid #d9e3f0;
-    border-radius:10px; padding:11px 14px; margin:7px 0; font-size:15px; cursor:pointer; transition:all .12s; color:#1f2a37; }
-  .opt:hover:not(:disabled){ border-color:#4a86e8; background:#eef5fd; }
-  .opt:disabled{ cursor:default; opacity:.95; }
-  .opt.good{ background:#e6f7ee; border-color:#16a766; color:#0d6b41; font-weight:600; }
-  .opt.bad{ background:#fdecea; border-color:#e0564a; color:#a3271c; }
+  .opt { display:block; width:100%; text-align:left; background:#f6f9fd; border:1.5px solid #d9e3f0; border-radius:10px; padding:11px 14px; margin:7px 0; font-size:15px; cursor:pointer; transition:all .12s; color:#1f2a37; }
+  .opt:hover:not(:disabled){ border-color:#4a86e8; background:#eef5fd; } .opt:disabled{ cursor:default; opacity:.95; }
+  .opt.good{ background:#e6f7ee; border-color:#16a766; color:#0d6b41; font-weight:600; } .opt.bad{ background:#fdecea; border-color:#e0564a; color:#a3271c; }
   .fb{ margin-top:8px; font-weight:600; min-height:20px; }
-  #done{ margin-top:8px; }
-  .done-msg{ background:linear-gradient(135deg,#16a766,#0d8a52); color:#fff; border-radius:14px; padding:18px; text-align:center; font-size:18px; font-weight:700; }
-  .cheer{ background:#eef7f1; border:1px solid #cfe9da; border-radius:12px; padding:14px 16px; color:#0d6b41; font-weight:600; text-align:center; margin-top:6px; }
+  .round-end{ margin:2px 0 4px; } .round-msg{ background:#eef5fd; border:1px solid #cfe0f5; border-radius:12px; padding:13px 16px; font-weight:700; color:#1f4e82; text-align:center; }
+  #done{ margin-top:18px; } .done-msg{ background:linear-gradient(135deg,#16a766,#0d8a52); color:#fff; border-radius:14px; padding:18px; text-align:center; font-size:18px; font-weight:700; }
+  .cheer{ background:#eef7f1; border:1px solid #cfe9da; border-radius:12px; padding:14px 16px; color:#0d6b41; font-weight:600; text-align:center; margin-top:14px; }
 </style>
 </head>
 <body>
@@ -58,129 +50,179 @@
       <li>Wanneer je <strong>jou</strong> of <strong>jouw</strong> schrijft.</li>
       <li>Wanneer je <strong>als</strong> of <strong>dan</strong> gebruikt.</li>
     </ul>
-    <p style="margin:10px 0 0; font-size:14px; color:#5a6b82;">Lees rustig per stukje. Daarna oefen je, één vraag tegelijk. 💪</p>
+    <p style="margin:10px 0 0; font-size:14px; color:#5a6b82;">Lees de uitleg en doe daarna de <strong>3 oefenrondes</strong>. Je mag zelf kiezen waar je begint. 💪</p>
   </div>
 
   <section class="step">
-    <span class="tag">Stap 1</span>
+    <span class="tag">Uitleg 1</span>
     <h3>Woordsoorten herkennen</h3>
-    <p>Elk woord in een zin hoort bij een <strong>woordsoort</strong>. Dit zijn de belangrijkste:</p>
     <table>
       <tr><th>Woordsoort</th><th>Wat is het?</th><th>Voorbeeld</th></tr>
-      <tr><td><strong>Lidwoord</strong></td><td>de, het of een</td><td><em>de</em> hond, <em>een</em> boek</td></tr>
-      <tr><td><strong>Zelfstandig naamwoord</strong></td><td>een ding, persoon, dier of plaats</td><td>hond, school, Tijn</td></tr>
-      <tr><td><strong>Werkwoord</strong></td><td>een doe- of zijn-woord</td><td>rennen, is, eet</td></tr>
+      <tr><td><strong>Lidwoord</strong></td><td>de, het of een</td><td><em>de</em> hond</td></tr>
+      <tr><td><strong>Zelfstandig naamwoord</strong></td><td>ding, persoon, dier of plaats</td><td>hond, school</td></tr>
+      <tr><td><strong>Werkwoord</strong></td><td>een doe- of zijn-woord</td><td>rennen, is</td></tr>
       <tr><td><strong>Bijvoeglijk naamwoord</strong></td><td>zegt iets over een zelfstandig naamwoord</td><td>de <em>rode</em> schoen</td></tr>
-      <tr><td><strong>Persoonlijk voornaamwoord</strong></td><td>vervangt een naam</td><td>ik, jij, hij, jou</td></tr>
+      <tr><td><strong>Persoonlijk voornaamwoord</strong></td><td>vervangt een naam</td><td>ik, jij, jou</td></tr>
       <tr><td><strong>Bezittelijk voornaamwoord</strong></td><td>geeft een bezit aan</td><td>mijn, jouw, zijn</td></tr>
     </table>
-    <div class="kader"><strong>Tip:</strong> Twijfel je? Vraag je af wat het woord <u>doet</u> in de zin. Kun je het vervangen door "de/het/een"? Dan is het vaak een zelfstandig naamwoord.</div>
   </section>
 
   <section class="step">
-    <span class="tag">Stap 2</span>
+    <span class="tag">Uitleg 2</span>
     <h3>Jou of jouw?</h3>
-    <p><strong>Jou</strong> is een <em>persoonlijk</em> voornaamwoord. Je kunt het vervangen door een naam.<br>
-    👉 <em>Ik geef <strong>jou</strong> de fiets.</em> → Ik geef Tijn de fiets.</p>
-    <p><strong>Jouw</strong> is een <em>bezittelijk</em> voornaamwoord. Het geeft een bezit aan en eindigt op <strong>-w</strong>. Er staat meestal een zelfstandig naamwoord direct achter.<br>
-    👉 <em>Het is <strong>jouw</strong> fiets.</em></p>
+    <p><strong>Jou</strong> = persoonlijk voornaamwoord (vervang door een naam): <em>Ik geef <strong>jou</strong> de fiets.</em><br>
+    <strong>Jouw</strong> = bezittelijk voornaamwoord, eindigt op <strong>-w</strong>, met meestal een zelfstandig naamwoord erachter: <em>Het is <strong>jouw</strong> fiets.</em></p>
     <div class="kader"><strong>Trucje:</strong> Staat er een woord als <em>fiets, jas, boek</em> direct achter? Dan is het bijna altijd <strong>jouw</strong>.</div>
   </section>
 
   <section class="step">
-    <span class="tag">Stap 3</span>
+    <span class="tag">Uitleg 3</span>
     <h3>Als of dan?</h3>
-    <p><strong>Als</strong> gebruik je bij een <em>gelijke</em> vergelijking: net zo … als, even … als.<br>
-    👉 <em>Jij rent net zo snel <strong>als</strong> ik.</em></p>
-    <p><strong>Dan</strong> gebruik je na de <em>vergrotende trap</em> (woorden op -er, of meer/minder): mooier dan, groter dan, meer dan.<br>
-    👉 <em>Jij rent sneller <strong>dan</strong> ik.</em></p>
+    <p><strong>Als</strong> bij een gelijke vergelijking: <em>net zo … als, even … als</em>. <br>
+    <strong>Dan</strong> na de vergrotende trap (woorden op -er, of meer/minder): <em>mooier dan, meer dan</em>.</p>
     <div class="kader"><strong>Trucje:</strong> Hoor je "net zo … / even …"? → <strong>als</strong>. Hoor je "-er" of "meer/minder"? → <strong>dan</strong>.</div>
   </section>
 
-  <h2 class="block">✏️ Nu ga jij oefenen!</h2>
-  <p style="margin:0 4px 14px; color:#5a6b82;">Eén vraag tegelijk. Klik je antwoord — je ziet meteen of het goed is. Geen haast! 🐢</p>
+  <h2 style="font-size:20px;margin:26px 4px 4px;">✏️ Oefenrondes</h2>
+  <p style="margin:0 4px 8px; color:#5a6b82;">3 rondes — samen oefen je álle stof. Eén vraag tegelijk! 🐢</p>
 
-  <div class="card" data-q data-correct="Lidwoord">
-    <div class="counter">Oefening 1 van 8</div>
-    <div class="q">Welke woordsoort is het woord <strong>"de"</strong>?</div>
-    <button class="opt" onclick="pick(this)">Lidwoord</button>
-    <button class="opt" onclick="pick(this)">Werkwoord</button>
-    <button class="opt" onclick="pick(this)">Zelfstandig naamwoord</button>
-    <div class="fb"></div>
-  </div>
+  <!-- RONDE 1 -->
+  <section class="round" data-round="1">
+    <div class="round-head"><div class="round-num">1</div><div class="round-title">Woordsoorten</div></div>
 
-  <div class="card" data-q data-correct="rent">
-    <div class="counter">Oefening 2 van 8</div>
-    <div class="q">Welk woord is het <strong>werkwoord</strong> in deze zin?<br>"De hond rent in de tuin."</div>
-    <button class="opt" onclick="pick(this)">hond</button>
-    <button class="opt" onclick="pick(this)">rent</button>
-    <button class="opt" onclick="pick(this)">tuin</button>
-    <div class="fb"></div>
-  </div>
+    <div class="card" data-q data-correct="Lidwoord">
+      <div class="counter">Ronde 1 · vraag 1</div>
+      <div class="q">Welke woordsoort is het woord <strong>"de"</strong>?</div>
+      <button class="opt" onclick="pick(this)">Lidwoord</button>
+      <button class="opt" onclick="pick(this)">Werkwoord</button>
+      <button class="opt" onclick="pick(this)">Zelfstandig naamwoord</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="rent">
+      <div class="counter">Ronde 1 · vraag 2</div>
+      <div class="q">Welk woord is het <strong>werkwoord</strong>? "De hond rent in de tuin."</div>
+      <button class="opt" onclick="pick(this)">hond</button>
+      <button class="opt" onclick="pick(this)">rent</button>
+      <button class="opt" onclick="pick(this)">tuin</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="hond">
+      <div class="counter">Ronde 1 · vraag 3</div>
+      <div class="q">Welk woord is een <strong>zelfstandig naamwoord</strong>? "De grote hond blaft."</div>
+      <button class="opt" onclick="pick(this)">grote</button>
+      <button class="opt" onclick="pick(this)">hond</button>
+      <button class="opt" onclick="pick(this)">blaft</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Bijvoeglijk naamwoord">
+      <div class="counter">Ronde 1 · vraag 4</div>
+      <div class="q">Welke woordsoort is <strong>"rode"</strong> in "de rode schoen"?</div>
+      <button class="opt" onclick="pick(this)">Bijvoeglijk naamwoord</button>
+      <button class="opt" onclick="pick(this)">Lidwoord</button>
+      <button class="opt" onclick="pick(this)">Werkwoord</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="jij">
+      <div class="counter">Ronde 1 · vraag 5</div>
+      <div class="q">Welk woord is een <strong>persoonlijk voornaamwoord</strong> (te vervangen door een naam)?</div>
+      <button class="opt" onclick="pick(this)">jij</button>
+      <button class="opt" onclick="pick(this)">jouw</button>
+      <button class="opt" onclick="pick(this)">groot</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="mijn">
+      <div class="counter">Ronde 1 · vraag 6</div>
+      <div class="q">Welk woord is een <strong>bezittelijk voornaamwoord</strong> (geeft bezit aan)?</div>
+      <button class="opt" onclick="pick(this)">mijn</button>
+      <button class="opt" onclick="pick(this)">ik</button>
+      <button class="opt" onclick="pick(this)">loopt</button>
+      <div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
-  <div class="card" data-q data-correct="jouw">
-    <div class="counter">Oefening 3 van 8</div>
-    <div class="q">Is dit ___ jas?</div>
-    <button class="opt" onclick="pick(this)">jou</button>
-    <button class="opt" onclick="pick(this)">jouw</button>
-    <div class="fb"></div>
-  </div>
+  <!-- RONDE 2 -->
+  <section class="round" data-round="2">
+    <div class="round-head"><div class="round-num">2</div><div class="round-title">Jou of jouw?</div></div>
 
-  <div class="card" data-q data-correct="jou">
-    <div class="counter">Oefening 4 van 8</div>
-    <div class="q">Mag ik ___ iets vragen?</div>
-    <button class="opt" onclick="pick(this)">jou</button>
-    <button class="opt" onclick="pick(this)">jouw</button>
-    <div class="fb"></div>
-  </div>
+    <div class="card" data-q data-correct="jouw">
+      <div class="counter">Ronde 2 · vraag 1</div><div class="q">Is dit ___ jas?</div>
+      <button class="opt" onclick="pick(this)">jou</button><button class="opt" onclick="pick(this)">jouw</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="jou">
+      <div class="counter">Ronde 2 · vraag 2</div><div class="q">Ik heb ___ gisteren op het plein gezien.</div>
+      <button class="opt" onclick="pick(this)">jou</button><button class="opt" onclick="pick(this)">jouw</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="jouw">
+      <div class="counter">Ronde 2 · vraag 3</div><div class="q">Wat is ___ lievelingskleur?</div>
+      <button class="opt" onclick="pick(this)">jou</button><button class="opt" onclick="pick(this)">jouw</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="jou">
+      <div class="counter">Ronde 2 · vraag 4</div><div class="q">Mag ik ___ iets vragen?</div>
+      <button class="opt" onclick="pick(this)">jou</button><button class="opt" onclick="pick(this)">jouw</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="jouw">
+      <div class="counter">Ronde 2 · vraag 5</div><div class="q">Dat is ___ probleem, niet het mijne.</div>
+      <button class="opt" onclick="pick(this)">jou</button><button class="opt" onclick="pick(this)">jouw</button><div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
-  <div class="card" data-q data-correct="jouw">
-    <div class="counter">Oefening 5 van 8</div>
-    <div class="q">Dat is ___ probleem, niet het mijne.</div>
-    <button class="opt" onclick="pick(this)">jou</button>
-    <button class="opt" onclick="pick(this)">jouw</button>
-    <div class="fb"></div>
-  </div>
+  <!-- RONDE 3 -->
+  <section class="round" data-round="3">
+    <div class="round-head"><div class="round-num">3</div><div class="round-title">Als of dan?</div></div>
 
-  <div class="card" data-q data-correct="als">
-    <div class="counter">Oefening 6 van 8</div>
-    <div class="q">Jij bent net zo lang ___ ik.</div>
-    <button class="opt" onclick="pick(this)">als</button>
-    <button class="opt" onclick="pick(this)">dan</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="dan">
-    <div class="counter">Oefening 7 van 8</div>
-    <div class="q">Deze tas is mooier ___ die andere.</div>
-    <button class="opt" onclick="pick(this)">als</button>
-    <button class="opt" onclick="pick(this)">dan</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="dan">
-    <div class="counter">Oefening 8 van 8</div>
-    <div class="q">Ik heb meer boeken ___ jij.</div>
-    <button class="opt" onclick="pick(this)">als</button>
-    <button class="opt" onclick="pick(this)">dan</button>
-    <div class="fb"></div>
-  </div>
+    <div class="card" data-q data-correct="als">
+      <div class="counter">Ronde 3 · vraag 1</div><div class="q">Jij bent net zo lang ___ ik.</div>
+      <button class="opt" onclick="pick(this)">als</button><button class="opt" onclick="pick(this)">dan</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="dan">
+      <div class="counter">Ronde 3 · vraag 2</div><div class="q">Een fiets is sneller ___ lopen.</div>
+      <button class="opt" onclick="pick(this)">als</button><button class="opt" onclick="pick(this)">dan</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="dan">
+      <div class="counter">Ronde 3 · vraag 3</div><div class="q">Deze tas is mooier ___ die andere.</div>
+      <button class="opt" onclick="pick(this)">als</button><button class="opt" onclick="pick(this)">dan</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="als">
+      <div class="counter">Ronde 3 · vraag 4</div><div class="q">Hij is even sterk ___ zijn broer.</div>
+      <button class="opt" onclick="pick(this)">als</button><button class="opt" onclick="pick(this)">dan</button><div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="dan">
+      <div class="counter">Ronde 3 · vraag 5</div><div class="q">Ik heb meer boeken ___ jij.</div>
+      <button class="opt" onclick="pick(this)">als</button><button class="opt" onclick="pick(this)">dan</button><div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
   <div id="done"></div>
-  <div class="cheer">Goed bezig, Tijn! Oefen gerust nog een keer — herhalen helpt echt. 🌟</div>
+  <div class="cheer">Goed bezig, Tijn! Je hebt nu alle grammatica-onderdelen geoefend. 🌟</div>
 
 </div>
 
 <script>
-  var qs = document.querySelectorAll('[data-q]'), total = qs.length, score = 0, answered = 0;
+  var totalQ = document.querySelectorAll('[data-q]').length, totalScore = 0, totalAnswered = 0;
   function pick(btn){
-    var card = btn.closest('[data-q]'); if(card.dataset.done) return; card.dataset.done = 1;
+    var card = btn.closest('[data-q]'); if(card.dataset.done) return; card.dataset.done = '1';
     var correct = card.dataset.correct.trim(); var fb = card.querySelector('.fb');
     card.querySelectorAll('.opt').forEach(function(b){ b.disabled = true; if(b.textContent.trim() === correct) b.classList.add('good'); });
-    if(btn.textContent.trim() === correct){ fb.textContent = '✅ Goed zo!'; fb.style.color = '#16a766'; score++; }
-    else { btn.classList.add('bad'); fb.textContent = '❌ Bijna! Kijk nog eens naar het kadertje hierboven.'; fb.style.color = '#e0564a'; }
-    answered++;
-    if(answered === total){ var d = document.getElementById('done'); d.innerHTML = '<div class="done-msg">🎉 Klaar! Je had ' + score + ' van ' + total + ' goed.</div>'; d.scrollIntoView({behavior:'smooth'}); }
+    if(btn.textContent.trim() === correct){ fb.textContent = '✅ Goed zo!'; fb.style.color = '#16a766'; totalScore++; card.dataset.ok = '1'; }
+    else { btn.classList.add('bad'); fb.textContent = '❌ Bijna! Kijk nog eens naar de uitleg hierboven.'; fb.style.color = '#e0564a'; }
+    totalAnswered++;
+    var round = card.closest('[data-round]');
+    if(round && !round.dataset.fin){
+      var rc = round.querySelectorAll('[data-q]'), rd = round.querySelectorAll('[data-q][data-done]');
+      if(rc.length === rd.length){ round.dataset.fin = '1';
+        var good = round.querySelectorAll('[data-q][data-ok]').length;
+        var box = round.querySelector('.round-end');
+        if(box) box.innerHTML = '<div class="round-msg">✔️ Ronde klaar — ' + good + ' van ' + rc.length + ' goed.</div>';
+      }
+    }
+    if(totalAnswered === totalQ){
+      var d = document.getElementById('done');
+      d.innerHTML = '<div class="done-msg">🎉 Klaar met alle rondes! Je had in totaal ' + totalScore + ' van ' + totalQ + ' goed.</div>';
+      d.scrollIntoView({behavior:'smooth'});
+    }
   }
 </script>
 </body>
