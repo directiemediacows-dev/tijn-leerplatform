@@ -28,11 +28,19 @@
   .tile .emoji{font-size:30px}
   .tile h3{margin:8px 0 2px;font-size:16px}
   .tile .vak{font-size:12px;color:var(--muted);font-weight:600}
+  .tile .count{font-size:13px;color:var(--muted);font-weight:600;margin-top:6px}
   .tile .done{position:absolute;top:10px;right:12px;font-size:18px;color:var(--accent2)}
   .tile .stars{margin-top:8px;font-size:14px;color:var(--gold);letter-spacing:1px}
+  .tile .minibar{height:8px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:10px}
+  .tile .minibar > i{display:block;height:100%;background:linear-gradient(90deg,#4a86e8,#16a766);width:0}
+  .vak-tile{border-left:6px solid var(--accent)}
   .empty{background:var(--card);border-radius:16px;padding:30px;text-align:center;color:var(--muted);box-shadow:var(--shadow)}
   .empty b{color:var(--ink)}
   .status{font-size:12px;color:var(--muted);margin:6px 2px 0}
+  .backbar{display:flex;align-items:center;gap:10px;margin:4px 0 10px}
+  .backbar button{border:none;background:#fff;color:var(--accent);border-radius:10px;padding:9px 14px;
+       font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+  .backbar .vaktitle{font-weight:800;font-size:18px}
   .lesson-view{background:var(--card);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
   .lesson-bar{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
   .lesson-bar button{border:none;background:var(--accent);color:#fff;border-radius:10px;padding:8px 12px;font-weight:700;cursor:pointer}
@@ -53,20 +61,31 @@
 <body>
 <header>
   <h1>📚 Tijn's Leerplatform</h1>
-  <p>Lessen verschijnen hier vanzelf — leren op jouw manier, in jouw tempo.</p>
+  <p>Kies een vak en oefen op jouw manier, in jouw tempo.</p>
 </header>
 
 <nav>
-  <button id="tab-home" class="active" onclick="show('home')">🏠 Lessen</button>
+  <button id="tab-home" class="active" onclick="show('home')">🏠 Vakken</button>
   <button id="tab-prog" onclick="show('prog')">📈 Voortgang</button>
 </nav>
 
 <div class="wrap">
+  <!-- HOME: vak-tegels -->
   <div id="home">
-    <div class="status" id="loadStatus">Lessen laden…</div>
+    <div class="status" id="loadStatus">Vakken laden…</div>
+    <div class="grid" id="vakGrid"></div>
+  </div>
+
+  <!-- VAK: lessen binnen een vak -->
+  <div id="vak" style="display:none">
+    <div class="backbar">
+      <button onclick="show('home')">← Vakken</button>
+      <div class="vaktitle" id="vakTitle"></div>
+    </div>
     <div class="grid" id="lessonGrid"></div>
   </div>
 
+  <!-- VOORTGANG -->
   <div id="prog" style="display:none">
     <div class="progress-card">
       <b>Voortgang van Tijn</b>
@@ -76,10 +95,11 @@
     <div class="progress-card" id="progList"></div>
   </div>
 
+  <!-- LES -->
   <div id="lesson" style="display:none">
     <div class="lesson-view">
       <div class="lesson-bar">
-        <button onclick="show('home')">← Terug</button>
+        <button onclick="backToVak()">← Terug</button>
         <div class="title" id="lessonTitle"></div>
         <button class="markdone" id="doneBtn" onclick="toggleDone()">✓ Klaar</button>
       </div>
@@ -94,16 +114,26 @@
 /* Lessen worden gelezen uit lessen/index.json in deze repo.
    De automatisering (geplande taak) schrijft daar nieuwe lessen naartoe. */
 let LESSONS = [];
+let CURRENT = null, CURRENT_VAK = null;
 const PROG_KEY = "tijn_progress_v1";
+
+const VAK_EMOJI = {
+  "Nederlands":"📝","Duits":"🇩🇪","Engels":"🇬🇧","Frans":"🇫🇷",
+  "Rekenen":"🔢","Wiskunde":"🔢","Biologie":"🌱","Aardrijkskunde":"🌍",
+  "Geschiedenis":"🏛️","Start":"👋"
+};
+/* Vaste volgorde van vakken (rest komt erachter op alfabet) */
+const VAK_ORDER = ["Start","Nederlands","Duits","Engels","Frans","Rekenen","Wiskunde","Biologie","Aardrijkskunde","Geschiedenis"];
 
 function progress(){ try{return JSON.parse(localStorage.getItem(PROG_KEY))||{}}catch(e){return {}} }
 function saveProgress(p){ localStorage.setItem(PROG_KEY, JSON.stringify(p)); }
 
 function show(v){
-  ['home','prog','lesson'].forEach(id=>document.getElementById(id).style.display='none');
+  ['home','vak','prog','lesson'].forEach(id=>document.getElementById(id).style.display='none');
   document.getElementById(v).style.display='block';
-  document.getElementById('tab-home').classList.toggle('active', v==='home');
+  document.getElementById('tab-home').classList.toggle('active', v==='home'||v==='vak');
   document.getElementById('tab-prog').classList.toggle('active', v==='prog');
+  if(v==='home') renderVakken();
   if(v==='prog') renderProgress();
 }
 
@@ -115,23 +145,64 @@ async function loadLessons(){
     const data = await res.json();
     LESSONS = Array.isArray(data) ? data : (data.lessen || []);
     LESSONS.sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||''));
-    st.textContent = LESSONS.length ? `${LESSONS.length} lessen klaar om te oefenen` : '';
-    renderGrid();
+    renderVakken();
   }catch(e){
-    st.textContent = '';
     LESSONS = [];
-    renderGrid();
+    renderVakken();
   }
 }
 
-function renderGrid(){
-  const g = document.getElementById('lessonGrid');
+function vakList(){
+  const seen = [];
+  LESSONS.forEach(l=>{ const v=l.vak||'Overig'; if(!seen.includes(v)) seen.push(v); });
+  seen.sort((a,b)=>{
+    let ia=VAK_ORDER.indexOf(a), ib=VAK_ORDER.indexOf(b);
+    if(ia<0) ia=99; if(ib<0) ib=99;
+    return ia-ib || a.localeCompare(b);
+  });
+  return seen;
+}
+
+function renderVakken(){
+  const st = document.getElementById('loadStatus');
+  const g = document.getElementById('vakGrid');
   if(!LESSONS.length){
+    st.textContent='';
     g.innerHTML = '<div class="empty">📭 <b>Nog geen lessen.</b><br>Stuur lesstof naar het e-mailadres en binnen een kwartier staat de les hier klaar.</div>';
     return;
   }
   const p = progress();
-  g.innerHTML = LESSONS.map(l=>{
+  const vakken = vakList();
+  st.textContent = `${vakken.length} vakken · ${LESSONS.length} lessen`;
+  g.innerHTML = vakken.map(v=>{
+    const lessen = LESSONS.filter(l=>(l.vak||'Overig')===v);
+    const total = lessen.length;
+    const done = lessen.filter(l=>p[l.id]&&p[l.id].done).length;
+    const pct = total?Math.round(done/total*100):0;
+    const emoji = VAK_EMOJI[v] || (lessen[0]&&lessen[0].emoji) || '📚';
+    return `<div class="tile vak-tile" onclick="openVak('${encodeURIComponent(v)}')">
+      ${done===total?'<div class="done">✓</div>':''}
+      <div class="emoji">${emoji}</div>
+      <h3>${escapeHtml(v)}</h3>
+      <div class="count">${total} ${total===1?'les':'lessen'} · ${done}/${total} afgerond</div>
+      <div class="minibar"><i style="width:${pct}%"></i></div>
+    </div>`;
+  }).join('');
+}
+
+function openVak(venc){
+  const v = decodeURIComponent(venc);
+  CURRENT_VAK = v;
+  document.getElementById('vakTitle').textContent = (VAK_EMOJI[v]||'📚')+' '+v;
+  renderLessons(v);
+  show('vak');
+}
+
+function renderLessons(v){
+  const g = document.getElementById('lessonGrid');
+  const p = progress();
+  const lessen = LESSONS.filter(l=>(l.vak||'Overig')===v);
+  g.innerHTML = lessen.map(l=>{
     const pr = p[l.id]||{};
     const stars = pr.stars ? '★'.repeat(pr.stars)+'☆'.repeat(5-pr.stars) : '';
     return `<div class="tile" onclick="openLesson('${l.id}')">
@@ -144,7 +215,6 @@ function renderGrid(){
   }).join('');
 }
 
-let CURRENT = null;
 function openLesson(id){
   const l = LESSONS.find(x=>x.id===id); if(!l) return;
   CURRENT = l;
@@ -153,6 +223,11 @@ function openLesson(id){
   const p = progress();
   document.getElementById('doneBtn').textContent = (p[id]&&p[id].done)?'✓ Gedaan':'✓ Klaar';
   show('lesson');
+}
+
+function backToVak(){
+  if(CURRENT_VAK){ renderLessons(CURRENT_VAK); show('vak'); }
+  else show('home');
 }
 
 function toggleDone(){
@@ -175,14 +250,20 @@ function renderProgress(){
   document.getElementById('progText').textContent = `${done} van ${total} lessen afgerond`;
   const list = document.getElementById('progList');
   if(!total){ list.innerHTML='<div class="meta" style="color:var(--muted)">Nog geen lessen.</div>'; return; }
-  list.innerHTML = LESSONS.map(l=>{
-    const pr=p[l.id]||{}; const s=pr.stars||0;
-    const starsHtml=[1,2,3,4,5].map(n=>`<span class="${n<=s?'on':''}" onclick="setStars('${l.id}',${n})">★</span>`).join('');
-    return `<div class="row">
-      <div><b>${l.emoji||'📝'} ${escapeHtml(l.title||'Les')}</b>
-        <div class="meta">${pr.done?'✓ afgerond':'nog te doen'}${pr.date?' · '+new Date(pr.date).toLocaleDateString('nl-NL'):''}</div></div>
-      <div class="starpick">${starsHtml}</div>
-    </div>`;
+  /* Gegroepeerd per vak */
+  const vakken = vakList();
+  list.innerHTML = vakken.map(v=>{
+    const lessen = LESSONS.filter(l=>(l.vak||'Overig')===v);
+    const rows = lessen.map(l=>{
+      const pr=p[l.id]||{}; const s=pr.stars||0;
+      const starsHtml=[1,2,3,4,5].map(n=>`<span class="${n<=s?'on':''}" onclick="setStars('${l.id}',${n})">★</span>`).join('');
+      return `<div class="row">
+        <div><b>${l.emoji||'📝'} ${escapeHtml(l.title||'Les')}</b>
+          <div class="meta">${pr.done?'✓ afgerond':'nog te doen'}${pr.date?' · '+new Date(pr.date).toLocaleDateString('nl-NL'):''}</div></div>
+        <div class="starpick">${starsHtml}</div>
+      </div>`;
+    }).join('');
+    return `<div style="font-weight:800;margin:14px 2px 2px;color:var(--ink)">${VAK_EMOJI[v]||'📚'} ${escapeHtml(v)}</div>${rows}`;
   }).join('');
 }
 
