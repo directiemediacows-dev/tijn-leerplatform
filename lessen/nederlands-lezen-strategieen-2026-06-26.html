@@ -10,42 +10,42 @@
     margin: 0; background: #f4f7fb; color: #1f2a37; line-height: 1.6; }
   .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 80px; }
   header { background: linear-gradient(135deg, #2f80c8, #2563a6); color: #fff;
-    border-radius: 18px; padding: 22px 22px 20px; margin-bottom: 18px; }
+    border-radius: 18px; padding: 22px; margin-bottom: 18px; }
   header .emoji { font-size: 34px; }
   header h1 { margin: 6px 0 4px; font-size: 22px; }
   header p { margin: 0; opacity: .92; font-size: 15px; }
-  .intro { background: #fff; border-radius: 14px; padding: 16px 18px; margin-bottom: 18px;
-    border: 1px solid #e4eaf2; }
-  .intro h2 { margin: 0 0 8px; font-size: 17px; color: #2563a6; }
-  .intro ul { margin: 8px 0 0; padding-left: 20px; }
-  section.step { background: #fff; border-radius: 14px; padding: 16px 18px; margin-bottom: 14px;
-    border: 1px solid #e4eaf2; }
-  section.step h3 { margin: 0 0 8px; font-size: 16px; color: #1f4e82; }
+  .intro { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:18px; border:1px solid #e4eaf2; }
+  .intro h2 { margin:0 0 8px; font-size:17px; color:#2563a6; }
+  .intro ul { margin:8px 0 0; padding-left:20px; }
+  section.step { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
+  section.step h3 { margin:0 0 8px; font-size:16px; color:#1f4e82; }
   .tag { display:inline-block; background:#e8f1fb; color:#2563a6; font-size:12px; font-weight:600;
     padding:3px 10px; border-radius:999px; margin-bottom:8px; }
-  table { width:100%; border-collapse: collapse; margin: 8px 0 2px; font-size: 14.5px; }
-  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid #eef2f7; vertical-align: top; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 2px; font-size:14.5px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid #eef2f7; vertical-align:top; }
   th { background:#f0f6fd; color:#2563a6; }
   .kader { background:#fff8e7; border:1px solid #f3e2b3; border-radius:12px; padding:12px 14px; margin-top:10px; }
   .kader strong { color:#9a6b00; }
-  h2.block { font-size: 19px; color:#1f2a37; margin: 26px 4px 10px; }
-  .card { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px;
-    border:1px solid #e4eaf2; }
+  .round-head { display:flex; align-items:center; gap:12px; margin:28px 4px 12px; }
+  .round-num { background:#2563a6; color:#fff; width:32px; height:32px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-weight:800; flex:0 0 auto; }
+  .round-title { font-size:19px; font-weight:800; }
+  .round-sub { font-size:13px; color:#7a8aa0; margin:-6px 4px 10px 48px; }
+  .card { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
   .counter { font-size:12px; color:#7a8aa0; font-weight:600; margin-bottom:6px; }
   .q { font-weight:600; margin-bottom:12px; }
   .opt { display:block; width:100%; text-align:left; background:#f6f9fd; border:1.5px solid #d9e3f0;
-    border-radius:10px; padding:11px 14px; margin:7px 0; font-size:15px; cursor:pointer;
-    transition: all .12s; color:#1f2a37; }
-  .opt:hover:not(:disabled) { border-color:#2f80c8; background:#eef5fd; }
-  .opt:disabled { cursor:default; opacity:.95; }
-  .opt.good { background:#e6f7ee; border-color:#16a766; color:#0d6b41; font-weight:600; }
-  .opt.bad { background:#fdecea; border-color:#e0564a; color:#a3271c; }
-  .fb { margin-top:8px; font-weight:600; min-height:20px; }
-  #done { margin-top:8px; }
-  .done-msg { background:linear-gradient(135deg,#16a766,#0d8a52); color:#fff; border-radius:14px;
-    padding:18px; text-align:center; font-size:18px; font-weight:700; }
-  .cheer { background:#eef7f1; border:1px solid #cfe9da; border-radius:12px; padding:14px 16px;
-    color:#0d6b41; font-weight:600; text-align:center; margin-top:6px; }
+    border-radius:10px; padding:11px 14px; margin:7px 0; font-size:15px; cursor:pointer; transition:all .12s; color:#1f2a37; }
+  .opt:hover:not(:disabled){ border-color:#2f80c8; background:#eef5fd; }
+  .opt:disabled{ cursor:default; opacity:.95; }
+  .opt.good{ background:#e6f7ee; border-color:#16a766; color:#0d6b41; font-weight:600; }
+  .opt.bad{ background:#fdecea; border-color:#e0564a; color:#a3271c; }
+  .fb{ margin-top:8px; font-weight:600; min-height:20px; }
+  .round-end{ margin:2px 0 4px; }
+  .round-msg{ background:#eef5fd; border:1px solid #cfe0f5; border-radius:12px; padding:13px 16px; font-weight:700; color:#1f4e82; text-align:center; }
+  #done{ margin-top:18px; }
+  .done-msg{ background:linear-gradient(135deg,#16a766,#0d8a52); color:#fff; border-radius:14px; padding:18px; text-align:center; font-size:18px; font-weight:700; }
+  .cheer{ background:#eef7f1; border:1px solid #cfe9da; border-radius:12px; padding:14px 16px; color:#0d6b41; font-weight:600; text-align:center; margin-top:14px; }
 </style>
 </head>
 <body>
@@ -60,33 +60,29 @@
   <div class="intro">
     <h2>Wat ga je leren? 🎯</h2>
     <ul>
-      <li>De vier <strong>manieren van lezen</strong> en wanneer je ze gebruikt.</li>
+      <li>De vier <strong>manieren van lezen</strong>.</li>
       <li>Hoe een tekst is <strong>opgebouwd</strong> (inleiding – kern – slot).</li>
       <li>Wat een <strong>kernzin</strong> is en waar die staat.</li>
       <li>Slim <strong>informatie zoeken</strong> op internet.</li>
     </ul>
-    <p style="margin:10px 0 0; font-size:14px; color:#5a6b82;">Lees rustig, in kleine stapjes. Daarna ga je oefenen. Je kunt zo vaak teruglezen als je wilt. 💪</p>
+    <p style="margin:10px 0 0; font-size:14px; color:#5a6b82;">Lees eerst de uitleg. Daarna zijn er <strong>4 oefenrondes</strong> — eentje per onderwerp. Je mag zelf kiezen waar je begint. 💪</p>
   </div>
 
-  <!-- ============ LEREN ============ -->
-
   <section class="step">
-    <span class="tag">Stap 1</span>
+    <span class="tag">Uitleg 1</span>
     <h3>De vier manieren van lezen</h3>
-    <p>Niet elke tekst lees je op dezelfde manier. Je kiest een manier die past bij wat je wilt bereiken.</p>
     <table>
       <tr><th>Manier</th><th>Wat doe je?</th></tr>
-      <tr><td><strong>Verkennend lezen</strong></td><td>Een tekst <em>bekijken</em> om een eerste indruk te krijgen. Je leest de titel, deeltitels, de eerste en laatste alinea, en de eerste zin van de andere alinea's.</td></tr>
-      <tr><td><strong>Nauwkeurig lezen</strong></td><td>Een tekst <em>helemaal</em> lezen om hem goed te begrijpen.</td></tr>
+      <tr><td><strong>Verkennend lezen</strong></td><td>Een tekst <em>bekijken</em> voor een eerste indruk: titel, kopjes, eerste en laatste alinea, en de eerste zin van de andere alinea's.</td></tr>
+      <tr><td><strong>Nauwkeurig lezen</strong></td><td>Een tekst <em>helemaal</em> lezen om hem te begrijpen.</td></tr>
       <tr><td><strong>Zoekend lezen</strong></td><td>In een tekst <em>zoeken</em> naar het antwoord op één vraag.</td></tr>
-      <tr><td><strong>Studerend lezen</strong></td><td>Een tekst lezen om de informatie te <em>onthouden</em> (bijvoorbeeld voor een toets).</td></tr>
+      <tr><td><strong>Studerend lezen</strong></td><td>Een tekst lezen om de informatie te <em>onthouden</em>.</td></tr>
     </table>
   </section>
 
   <section class="step">
-    <span class="tag">Stap 2</span>
+    <span class="tag">Uitleg 2</span>
     <h3>De opbouw van een tekst</h3>
-    <p>In een goede tekst staat de informatie in een logische volgorde. Dat heet de <strong>tekstopbouw</strong>. Er zijn twee veelvoorkomende vormen:</p>
     <table>
       <tr><th>Vorm</th><th>Delen</th></tr>
       <tr><td><strong>Driedeling</strong></td><td>inleiding – kern – slot</td></tr>
@@ -94,130 +90,224 @@
     </table>
     <div class="kader">
       <strong>Kern of slot?</strong><br>
-      • Voegt de laatste alinea nog <u>nieuwe informatie</u> over het onderwerp toe? Dan hoort die bij de <strong>kern</strong>.<br>
-      • Rondt de laatste alinea de tekst <u>af</u> met een samenvatting of conclusie? Dan is het een <strong>slot</strong>.
+      • Voegt de laatste alinea nog <u>nieuwe informatie</u> toe? → <strong>kern</strong>.<br>
+      • Rondt de laatste alinea de tekst <u>af</u> (samenvatting/conclusie)? → <strong>slot</strong>.
     </div>
   </section>
 
   <section class="step">
-    <span class="tag">Stap 3</span>
-    <h3>De opbouw van een alinea: de kernzin</h3>
-    <p>Een wat langere tekst bestaat uit alinea's. In een goede alinea staat bijna altijd een <strong>kernzin</strong>. Die geeft aan waar de alinea over gaat of noemt de belangrijkste informatie. De rest van de alinea is <em>uitleg</em> of <em>uitwerking</em> van die kernzin.</p>
-    <div class="kader">
-      <strong>Tip:</strong> Vaak is de kernzin de <u>eerste zin</u>, daarna volgt de toelichting. Maar de kernzin kan ook ergens anders staan. Twijfel je? Kijk welke zin in de alinea wordt toegelicht — dát is de kernzin.
-    </div>
+    <span class="tag">Uitleg 3</span>
+    <h3>De kernzin van een alinea</h3>
+    <p>In een goede alinea staat een <strong>kernzin</strong>: die geeft aan waar de alinea over gaat. De rest van de alinea is <em>uitleg of uitwerking</em> van die kernzin.</p>
+    <div class="kader"><strong>Tip:</strong> Vaak is de kernzin de <u>eerste zin</u>. Twijfel je? Kijk welke zin in de alinea wordt toegelicht — dát is de kernzin.</div>
   </section>
 
   <section class="step">
-    <span class="tag">Stap 4</span>
+    <span class="tag">Uitleg 4</span>
     <h3>Informatie zoeken op internet</h3>
-    <p><strong>Slim zoeken:</strong></p>
-    <ul style="margin:6px 0 0; padding-left:20px;">
-      <li>Gebruik <strong>meer dan één</strong> zoekwoord.</li>
-      <li>Zet het <strong>belangrijkste</strong> zoekwoord vooraan.</li>
-      <li>Moeten de woorden er precies zo staan? Zet ze tussen <strong>"dubbele aanhalingstekens"</strong>.</li>
-      <li>Gebruik filters voor <strong>taal</strong> en <strong>periode</strong> (bv. afgelopen jaar).</li>
-    </ul>
-    <p style="margin-top:12px;"><strong>Websites beoordelen:</strong></p>
-    <ul style="margin:6px 0 0; padding-left:20px;">
-      <li>Klik <strong>niet alleen</strong> de bovenste hit aan.</li>
-      <li>Lees eerst de paar regels onder een hit.</li>
-      <li>Gebruik <strong>bruikbare</strong> en <strong>betrouwbare</strong> websites.</li>
-      <li>Twijfel je? Controleer de informatie op <strong>andere</strong> sites.</li>
-    </ul>
+    <p><strong>Slim zoeken:</strong> gebruik meer dan één zoekwoord · zet het belangrijkste woord vooraan · moeten de woorden er precies zo staan? Tussen "dubbele aanhalingstekens" · gebruik filters voor taal en periode.</p>
+    <p><strong>Beoordelen:</strong> klik niet alleen de bovenste hit aan · lees de regels onder een hit · gebruik bruikbare én betrouwbare sites · twijfel je? Controleer op andere sites.</p>
   </section>
 
-  <!-- ============ OEFENEN ============ -->
+  <h2 style="font-size:20px;margin:26px 4px 4px;">✏️ Oefenrondes</h2>
+  <p style="margin:0 4px 8px; color:#5a6b82;">4 rondes — samen oefen je álle stof. Eén vraag tegelijk, geen haast! 🐢</p>
 
-  <h2 class="block">✏️ Nu ga jij oefenen!</h2>
-  <p style="margin:0 4px 14px; color:#5a6b82;">Eén vraag tegelijk. Klik op je antwoord — je ziet meteen of het goed is. Geen haast! 🐢</p>
+  <!-- RONDE 1 -->
+  <section class="round" data-round="1">
+    <div class="round-head"><div class="round-num">1</div><div class="round-title">Manieren van lezen</div></div>
 
-  <div class="card" data-q data-correct="Nauwkeurig lezen">
-    <div class="counter">Oefening 1 van 8</div>
-    <div class="q">Je leest een tekst helemaal om hem goed te <strong>begrijpen</strong>. Welke manier van lezen is dat?</div>
-    <button class="opt" onclick="pick(this)">Verkennend lezen</button>
-    <button class="opt" onclick="pick(this)">Nauwkeurig lezen</button>
-    <button class="opt" onclick="pick(this)">Zoekend lezen</button>
-    <div class="fb"></div>
-  </div>
+    <div class="card" data-q data-correct="Nauwkeurig lezen">
+      <div class="counter">Ronde 1 · vraag 1</div>
+      <div class="q">Je leest een tekst <strong>helemaal</strong> om hem te begrijpen. Welke manier is dat?</div>
+      <button class="opt" onclick="pick(this)">Verkennend lezen</button>
+      <button class="opt" onclick="pick(this)">Nauwkeurig lezen</button>
+      <button class="opt" onclick="pick(this)">Zoekend lezen</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Verkennend lezen">
+      <div class="counter">Ronde 1 · vraag 2</div>
+      <div class="q">Je bekijkt snel titel, kopjes en eerste zinnen voor een <strong>eerste indruk</strong>. Hoe heet dit?</div>
+      <button class="opt" onclick="pick(this)">Verkennend lezen</button>
+      <button class="opt" onclick="pick(this)">Studerend lezen</button>
+      <button class="opt" onclick="pick(this)">Zoekend lezen</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Zoekend lezen">
+      <div class="counter">Ronde 1 · vraag 3</div>
+      <div class="q">Je zoekt in een tekst alleen het <strong>antwoord op één vraag</strong>. Welke manier gebruik je?</div>
+      <button class="opt" onclick="pick(this)">Studerend lezen</button>
+      <button class="opt" onclick="pick(this)">Zoekend lezen</button>
+      <button class="opt" onclick="pick(this)">Nauwkeurig lezen</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Studerend lezen">
+      <div class="counter">Ronde 1 · vraag 4</div>
+      <div class="q">Je leert voor een toets en wilt de informatie <strong>onthouden</strong>. Welke manier past hierbij?</div>
+      <button class="opt" onclick="pick(this)">Verkennend lezen</button>
+      <button class="opt" onclick="pick(this)">Zoekend lezen</button>
+      <button class="opt" onclick="pick(this)">Studerend lezen</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="De titel, kopjes en eerste zinnen">
+      <div class="counter">Ronde 1 · vraag 5</div>
+      <div class="q">Wat lees je vooral bij <strong>verkennend lezen</strong>?</div>
+      <button class="opt" onclick="pick(this)">De titel, kopjes en eerste zinnen</button>
+      <button class="opt" onclick="pick(this)">Elk woord van de hele tekst</button>
+      <button class="opt" onclick="pick(this)">Alleen het allerlaatste woord</button>
+      <div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
-  <div class="card" data-q data-correct="Verkennend lezen">
-    <div class="counter">Oefening 2 van 8</div>
-    <div class="q">Je bekijkt snel de titel, kopjes en de eerste zinnen om een <strong>eerste indruk</strong> te krijgen. Hoe heet dit?</div>
-    <button class="opt" onclick="pick(this)">Verkennend lezen</button>
-    <button class="opt" onclick="pick(this)">Studerend lezen</button>
-    <button class="opt" onclick="pick(this)">Zoekend lezen</button>
-    <div class="fb"></div>
-  </div>
+  <!-- RONDE 2 -->
+  <section class="round" data-round="2">
+    <div class="round-head"><div class="round-num">2</div><div class="round-title">Opbouw van de tekst</div></div>
 
-  <div class="card" data-q data-correct="Zoekend lezen">
-    <div class="counter">Oefening 3 van 8</div>
-    <div class="q">Je zoekt in een tekst alleen het <strong>antwoord op één vraag</strong>. Welke manier van lezen gebruik je?</div>
-    <button class="opt" onclick="pick(this)">Studerend lezen</button>
-    <button class="opt" onclick="pick(this)">Zoekend lezen</button>
-    <button class="opt" onclick="pick(this)">Nauwkeurig lezen</button>
-    <div class="fb"></div>
-  </div>
+    <div class="card" data-q data-correct="Driedeling">
+      <div class="counter">Ronde 2 · vraag 1</div>
+      <div class="q">Een tekst heeft de opbouw <strong>inleiding – kern – slot</strong>. Hoe noem je dit?</div>
+      <button class="opt" onclick="pick(this)">Tweedeling</button>
+      <button class="opt" onclick="pick(this)">Driedeling</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Tweedeling">
+      <div class="counter">Ronde 2 · vraag 2</div>
+      <div class="q">Een tekst bestaat alleen uit <strong>inleiding – kern</strong>. Hoe noem je dit?</div>
+      <button class="opt" onclick="pick(this)">Tweedeling</button>
+      <button class="opt" onclick="pick(this)">Driedeling</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Bij de kern">
+      <div class="counter">Ronde 2 · vraag 3</div>
+      <div class="q">De laatste alinea voegt nog <strong>nieuwe informatie</strong> over het onderwerp toe. Waar hoort die alinea bij?</div>
+      <button class="opt" onclick="pick(this)">Bij de kern</button>
+      <button class="opt" onclick="pick(this)">Het is het slot</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Het is het slot">
+      <div class="counter">Ronde 2 · vraag 4</div>
+      <div class="q">De laatste alinea <strong>rondt de tekst af</strong> met een samenvatting of conclusie. Wat is het?</div>
+      <button class="opt" onclick="pick(this)">Bij de kern</button>
+      <button class="opt" onclick="pick(this)">Het is het slot</button>
+      <div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
-  <div class="card" data-q data-correct="Studerend lezen">
-    <div class="counter">Oefening 4 van 8</div>
-    <div class="q">Je leert voor een toets en wilt de informatie goed <strong>onthouden</strong>. Welke manier van lezen past hierbij?</div>
-    <button class="opt" onclick="pick(this)">Verkennend lezen</button>
-    <button class="opt" onclick="pick(this)">Zoekend lezen</button>
-    <button class="opt" onclick="pick(this)">Studerend lezen</button>
-    <div class="fb"></div>
-  </div>
+  <!-- RONDE 3 -->
+  <section class="round" data-round="3">
+    <div class="round-head"><div class="round-num">3</div><div class="round-title">De kernzin van een alinea</div></div>
 
-  <div class="card" data-q data-correct="Driedeling">
-    <div class="counter">Oefening 5 van 8</div>
-    <div class="q">Een tekst heeft de opbouw <strong>inleiding – kern – slot</strong>. Hoe noem je deze opbouw?</div>
-    <button class="opt" onclick="pick(this)">Tweedeling</button>
-    <button class="opt" onclick="pick(this)">Driedeling</button>
-    <div class="fb"></div>
-  </div>
+    <div class="card" data-q data-correct="De zin die aangeeft waar de alinea over gaat">
+      <div class="counter">Ronde 3 · vraag 1</div>
+      <div class="q">Wat is een <strong>kernzin</strong>?</div>
+      <button class="opt" onclick="pick(this)">De laatste zin van de hele tekst</button>
+      <button class="opt" onclick="pick(this)">De zin die aangeeft waar de alinea over gaat</button>
+      <button class="opt" onclick="pick(this)">Een zin die altijd een vraag is</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Vaak als eerste zin">
+      <div class="counter">Ronde 3 · vraag 2</div>
+      <div class="q">Waar staat de kernzin meestal?</div>
+      <button class="opt" onclick="pick(this)">Vaak als eerste zin</button>
+      <button class="opt" onclick="pick(this)">Altijd als laatste zin</button>
+      <button class="opt" onclick="pick(this)">Altijd precies in het midden</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Uitleg of uitwerking van de kernzin">
+      <div class="counter">Ronde 3 · vraag 3</div>
+      <div class="q">Wat is de <strong>rest</strong> van de alinea (naast de kernzin)?</div>
+      <button class="opt" onclick="pick(this)">Uitleg of uitwerking van de kernzin</button>
+      <button class="opt" onclick="pick(this)">Steeds een nieuwe kernzin</button>
+      <button class="opt" onclick="pick(this)">Niet belangrijk, dat sla je over</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Kijk welke zin in de alinea wordt toegelicht">
+      <div class="counter">Ronde 3 · vraag 4</div>
+      <div class="q">Je twijfelt wat de kernzin is. Wat doe je?</div>
+      <button class="opt" onclick="pick(this)">Kijk welke zin in de alinea wordt toegelicht</button>
+      <button class="opt" onclick="pick(this)">Kies altijd de allerlaatste zin</button>
+      <button class="opt" onclick="pick(this)">Kies de kortste zin</button>
+      <div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
-  <div class="card" data-q data-correct="Als de alinea nieuwe informatie over het onderwerp toevoegt">
-    <div class="counter">Oefening 6 van 8</div>
-    <div class="q">Wanneer hoort de <strong>laatste alinea</strong> nog bij de kern (en is het dus géén slot)?</div>
-    <button class="opt" onclick="pick(this)">Als de alinea de tekst afrondt met een samenvatting</button>
-    <button class="opt" onclick="pick(this)">Als de alinea nieuwe informatie over het onderwerp toevoegt</button>
-    <button class="opt" onclick="pick(this)">Als de alinea een conclusie geeft</button>
-    <div class="fb"></div>
-  </div>
+  <!-- RONDE 4 -->
+  <section class="round" data-round="4">
+    <div class="round-head"><div class="round-num">4</div><div class="round-title">Informatie zoeken op internet</div></div>
 
-  <div class="card" data-q data-correct="De zin die aangeeft waar de alinea over gaat">
-    <div class="counter">Oefening 7 van 8</div>
-    <div class="q">Wat is een <strong>kernzin</strong>?</div>
-    <button class="opt" onclick="pick(this)">De laatste zin van de hele tekst</button>
-    <button class="opt" onclick="pick(this)">De zin die aangeeft waar de alinea over gaat</button>
-    <button class="opt" onclick="pick(this)">Een zin die altijd een vraag is</button>
-    <div class="fb"></div>
-  </div>
-
-  <div class="card" data-q data-correct="Tussen dubbele aanhalingstekens zetten">
-    <div class="counter">Oefening 8 van 8</div>
-    <div class="q">Je zoekt op internet en de woorden moeten er <strong>precies zo</strong> in staan. Wat doe je met die zoekwoorden?</div>
-    <button class="opt" onclick="pick(this)">In hoofdletters typen</button>
-    <button class="opt" onclick="pick(this)">Tussen dubbele aanhalingstekens zetten</button>
-    <button class="opt" onclick="pick(this)">Helemaal achteraan zetten</button>
-    <div class="fb"></div>
-  </div>
+    <div class="card" data-q data-correct="Meer dan één zoekwoord">
+      <div class="counter">Ronde 4 · vraag 1</div>
+      <div class="q">Hoeveel zoekwoorden gebruik je het best?</div>
+      <button class="opt" onclick="pick(this)">Meer dan één zoekwoord</button>
+      <button class="opt" onclick="pick(this)">Altijd precies één woord</button>
+      <button class="opt" onclick="pick(this)">Zo min mogelijk</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Vooraan">
+      <div class="counter">Ronde 4 · vraag 2</div>
+      <div class="q">Waar zet je het <strong>belangrijkste</strong> zoekwoord?</div>
+      <button class="opt" onclick="pick(this)">Vooraan</button>
+      <button class="opt" onclick="pick(this)">Achteraan</button>
+      <button class="opt" onclick="pick(this)">Dat maakt niet uit</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Tussen dubbele aanhalingstekens zetten">
+      <div class="counter">Ronde 4 · vraag 3</div>
+      <div class="q">De woorden moeten er <strong>precies zo</strong> in staan. Wat doe je ermee?</div>
+      <button class="opt" onclick="pick(this)">In hoofdletters typen</button>
+      <button class="opt" onclick="pick(this)">Tussen dubbele aanhalingstekens zetten</button>
+      <button class="opt" onclick="pick(this)">Helemaal achteraan zetten</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Klik niet alleen de bovenste hit aan">
+      <div class="counter">Ronde 4 · vraag 4</div>
+      <div class="q">Wat is een goede tip bij het <strong>beoordelen</strong> van zoekresultaten?</div>
+      <button class="opt" onclick="pick(this)">Klik niet alleen de bovenste hit aan</button>
+      <button class="opt" onclick="pick(this)">Klik altijd alleen de eerste hit</button>
+      <button class="opt" onclick="pick(this)">Lees nooit de tekst onder een hit</button>
+      <div class="fb"></div>
+    </div>
+    <div class="card" data-q data-correct="Controleer het op andere websites">
+      <div class="counter">Ronde 4 · vraag 5</div>
+      <div class="q">Je twijfelt of informatie wel klopt. Wat doe je?</div>
+      <button class="opt" onclick="pick(this)">Controleer het op andere websites</button>
+      <button class="opt" onclick="pick(this)">Je gelooft gewoon de eerste site</button>
+      <button class="opt" onclick="pick(this)">Je stopt met zoeken</button>
+      <div class="fb"></div>
+    </div>
+    <div class="round-end"></div>
+  </section>
 
   <div id="done"></div>
-  <div class="cheer">Goed bezig, Tijn! Elke keer dat je oefent, onthoud je het beter. 🌟</div>
+  <div class="cheer">Goed bezig, Tijn! Je hebt nu alle onderdelen van Lezen geoefend. 🌟</div>
 
 </div>
 
 <script>
-  var qs = document.querySelectorAll('[data-q]'), total = qs.length, score = 0, answered = 0;
+  var totalQ = document.querySelectorAll('[data-q]').length, totalScore = 0, totalAnswered = 0;
   function pick(btn){
-    var card = btn.closest('[data-q]'); if(card.dataset.done) return; card.dataset.done = 1;
+    var card = btn.closest('[data-q]'); if(card.dataset.done) return; card.dataset.done = '1';
     var correct = card.dataset.correct.trim(); var fb = card.querySelector('.fb');
     card.querySelectorAll('.opt').forEach(function(b){ b.disabled = true; if(b.textContent.trim() === correct) b.classList.add('good'); });
-    if(btn.textContent.trim() === correct){ fb.textContent = '✅ Goed zo!'; fb.style.color = '#16a766'; score++; }
-    else { btn.classList.add('bad'); fb.textContent = '❌ Bijna! Kijk nog eens naar het kadertje hierboven.'; fb.style.color = '#e0564a'; }
-    answered++;
-    if(answered === total){ var d = document.getElementById('done'); d.innerHTML = '<div class="done-msg">🎉 Klaar! Je had ' + score + ' van ' + total + ' goed.</div>'; d.scrollIntoView({behavior:'smooth'}); }
+    if(btn.textContent.trim() === correct){ fb.textContent = '✅ Goed zo!'; fb.style.color = '#16a766'; totalScore++; card.dataset.ok = '1'; }
+    else { btn.classList.add('bad'); fb.textContent = '❌ Bijna! Kijk nog eens naar de uitleg hierboven.'; fb.style.color = '#e0564a'; }
+    totalAnswered++;
+    var round = card.closest('[data-round]');
+    if(round && !round.dataset.fin){
+      var rc = round.querySelectorAll('[data-q]'), rd = round.querySelectorAll('[data-q][data-done]');
+      if(rc.length === rd.length){ round.dataset.fin = '1';
+        var good = round.querySelectorAll('[data-q][data-ok]').length;
+        var box = round.querySelector('.round-end');
+        if(box) box.innerHTML = '<div class="round-msg">✔️ Ronde klaar — ' + good + ' van ' + rc.length + ' goed.</div>';
+      }
+    }
+    if(totalAnswered === totalQ){
+      var d = document.getElementById('done');
+      d.innerHTML = '<div class="done-msg">🎉 Klaar met alle rondes! Je had in totaal ' + totalScore + ' van ' + totalQ + ' goed.</div>';
+      d.scrollIntoView({behavior:'smooth'});
+    }
   }
 </script>
 </body>
