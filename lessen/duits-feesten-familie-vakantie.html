@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duits — Feesten, familie &amp; vakantie</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; background: #f4f7fb; color: #1f2a37; line-height: 1.6; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 80px; }
+  header { background: linear-gradient(135deg, #e0a020, #b9791a); color: #fff; border-radius: 18px; padding: 22px; margin-bottom: 18px; }
+  header .emoji { font-size: 34px; } header h1 { margin: 6px 0 4px; font-size: 22px; } header p { margin: 0; opacity: .92; font-size: 15px; }
+  .intro { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:18px; border:1px solid #e4eaf2; }
+  .intro h2 { margin:0 0 8px; font-size:17px; color:#b9791a; } .intro ul { margin:8px 0 0; padding-left:20px; }
+  .legend { font-size:13px; color:#5a6b82; margin:10px 0 0; }
+  .legend b.der{color:#2f6fd0;} .legend b.die{color:#d6453a;} .legend b.das{color:#1f9d57;}
+  section.step { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
+  section.step h3 { margin:0 0 8px; font-size:16px; color:#946012; }
+  .tag { display:inline-block; background:#fbf0d8; color:#946012; font-size:12px; font-weight:600; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 2px; font-size:14.5px; }
+  th, td { text-align:left; padding:7px 10px; border-bottom:1px solid #eef2f7; } th { background:#fbf4e4; color:#946012; }
+  td.de{font-weight:600;} td.de.der{color:#2f6fd0;} td.de.die{color:#d6453a;} td.de.das{color:#1f9d57;}
+  .round-head { display:flex; align-items:center; gap:12px; margin:26px 4px 12px; }
+  .round-num { background:#b9791a; color:#fff; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; flex:0 0 auto; }
+  .round-title { font-size:17px; font-weight:800; }
+  .pickset { display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 4px; }
+  .setbtn { flex:1 1 140px; background:#fdf7ea; border:1.5px solid #e0a020; color:#946012; border-radius:12px; padding:14px; font-size:15px; font-weight:700; cursor:pointer; transition:all .12s; }
+  .setbtn:hover{ background:#f8edd2; }
+  .setbtn.sel{ background:#b9791a; border-color:#946012; color:#fff; }
+  .card { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
+  .counter { font-size:12px; color:#7a8aa0; font-weight:600; margin-bottom:6px; }
+  .q { font-weight:700; margin-bottom:4px; font-size:20px; } .q small{ display:block; font-size:13px; font-weight:500; color:#7a8aa0; margin-top:2px; }
+  .opt { display:block; width:100%; text-align:left; background:#f6f9fd; border:1.5px solid #d9e3f0; border-radius:10px; padding:11px 14px; margin:7px 0; font-size:15px; cursor:pointer; transition:all .12s; color:#1f2a37; }
+  .opt:hover:not(:disabled){ border-color:#e0a020; background:#fdf7ea; } .opt:disabled{ cursor:default; opacity:.95; }
+  .opt.good{ background:#e6f7ee; border-color:#16a766; color:#0d6b41; font-weight:600; } .opt.bad{ background:#fdecea; border-color:#e0564a; color:#a3271c; }
+  .fb{ margin-top:8px; font-weight:600; min-height:20px; }
+  .next{ display:none; margin-top:6px; background:#b9791a; color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:15px; font-weight:700; cursor:pointer; }
+  .bar{ height:10px; background:#e6ecf5; border-radius:999px; overflow:hidden; margin:4px 0 14px; }
+  .bar > i{ display:block; height:100%; width:0; background:linear-gradient(90deg,#e0a020,#16a766); transition:width .3s; }
+  #done{ margin-top:18px; } .done-msg{ background:linear-gradient(135deg,#16a766,#0d8a52); color:#fff; border-radius:14px; padding:18px; text-align:center; font-size:18px; font-weight:700; }
+  .again{ margin-top:12px; background:#fff; border:1.5px solid #b9791a; color:#946012; border-radius:10px; padding:10px 16px; font-weight:700; cursor:pointer; }
+  .cheer{ background:#eef7f1; border:1px solid #cfe9da; border-radius:12px; padding:14px 16px; color:#0d6b41; font-weight:600; text-align:center; margin-top:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="emoji">🇩🇪</div>
+    <h1>Feesten, familie &amp; vakantie</h1>
+    <p>Duits · woordjes — beide kanten op oefenen</p>
+  </header>
+
+  <div class="intro">
+    <h2>Wat ga je leren? 🎯</h2>
+    <ul>
+      <li>Alle Duitse woordjes uit <strong>Wörterliste A, B, D/F</strong> en <strong>G</strong> over verjaardagen, familie, feestdagen en vakantie.</li>
+      <li>Je oefent <strong>beide kanten op</strong>: van Duits naar Nederlands <em>én</em> van Nederlands naar Duits.</li>
+    </ul>
+    <p class="legend">Tip: de kleur laat het lidwoord zien — <b class="der">der</b> (blauw), <b class="die">die</b> (rood), <b class="das">das</b> (groen).</p>
+    <p style="margin:10px 0 0; font-size:14px; color:#5a6b82;">Bekijk eerst rustig de lijsten. Oefen gerust één lijstje tegelijk — kleine stapjes, geen haast! 💪</p>
+  </div>
+
+  <section class="step">
+    <span class="tag">Woordenlijst A</span><h3>Verjaardag, feest &amp; familie</h3>
+    <table>
+      <tr><th>Duits</th><th>Nederlands</th></tr>
+      <tr><td class="de der">der Geburtstag</td><td>de verjaardag</td></tr>
+      <tr><td class="de der">der Kuchen</td><td>de taart</td></tr>
+      <tr><td class="de der">der Karneval</td><td>het carnaval</td></tr>
+      <tr><td class="de der">der Osterhase</td><td>de paashaas</td></tr>
+      <tr><td class="de der">der Feiertag</td><td>de feestdag</td></tr>
+      <tr><td class="de der">der Neffe</td><td>de neef (kind van broer / zus)</td></tr>
+      <tr><td class="de der">der Cousin</td><td>de neef (kind van oom / tante)</td></tr>
+      <tr><td class="de die">die Überraschung</td><td>de verrassing</td></tr>
+      <tr><td class="de die">die Torte</td><td>de taart (met slagroom)</td></tr>
+      <tr><td class="de die">die Party</td><td>het feestje</td></tr>
+      <tr><td class="de die">die Nichte</td><td>de nicht (kind van broer / zus)</td></tr>
+      <tr><td class="de die">die Cousine</td><td>de nicht (kind van oom / tante)</td></tr>
+      <tr><td class="de die">die Familie</td><td>het gezin</td></tr>
+      <tr><td class="de das">das Geschenk</td><td>het cadeau</td></tr>
+      <tr><td class="de das">das Einzelkind</td><td>het enigst kind</td></tr>
+      <tr><td class="de das">das Fest</td><td>het feest</td></tr>
+      <tr><td class="de das">das Osterei</td><td>het paasei</td></tr>
+      <tr><td class="de die">die Geschwister</td><td>de broers en / of zussen</td></tr>
+      <tr><td class="de die">die Verwandten</td><td>de familie</td></tr>
+      <tr><td class="de">Ostern</td><td>Pasen</td></tr>
+      <tr><td class="de">Ostereier bemalen</td><td>paaseieren beschilderen</td></tr>
+      <tr><td class="de">bekommen</td><td>krijgen</td></tr>
+      <tr><td class="de">kaufen</td><td>kopen</td></tr>
+      <tr><td class="de">Ich habe Geburtstag.</td><td>Ik ben jarig.</td></tr>
+      <tr><td class="de">Herzlichen Glückwunsch!</td><td>Hartelijk gefeliciteerd!</td></tr>
+      <tr><td class="de">sich wünschen</td><td>wensen</td></tr>
+      <tr><td class="de">mitbringen</td><td>meenemen</td></tr>
+      <tr><td class="de">feiern</td><td>vieren</td></tr>
+      <tr><td class="de">gratulieren</td><td>feliciteren</td></tr>
+    </table>
+  </section>
+
+  <section class="step">
+    <span class="tag">Woordenlijst B</span><h3>Familie, gasten &amp; Oktoberfest</h3>
+    <table>
+      <tr><th>Duits</th><th>Nederlands</th></tr>
+      <tr><td class="de der">der Gast</td><td>de gast</td></tr>
+      <tr><td class="de der">der Onkel</td><td>de oom</td></tr>
+      <tr><td class="de der">der Großvater</td><td>de opa, de grootvader</td></tr>
+      <tr><td class="de der">der Eingang</td><td>de ingang</td></tr>
+      <tr><td class="de der">der Rucksack</td><td>de rugtas, de rugzak</td></tr>
+      <tr><td class="de der">der Vater</td><td>de vader</td></tr>
+      <tr><td class="de der">der Stiefvater</td><td>de stiefvader</td></tr>
+      <tr><td class="de die">die Tante</td><td>de tante</td></tr>
+      <tr><td class="de die">die Großmutter</td><td>de oma, de grootmoeder</td></tr>
+      <tr><td class="de die">die Mutter</td><td>de moeder</td></tr>
+      <tr><td class="de die">die Stiefmutter</td><td>de stiefmoeder</td></tr>
+      <tr><td class="de die">die Tasche</td><td>de tas</td></tr>
+      <tr><td class="de die">die Ausnahme</td><td>de uitzondering</td></tr>
+      <tr><td class="de das">das Wochenende</td><td>het weekend</td></tr>
+      <tr><td class="de das">das Essen</td><td>het eten</td></tr>
+      <tr><td class="de das">das Oktoberfest</td><td>typisch feest in Zuid-Duitsland, start eind september</td></tr>
+      <tr><td class="de die">die Gäste</td><td>de gasten</td></tr>
+      <tr><td class="de">und</td><td>en</td></tr>
+      <tr><td class="de">seit</td><td>sinds</td></tr>
+      <tr><td class="de">oder</td><td>of</td></tr>
+      <tr><td class="de">auch</td><td>ook</td></tr>
+      <tr><td class="de">frei haben</td><td>vrij hebben</td></tr>
+      <tr><td class="de">immer</td><td>altijd</td></tr>
+      <tr><td class="de">oft</td><td>vaak</td></tr>
+      <tr><td class="de">manchmal</td><td>soms</td></tr>
+      <tr><td class="de">nie</td><td>nooit</td></tr>
+      <tr><td class="de">wieder</td><td>weer</td></tr>
+      <tr><td class="de">Hunger haben</td><td>honger hebben</td></tr>
+    </table>
+  </section>
+
+  <section class="step">
+    <span class="tag">Woordenlijst D/F</span><h3>Advent, Kerst &amp; feesten</h3>
+    <table>
+      <tr><th>Duits</th><th>Nederlands</th></tr>
+      <tr><td class="de der">der Advent</td><td>4-weekse periode tot aan Kerst</td></tr>
+      <tr><td class="de der">der Fasching / der Karneval</td><td>de carnaval</td></tr>
+      <tr><td class="de der">der Lebkuchen</td><td>de peperkoek</td></tr>
+      <tr><td class="de der">der Weihnachtsbaum</td><td>de kerstboom</td></tr>
+      <tr><td class="de die">die Geburt</td><td>de geboorte</td></tr>
+      <tr><td class="de die">die Hochzeit</td><td>de bruiloft</td></tr>
+      <tr><td class="de die">die Verlobung</td><td>de verloving</td></tr>
+      <tr><td class="de das">das Zuckerfest</td><td>het Suikerfeest</td></tr>
+      <tr><td class="de die">die Bräuche</td><td>de gebruiken</td></tr>
+      <tr><td class="de die">die Leute</td><td>de mensen</td></tr>
+      <tr><td class="de">feiern</td><td>vieren</td></tr>
+      <tr><td class="de">sich erkennen</td><td>herkennen</td></tr>
+      <tr><td class="de">verkleiden</td><td>verkleden</td></tr>
+      <tr><td class="de">verstehen</td><td>begrijpen</td></tr>
+      <tr><td class="de">frech</td><td>brutaal</td></tr>
+      <tr><td class="de">Heiligabend</td><td>kerstavond</td></tr>
+      <tr><td class="de">Neujahr</td><td>Nieuwjaar</td></tr>
+      <tr><td class="de">Silvester</td><td>oud en nieuw</td></tr>
+      <tr><td class="de">Weihnachten</td><td>Kerst</td></tr>
+    </table>
+  </section>
+
+  <section class="step">
+    <span class="tag">Woordenlijst G</span><h3>Uitjes &amp; vakantie</h3>
+    <table>
+      <tr><th>Duits</th><th>Nederlands</th></tr>
+      <tr><td class="de der">der Ausflug</td><td>het uitstapje</td></tr>
+      <tr><td class="de der">der Urlaub</td><td>de vakantie</td></tr>
+      <tr><td class="de die">die Einladung</td><td>de uitnodiging</td></tr>
+      <tr><td class="de die">die Ferien</td><td>de vakantie</td></tr>
+      <tr><td class="de die">die Wunschliste</td><td>het verlanglijstje</td></tr>
+      <tr><td class="de die">die Menschen</td><td>de mensen</td></tr>
+      <tr><td class="de">ausgeben</td><td>trakteren</td></tr>
+      <tr><td class="de">einladen</td><td>uitnodigen</td></tr>
+      <tr><td class="de">kaufen</td><td>kopen</td></tr>
+      <tr><td class="de">überraschen</td><td>verrassen</td></tr>
+      <tr><td class="de">sich freuen</td><td>zich verheugen</td></tr>
+      <tr><td class="de">auch</td><td>ook</td></tr>
+      <tr><td class="de">aber</td><td>maar</td></tr>
+      <tr><td class="de">für</td><td>voor</td></tr>
+      <tr><td class="de">man</td><td>men</td></tr>
+      <tr><td class="de">nichts</td><td>niets</td></tr>
+      <tr><td class="de">um</td><td>om</td></tr>
+      <tr><td class="de">zum Beispiel</td><td>bijvoorbeeld</td></tr>
+      <tr><td class="de">am Wochenende</td><td>in het weekend</td></tr>
+      <tr><td class="de">Spaß machen</td><td>plezier hebben, plezier maken</td></tr>
+      <tr><td class="de">heute</td><td>vandaag</td></tr>
+      <tr><td class="de">gestern</td><td>gisteren</td></tr>
+      <tr><td class="de">süß</td><td>zoet</td></tr>
+      <tr><td class="de">salzig</td><td>zout</td></tr>
+    </table>
+  </section>
+
+  <div class="round-head">
+    <div class="round-num">✏️</div>
+    <div class="round-title">Oefenen</div>
+  </div>
+
+  <section class="step" id="chooser">
+    <h3>Wat wil je oefenen?</h3>
+    <p style="font-size:14px; color:#5a6b82; margin:0 0 6px;"><strong>1.</strong> Kies een lijstje:</p>
+    <div class="pickset" id="setrow">
+      <button class="setbtn sel" data-set="A" onclick="selSet(this)">📋 Lijst A</button>
+      <button class="setbtn" data-set="B" onclick="selSet(this)">📋 Lijst B</button>
+      <button class="setbtn" data-set="DF" onclick="selSet(this)">📋 Lijst D/F</button>
+      <button class="setbtn" data-set="G" onclick="selSet(this)">📋 Lijst G</button>
+      <button class="setbtn" data-set="ALL" onclick="selSet(this)">🌟 Alles</button>
+    </div>
+    <p style="font-size:14px; color:#5a6b82; margin:14px 0 6px;"><strong>2.</strong> Kies de richting:</p>
+    <div class="pickset" id="dirrow">
+      <button class="setbtn sel" data-dir="DN" onclick="selDir(this)">🇩🇪 → 🇳🇱 Duits → Nederlands</button>
+      <button class="setbtn" data-dir="ND" onclick="selDir(this)">🇳🇱 → 🇩🇪 Nederlands → Duits</button>
+      <button class="setbtn" data-dir="MIX" onclick="selDir(this)">🔀 Door elkaar</button>
+    </div>
+    <button class="setbtn" style="margin-top:16px; background:#16a766; border-color:#0d8a52; color:#fff;" onclick="startQuiz()">▶ Start oefenen</button>
+  </section>
+
+  <div id="quiz" style="display:none;">
+    <div class="bar"><i id="barfill"></i></div>
+    <div class="card" id="qcard">
+      <div class="counter" id="counter"></div>
+      <div class="q" id="qword"></div>
+      <div id="opts"></div>
+      <div class="fb" id="fb"></div>
+      <button class="next" id="nextbtn" onclick="nextQ()">Volgende →</button>
+    </div>
+  </div>
+
+  <div id="done"></div>
+
+<script>
+var LIST_A=[
+ {de:"der Geburtstag",nl:"de verjaardag"},{de:"der Kuchen",nl:"de taart"},{de:"der Karneval",nl:"het carnaval"},
+ {de:"der Osterhase",nl:"de paashaas"},{de:"der Feiertag",nl:"de feestdag"},{de:"der Neffe",nl:"de neef (kind van broer / zus)"},
+ {de:"der Cousin",nl:"de neef (kind van oom / tante)"},{de:"die Überraschung",nl:"de verrassing"},{de:"die Torte",nl:"de taart (met slagroom)"},
+ {de:"die Party",nl:"het feestje"},{de:"die Nichte",nl:"de nicht (kind van broer / zus)"},{de:"die Cousine",nl:"de nicht (kind van oom / tante)"},
+ {de:"die Familie",nl:"het gezin"},{de:"das Geschenk",nl:"het cadeau"},{de:"das Einzelkind",nl:"het enigst kind"},
+ {de:"das Fest",nl:"het feest"},{de:"das Osterei",nl:"het paasei"},{de:"die Geschwister",nl:"de broers en / of zussen"},
+ {de:"die Verwandten",nl:"de familie"},{de:"Ostern",nl:"Pasen"},{de:"Ostereier bemalen",nl:"paaseieren beschilderen"},
+ {de:"bekommen",nl:"krijgen"},{de:"kaufen",nl:"kopen"},{de:"Ich habe Geburtstag.",nl:"Ik ben jarig."},
+ {de:"Herzlichen Glückwunsch!",nl:"Hartelijk gefeliciteerd!"},{de:"sich wünschen",nl:"wensen"},{de:"mitbringen",nl:"meenemen"},
+ {de:"feiern",nl:"vieren"},{de:"gratulieren",nl:"feliciteren"}
+];
+var LIST_B=[
+ {de:"der Gast",nl:"de gast"},{de:"der Onkel",nl:"de oom"},{de:"der Großvater",nl:"de opa, de grootvader"},
+ {de:"der Eingang",nl:"de ingang"},{de:"der Rucksack",nl:"de rugtas, de rugzak"},{de:"der Vater",nl:"de vader"},
+ {de:"der Stiefvater",nl:"de stiefvader"},{de:"die Tante",nl:"de tante"},{de:"die Großmutter",nl:"de oma, de grootmoeder"},
+ {de:"die Mutter",nl:"de moeder"},{de:"die Stiefmutter",nl:"de stiefmoeder"},{de:"die Tasche",nl:"de tas"},
+ {de:"die Ausnahme",nl:"de uitzondering"},{de:"das Wochenende",nl:"het weekend"},{de:"das Essen",nl:"het eten"},
+ {de:"das Oktoberfest",nl:"typisch feest in Zuid-Duitsland, start eind september"},{de:"die Gäste",nl:"de gasten"},
+ {de:"und",nl:"en"},{de:"seit",nl:"sinds"},{de:"oder",nl:"of"},{de:"auch",nl:"ook"},{de:"frei haben",nl:"vrij hebben"},
+ {de:"immer",nl:"altijd"},{de:"oft",nl:"vaak"},{de:"manchmal",nl:"soms"},{de:"nie",nl:"nooit"},{de:"wieder",nl:"weer"},
+ {de:"Hunger haben",nl:"honger hebben"}
+];
+var LIST_DF=[
+ {de:"der Advent",nl:"4-weekse periode tot aan Kerst"},{de:"der Fasching / der Karneval",nl:"de carnaval"},
+ {de:"der Lebkuchen",nl:"de peperkoek"},{de:"der Weihnachtsbaum",nl:"de kerstboom"},{de:"die Geburt",nl:"de geboorte"},
+ {de:"die Hochzeit",nl:"de bruiloft"},{de:"die Verlobung",nl:"de verloving"},{de:"das Zuckerfest",nl:"het Suikerfeest"},
+ {de:"die Bräuche",nl:"de gebruiken"},{de:"die Leute",nl:"de mensen"},{de:"feiern",nl:"vieren"},
+ {de:"sich erkennen",nl:"herkennen"},{de:"verkleiden",nl:"verkleden"},{de:"verstehen",nl:"begrijpen"},
+ {de:"frech",nl:"brutaal"},{de:"Heiligabend",nl:"kerstavond"},{de:"Neujahr",nl:"Nieuwjaar"},
+ {de:"Silvester",nl:"oud en nieuw"},{de:"Weihnachten",nl:"Kerst"}
+];
+var LIST_G=[
+ {de:"der Ausflug",nl:"het uitstapje"},{de:"der Urlaub",nl:"de vakantie"},{de:"die Einladung",nl:"de uitnodiging"},
+ {de:"die Ferien",nl:"de vakantie"},{de:"die Wunschliste",nl:"het verlanglijstje"},{de:"die Menschen",nl:"de mensen"},
+ {de:"ausgeben",nl:"trakteren"},{de:"einladen",nl:"uitnodigen"},{de:"kaufen",nl:"kopen"},{de:"überraschen",nl:"verrassen"},
+ {de:"sich freuen",nl:"zich verheugen"},{de:"auch",nl:"ook"},{de:"aber",nl:"maar"},{de:"für",nl:"voor"},
+ {de:"man",nl:"men"},{de:"nichts",nl:"niets"},{de:"um",nl:"om"},{de:"zum Beispiel",nl:"bijvoorbeeld"},
+ {de:"am Wochenende",nl:"in het weekend"},{de:"Spaß machen",nl:"plezier hebben, plezier maken"},
+ {de:"heute",nl:"vandaag"},{de:"gestern",nl:"gisteren"},{de:"süß",nl:"zoet"},{de:"salzig",nl:"zout"}
+];
+function buildAll(){
+  var src=LIST_A.concat(LIST_B,LIST_DF,LIST_G), out=[], seen={};
+  for(var i=0;i<src.length;i++){ var k=src[i].de+'|'+src[i].nl; if(!seen[k]){seen[k]=1; out.push(src[i]);} }
+  return out;
+}
+var ALL=buildAll();
+var SETS={A:LIST_A,B:LIST_B,DF:LIST_DF,G:LIST_G,ALL:ALL};
+
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+var chosenSet='A', chosenDir='DN';
+var workset=[], queue=[], idx=0, score=0, current=null;
+
+function selSet(btn){ chosenSet=btn.dataset.set; var r=document.getElementById('setrow').children; for(var i=0;i<r.length;i++) r[i].classList.remove('sel'); btn.classList.add('sel'); }
+function selDir(btn){ chosenDir=btn.dataset.dir; var r=document.getElementById('dirrow').children; for(var i=0;i<r.length;i++) r[i].classList.remove('sel'); btn.classList.add('sel'); }
+
+function startQuiz(){
+  workset=SETS[chosenSet]||ALL;
+  queue=shuffle(workset).map(function(p){
+    var dir = chosenDir==='MIX' ? (Math.random()<0.5?'DN':'ND') : chosenDir;
+    return {pair:p, dir:dir};
+  });
+  idx=0; score=0;
+  document.getElementById('chooser').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  document.getElementById('done').innerHTML='';
+  render();
+}
+
+function render(){
+  current=queue[idx];
+  var p=current.pair, dir=current.dir;
+  document.getElementById('counter').textContent='Woord '+(idx+1)+' van '+queue.length;
+  document.getElementById('barfill').style.width=Math.round(idx/queue.length*100)+'%';
+  var opts, prompt, hint;
+  if(dir==='DN'){
+    prompt=p.de; hint='Wat betekent dit in het Nederlands?';
+    var pool=shuffle(workset.filter(function(w){return w.nl!==p.nl;}));
+    opts=[p.nl]; var seen={}; seen[p.nl]=1;
+    for(var i=0;i<pool.length && opts.length<4;i++){ if(!seen[pool[i].nl]){opts.push(pool[i].nl); seen[pool[i].nl]=1;} }
+  } else {
+    prompt=p.nl; hint='Hoe zeg je dit in het Duits?';
+    var pool2=shuffle(workset.filter(function(w){return w.nl!==p.nl;}));
+    opts=[p.de]; var seen2={}; seen2[p.de]=1;
+    for(var j=0;j<pool2.length && opts.length<4;j++){ if(!seen2[pool2[j].de]){opts.push(pool2[j].de); seen2[pool2[j].de]=1;} }
+  }
+  opts=shuffle(opts);
+  document.getElementById('qword').innerHTML=prompt+'<small>'+hint+'</small>';
+  var html='';
+  for(var k=0;k<opts.length;k++){ html+='<button class="opt" onclick="pick(this)">'+opts[k]+'</button>'; }
+  document.getElementById('opts').innerHTML=html;
+  document.getElementById('fb').textContent=''; document.getElementById('fb').style.color='';
+  document.getElementById('nextbtn').style.display='none';
+}
+
+// is a given option text the/a correct answer for the current question?
+function isCorrect(txt){
+  var p=current.pair, dir=current.dir; txt=txt.trim();
+  if(dir==='DN'){ return txt===p.nl.trim(); }
+  // ND: any German word in the working set whose nl equals the prompt's nl is correct
+  for(var i=0;i<workset.length;i++){ if(workset[i].de.trim()===txt && workset[i].nl===p.nl) return true; }
+  return false;
+}
+
+function pick(btn){
+  var opts=document.querySelectorAll('#opts .opt');
+  opts.forEach(function(b){ b.disabled=true; if(isCorrect(b.textContent)) b.classList.add('good'); });
+  var fb=document.getElementById('fb');
+  if(isCorrect(btn.textContent)){ fb.textContent='✅ Goed zo!'; fb.style.color='#16a766'; score++; }
+  else{ btn.classList.add('bad'); fb.textContent='❌ Bijna! Het goede antwoord is groen gemarkeerd.'; fb.style.color='#e0564a'; }
+  document.getElementById('nextbtn').style.display='inline-block';
+}
+
+function nextQ(){
+  idx++;
+  if(idx<queue.length){ render(); }
+  else{
+    document.getElementById('barfill').style.width='100%';
+    document.getElementById('quiz').style.display='none';
+    var d=document.getElementById('done');
+    var perfect = score===queue.length;
+    d.innerHTML='<div class="done-msg">🎉 Klaar! Je had '+score+' van '+queue.length+' goed.</div>'+
+      '<div class="cheer">'+(perfect?'Helemaal foutloos — super knap gedaan, Tijn! 🌟':'Goed bezig! Herhalen helpt — probeer het gerust nog een keer. 💪')+'</div>'+
+      '<button class="again" onclick="backToChooser()">↺ Nog een keer oefenen</button>';
+    d.scrollIntoView({behavior:'smooth'});
+  }
+}
+
+function backToChooser(){
+  document.getElementById('done').innerHTML='';
+  document.getElementById('chooser').style.display='block';
+  document.getElementById('chooser').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</div>
+</body>
+</html>
