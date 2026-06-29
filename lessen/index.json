@@ -1,58 +1,18 @@
-[
-  {
-    "id": "nederlands-lezen-2",
-    "title": "Nederlands — Lezen 2: tekstdoelen & reclame",
-    "vak": "Nederlands",
-    "emoji": "🔎",
-    "file": "nederlands-lezen-2.html",
-    "createdAt": "2026-06-26T14:45:00Z"
-  },
-  {
-    "id": "nederlands-woorden",
-    "title": "Nederlands — Woorden",
-    "vak": "Nederlands",
-    "emoji": "📖",
-    "file": "nederlands-woorden.html",
-    "createdAt": "2026-06-26T14:35:00Z"
-  },
-  {
-    "id": "nederlands-grammatica",
-    "title": "Nederlands — Grammatica",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-grammatica.html",
-    "createdAt": "2026-06-26T14:25:00Z"
-  },
-  {
-    "id": "nederlands-spelling",
-    "title": "Nederlands — Spelling",
-    "vak": "Nederlands",
-    "emoji": "✍️",
-    "file": "nederlands-spelling.html",
-    "createdAt": "2026-06-26T14:24:00Z"
-  },
-  {
-    "id": "nederlands-lezen-strategieen-2026-06-26",
-    "title": "Nederlands — Lezen: strategieën & tekstopbouw",
-    "vak": "Nederlands",
-    "emoji": "📝",
-    "file": "nederlands-lezen-strategieen-2026-06-26.html",
-    "createdAt": "2026-06-26T14:19:37Z"
-  },
-  {
-    "id": "duits-feesten-en-vakantie",
-    "title": "Duits — Feesten & vakantie",
-    "vak": "Duits",
-    "emoji": "🇩🇪",
-    "file": "duits-feesten-en-vakantie.html",
-    "createdAt": "2026-06-26T12:07:30Z"
-  },
-  {
-    "id": "welkom",
-    "title": "Welkom op je leerplatform",
-    "vak": "Start",
-    "emoji": "👋",
-    "file": "welkom.html",
-    "createdAt": "2026-06-23T10:20:00Z"
+{
+  "name": "index.json",
+  "path": "lessen/index.json",
+  "sha": "84a4d0ec3b3254048702136dcc73b6641b6f2851",
+  "size": 1535,
+  "url": "https://api.github.com/repos/directiemediacows-dev/tijn-leerplatform/contents/lessen/index.json?ref=main",
+  "html_url": "https://github.com/directiemediacows-dev/tijn-leerplatform/blob/main/lessen/index.json",
+  "git_url": "https://api.github.com/repos/directiemediacows-dev/tijn-leerplatform/git/blobs/84a4d0ec3b3254048702136dcc73b6641b6f2851",
+  "download_url": "https://raw.githubusercontent.com/directiemediacows-dev/tijn-leerplatform/main/lessen/index.json",
+  "type": "file",
+  "content": "WwogIHsKICAgICJpZCI6ICJuZWRlcmxhbmRzLWxlemVuLTIiLAogICAgInRp\ndGxlIjogIk5lZGVybGFuZHMg4oCUIExlemVuIDI6IHRla3N0ZG9lbGVuICYg\ncmVjbGFtZSIsCiAgICAidmFrIjogIk5lZGVybGFuZHMiLAogICAgImVtb2pp\nIjogIvCflI4iLAogICAgImZpbGUiOiAibmVkZXJsYW5kcy1sZXplbi0yLmh0\nbWwiLAogICAgImNyZWF0ZWRBdCI6ICIyMDI2LTA2LTI2VDE0OjQ1OjAwWiIK\nICB9LAogIHsKICAgICJpZCI6ICJuZWRlcmxhbmRzLXdvb3JkZW4iLAogICAg\nInRpdGxlIjogIk5lZGVybGFuZHMg4oCUIFdvb3JkZW4iLAogICAgInZhayI6\nICJOZWRlcmxhbmRzIiwKICAgICJlbW9qaSI6ICLwn5OWIiwKICAgICJmaWxl\nIjogIm5lZGVybGFuZHMtd29vcmRlbi5odG1sIiwKICAgICJjcmVhdGVkQXQi\nOiAiMjAyNi0wNi0yNlQxNDozNTowMFoiCiAgfSwKICB7CiAgICAiaWQiOiAi\nbmVkZXJsYW5kcy1ncmFtbWF0aWNhIiwKICAgICJ0aXRsZSI6ICJOZWRlcmxh\nbmRzIOKAlCBHcmFtbWF0aWNhIiwKICAgICJ2YWsiOiAiTmVkZXJsYW5kcyIs\nCiAgICAiZW1vamkiOiAi8J+TnSIsCiAgICAiZmlsZSI6ICJuZWRlcmxhbmRz\nLWdyYW1tYXRpY2EuaHRtbCIsCiAgICAiY3JlYXRlZEF0IjogIjIwMjYtMDYt\nMjZUMTQ6MjU6MDBaIgogIH0sCiAgewogICAgImlkIjogIm5lZGVybGFuZHMt\nc3BlbGxpbmciLAogICAgInRpdGxlIjogIk5lZGVybGFuZHMg4oCUIFNwZWxs\naW5nIiwKICAgICJ2YWsiOiAiTmVkZXJsYW5kcyIsCiAgICAiZW1vamkiOiAi\n4pyN77iPIiwKICAgICJmaWxlIjogIm5lZGVybGFuZHMtc3BlbGxpbmcuaHRt\nbCIsCiAgICAiY3JlYXRlZEF0IjogIjIwMjYtMDYtMjZUMTQ6MjQ6MDBaIgog\nIH0sCiAgewogICAgImlkIjogIm5lZGVybGFuZHMtbGV6ZW4tc3RyYXRlZ2ll\nZW4tMjAyNi0wNi0yNiIsCiAgICAidGl0bGUiOiAiTmVkZXJsYW5kcyDigJQg\nTGV6ZW46IHN0cmF0ZWdpZcOrbiAmIHRla3N0b3Bib3V3IiwKICAgICJ2YWsi\nOiAiTmVkZXJsYW5kcyIsCiAgICAiZW1vamkiOiAi8J+TnSIsCiAgICAiZmls\nZSI6ICJuZWRlcmxhbmRzLWxlemVuLXN0cmF0ZWdpZWVuLTIwMjYtMDYtMjYu\naHRtbCIsCiAgICAiY3JlYXRlZEF0IjogIjIwMjYtMDYtMjZUMTQ6MTk6Mzda\nIgogIH0sCiAgewogICAgImlkIjogImR1aXRzLWZlZXN0ZW4tZW4tdmFrYW50\naWUiLAogICAgInRpdGxlIjogIkR1aXRzIOKAlCBGZWVzdGVuICYgdmFrYW50\naWUiLAogICAgInZhayI6ICJEdWl0cyIsCiAgICAiZW1vamkiOiAi8J+HqfCf\nh6oiLAogICAgImZpbGUiOiAiZHVpdHMtZmVlc3Rlbi1lbi12YWthbnRpZS5o\ndG1sIiwKICAgICJjcmVhdGVkQXQiOiAiMjAyNi0wNi0yNlQxMjowNzozMFoi\nCiAgfSwKICB7CiAgICAiaWQiOiAid2Vsa29tIiwKICAgICJ0aXRsZSI6ICJX\nZWxrb20gb3AgamUgbGVlcnBsYXRmb3JtIiwKICAgICJ2YWsiOiAiU3RhcnQi\nLAogICAgImVtb2ppIjogIvCfkYsiLAogICAgImZpbGUiOiAid2Vsa29tLmh0\nbWwiLAogICAgImNyZWF0ZWRBdCI6ICIyMDI2LTA2LTIzVDEwOjIwOjAwWiIK\nICB9Cl0=\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/directiemediacows-dev/tijn-leerplatform/contents/lessen/index.json?ref=main",
+    "git": "https://api.github.com/repos/directiemediacows-dev/tijn-leerplatform/git/blobs/84a4d0ec3b3254048702136dcc73b6641b6f2851",
+    "html": "https://github.com/directiemediacows-dev/tijn-leerplatform/blob/main/lessen/index.json"
   }
-]
+}
