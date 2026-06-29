@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0;padding:16px;color:#1f2a44;background:#fff;line-height:1.55}
+h1{font-size:21px;margin:.2em 0}h2{font-size:17px;margin:.2em 0 .1em}
+.intro{color:#6b7896;font-size:14px;margin-bottom:8px}
+.card{background:#f4f7fb;border-radius:14px;padding:15px 16px;margin:14px 0;box-shadow:0 2px 10px rgba(31,42,68,.06)}
+.tag{display:inline-block;background:#fef1d1;color:#a4690a;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:6px}
+ul{margin:6px 0 6px 18px;padding:0}li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0}td,th{text-align:left;padding:5px 8px;border-bottom:1px solid #e6ecf5}
+.ex{background:#fff;border:1px solid #e6ecf5;border-radius:10px;padding:8px 10px;margin:6px 0;font-size:14px}
+.q{font-weight:700;margin-bottom:8px}
+button.opt{display:block;width:100%;text-align:left;border:2px solid #e6ecf5;background:#fff;border-radius:10px;padding:10px 12px;margin:6px 0;cursor:pointer;font-size:15px}
+button.opt:hover{border-color:#4a86e8}button.opt:disabled{cursor:default}
+button.opt.good{border-color:#16a766;background:#e9f9f0}button.opt.bad{border-color:#e0564a;background:#fde9e7}
+.fb{margin-top:8px;font-size:14px;min-height:18px}.counter{font-size:12px;color:#6b7896;margin-bottom:6px}
+.done-msg{text-align:center;background:#e9f9f0;border-radius:12px;padding:14px;color:#16a766;font-weight:700;margin-top:10px}
+</style></head><body>
+<h1>🇩🇪 Duits — Lidwoorden (der / die / das)</h1>
+<p class="intro">In het Duits heeft elk zelfstandig naamwoord een lidwoord: <b>der</b> (mannelijk), <b>die</b> (vrouwelijk) of <b>das</b> (onzijdig). Hieronder de belangrijkste herkenpunten — daarna oefenen.</p>
+<div class="card"><span class="tag">Uitleg</span><h2>Hoe herken je het lidwoord?</h2>
+<ul>
+<li><b>der</b> = mannelijke personen/dieren: der Mann, der Onkel, der Bäcker.</li>
+<li><b>die</b> = vrouwelijke personen, woorden op <b>-e</b>, en op <b>-heit, -keit, -schaft, -ung</b>: die Tante, die Familie, die Einheit, die Freundschaft, die Einladung.</li>
+<li><b>das</b> = de meeste het-woorden, en verkleinwoorden op <b>-chen / -lein</b>: das Kind, das Mädchen, das Männlein.</li>
+</ul>
+<div class="ex">Twijfel je? Zoek het op in een woordenboek — daar staat m, v of o bij.</div></div>
+<div class="card" data-q data-correct="die"><div class="counter">Oefening 1 van 8</div><div class="q">___ Einladung (uitnodiging)</div>
+<button class="opt" onclick="pick(this)">der</button>
+<button class="opt" onclick="pick(this)">die</button>
+<button class="opt" onclick="pick(this)">das</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="das"><div class="counter">Oefening 2 van 8</div><div class="q">___ Mädchen (meisje)</div>
+<button class="opt" onclick="pick(this)">der</button>
+<button class="opt" onclick="pick(this)">die</button>
+<button class="opt" onclick="pick(this)">das</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="der"><div class="counter">Oefening 3 van 8</div><div class="q">___ Bruder (broer)</div>
+<button class="opt" onclick="pick(this)">der</button>
+<button class="opt" onclick="pick(this)">die</button>
+<button class="opt" onclick="pick(this)">das</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="die"><div class="counter">Oefening 4 van 8</div><div class="q">___ Freundschaft (vriendschap)</div>
+<button class="opt" onclick="pick(this)">der</button>
+<button class="opt" onclick="pick(this)">die</button>
+<button class="opt" onclick="pick(this)">das</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="das"><div class="counter">Oefening 5 van 8</div><div class="q">___ Geschenk (cadeau)</div>
+<button class="opt" onclick="pick(this)">der</button>
+<button class="opt" onclick="pick(this)">die</button>
+<button class="opt" onclick="pick(this)">das</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="die"><div class="counter">Oefening 6 van 8</div><div class="q">___ Schwester (zus)</div>
+<button class="opt" onclick="pick(this)">der</button>
+<button class="opt" onclick="pick(this)">die</button>
+<button class="opt" onclick="pick(this)">das</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="die"><div class="counter">Oefening 7 van 8</div><div class="q">___ Stimmung (stemming)</div>
+<button class="opt" onclick="pick(this)">der</button>
+<button class="opt" onclick="pick(this)">die</button>
+<button class="opt" onclick="pick(this)">das</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="der"><div class="counter">Oefening 8 van 8</div><div class="q">___ Bäcker (bakker)</div>
+<button class="opt" onclick="pick(this)">der</button>
+<button class="opt" onclick="pick(this)">die</button>
+<button class="opt" onclick="pick(this)">das</button>
+<div class="fb"></div></div>
+<div id="done"></div><script>
+var qs=document.querySelectorAll("[data-q]"),total=qs.length,score=0,answered=0;
+function pick(btn){var c=btn.closest("[data-q]");if(c.dataset.done)return;c.dataset.done=1;
+var cor=c.dataset.correct.trim(),fb=c.querySelector(".fb");
+c.querySelectorAll(".opt").forEach(function(b){b.disabled=true;if(b.textContent.trim()===cor)b.classList.add("good");});
+if(btn.textContent.trim()===cor){fb.textContent="✅ Goed zo!";fb.style.color="#16a766";score++;}
+else{btn.classList.add("bad");fb.textContent="❌ Bijna! Kijk nog eens naar de uitleg hierboven.";fb.style.color="#e0564a";}
+answered++;if(answered===total){var d=document.getElementById("done");d.innerHTML="<div class=\"done-msg\">🎉 Klaar! Je had "+score+" van "+total+" goed.</div>";d.scrollIntoView({behavior:"smooth"});}}
+</script></body></html>
