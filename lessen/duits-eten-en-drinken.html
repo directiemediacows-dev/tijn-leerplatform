@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duits — Eten &amp; drinken</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; background: #f4f7fb; color: #1f2a37; line-height: 1.6; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 80px; }
+  header { background: linear-gradient(135deg, #e0a020, #b9791a); color: #fff; border-radius: 18px; padding: 22px; margin-bottom: 18px; }
+  header .emoji { font-size: 34px; } header h1 { margin: 6px 0 4px; font-size: 22px; } header p { margin: 0; opacity: .92; font-size: 15px; }
+  .intro { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:18px; border:1px solid #e4eaf2; }
+  .intro h2 { margin:0 0 8px; font-size:17px; color:#b9791a; } .intro ul { margin:8px 0 0; padding-left:20px; }
+  .legend { font-size:13px; color:#5a6b82; margin:10px 0 0; }
+  .legend b.der{color:#2f6fd0;} .legend b.die{color:#d6453a;} .legend b.das{color:#1f9d57;}
+  section.step { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
+  section.step h3 { margin:0 0 8px; font-size:16px; color:#946012; }
+  .tag { display:inline-block; background:#fbf0d8; color:#946012; font-size:12px; font-weight:600; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 2px; font-size:14.5px; }
+  th, td { text-align:left; padding:7px 10px; border-bottom:1px solid #eef2f7; } th { background:#fbf4e4; color:#946012; }
+  td.de{font-weight:600;} td.de.der{color:#2f6fd0;} td.de.die{color:#d6453a;} td.de.das{color:#1f9d57;}
+  .round-head { display:flex; align-items:center; gap:12px; margin:26px 4px 12px; }
+  .round-num { background:#b9791a; color:#fff; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; flex:0 0 auto; }
+  .round-title { font-size:17px; font-weight:800; }
+  .pickset { display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 4px; }
+  .setbtn { flex:1 1 140px; background:#fdf7ea; border:1.5px solid #e0a020; color:#946012; border-radius:12px; padding:14px; font-size:15px; font-weight:700; cursor:pointer; transition:all .12s; }
+  .setbtn:hover{ background:#f8edd2; }
+  .setbtn.sel{ background:#b9791a; border-color:#946012; color:#fff; }
+  .card { background:#fff; border-radius:14px; padding:16px 18px; margin-bottom:14px; border:1px solid #e4eaf2; }
+  .counter { font-size:12px; color:#7a8aa0; font-weight:600; margin-bottom:6px; }
+  .q { font-weight:700; margin-bottom:4px; font-size:20px; } .q small{ display:block; font-size:13px; font-weight:500; color:#7a8aa0; margin-top:2px; }
+  .opt { display:block; width:100%; text-align:left; background:#f6f9fd; border:1.5px solid #d9e3f0; border-radius:10px; padding:11px 14px; margin:7px 0; font-size:15px; cursor:pointer; transition:all .12s; color:#1f2a37; }
+  .opt:hover:not(:disabled){ border-color:#e0a020; background:#fdf7ea; } .opt:disabled{ cursor:default; opacity:.95; }
+  .opt.good{ background:#e6f7ee; border-color:#16a766; color:#0d6b41; font-weight:600; } .opt.bad{ background:#fdecea; border-color:#e0564a; color:#a3271c; }
+  .fb{ margin-top:8px; font-weight:600; min-height:20px; }
+  .next{ display:none; margin-top:6px; background:#b9791a; color:#fff; border:none; border-radius:10px; padding:11px 18px; font-size:15px; font-weight:700; cursor:pointer; }
+  .bar{ height:10px; background:#e6ecf5; border-radius:999px; overflow:hidden; margin:4px 0 14px; }
+  .bar > i{ display:block; height:100%; width:0; background:linear-gradient(90deg,#e0a020,#16a766); transition:width .3s; }
+  #done{ margin-top:18px; } .done-msg{ background:linear-gradient(135deg,#16a766,#0d8a52); color:#fff; border-radius:14px; padding:18px; text-align:center; font-size:18px; font-weight:700; }
+  .again{ margin-top:12px; background:#fff; border:1.5px solid #b9791a; color:#946012; border-radius:10px; padding:10px 16px; font-weight:700; cursor:pointer; }
+  .cheer{ background:#eef7f1; border:1px solid #cfe9da; border-radius:12px; padding:14px 16px; color:#0d6b41; font-weight:600; text-align:center; margin-top:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="emoji">🇩🇪</div>
+    <h1>Eten &amp; drinken</h1>
+    <p>Duits · woordjes van Duits naar Nederlands</p>
+  </header>
+
+  <div class="intro">
+    <h2>Wat ga je leren? 🎯</h2>
+    <ul>
+      <li>Alle Duitse woordjes uit <strong>Wörterliste A</strong> en <strong>Wörterliste B</strong> over eten, drinken en het restaurant.</li>
+      <li>Je oefent <strong>beide kanten op</strong>: van Duits naar Nederlands <em>én</em> van Nederlands naar Duits.</li>
+    </ul>
+    <p class="legend">Tip: de kleur laat het lidwoord zien — <b class="der">der</b> (blauw), <b class="die">die</b> (rood), <b class="das">das</b> (groen). Handig om te onthouden!</p>
+    <p style="margin:10px 0 0; font-size:14px; color:#5a6b82;">Bekijk eerst rustig de woordenlijsten. Daarna ga je oefenen — één woordje tegelijk, geen haast! 💪</p>
+  </div>
+
+  <section class="step">
+    <span class="tag">Woordenlijst A</span><h3>Eten, drinken &amp; bestek</h3>
+    <table>
+      <tr><th>Duits</th><th>Nederlands</th></tr>
+      <tr><td class="de der">der Apfel</td><td>de appel</td></tr>
+      <tr><td class="de der">der Salat</td><td>de salade</td></tr>
+      <tr><td class="de der">der Käse</td><td>de kaas</td></tr>
+      <tr><td class="de der">der Kaffee</td><td>de koffie</td></tr>
+      <tr><td class="de der">der Löffel</td><td>de lepel</td></tr>
+      <tr><td class="de der">der Orangensaft</td><td>de sinaasappelsap</td></tr>
+      <tr><td class="de der">der Pfannkuchen</td><td>de pannenkoek</td></tr>
+      <tr><td class="de der">der Tee</td><td>de thee</td></tr>
+      <tr><td class="de der">der Teller</td><td>het bord</td></tr>
+      <tr><td class="de der">der Tisch</td><td>de tafel</td></tr>
+      <tr><td class="de der">der Zucker</td><td>de suiker</td></tr>
+      <tr><td class="de die">die Auswahl</td><td>de keuze</td></tr>
+      <tr><td class="de die">die Gabel</td><td>de vork</td></tr>
+      <tr><td class="de die">die Gurke</td><td>de komkommer</td></tr>
+      <tr><td class="de die">die Kartoffel</td><td>de aardappel</td></tr>
+      <tr><td class="de die">die Milch</td><td>de melk</td></tr>
+      <tr><td class="de die">die Nachspeise</td><td>het nagerecht</td></tr>
+      <tr><td class="de die">die Speisekarte</td><td>de menukaart</td></tr>
+      <tr><td class="de die">die Suppe</td><td>de soep</td></tr>
+      <tr><td class="de die">die Tasse</td><td>het kopje</td></tr>
+      <tr><td class="de die">die Vorspeise</td><td>het voorgerecht</td></tr>
+      <tr><td class="de das">das Essen</td><td>het eten</td></tr>
+      <tr><td class="de das">das Frühstück</td><td>het ontbijt</td></tr>
+      <tr><td class="de das">das Gemüse</td><td>de groente</td></tr>
+      <tr><td class="de das">das Messer</td><td>het mes</td></tr>
+      <tr><td class="de das">das Obst</td><td>het fruit</td></tr>
+      <tr><td class="de das">das Sauerkraut</td><td>de zuurkool</td></tr>
+      <tr><td class="de das">das Wasser</td><td>het water</td></tr>
+      <tr><td class="de die">die Pommes</td><td>de patat</td></tr>
+      <tr><td class="de die">die Süßigkeiten</td><td>de zoetigheden / het snoep</td></tr>
+      <tr><td class="de">naschen</td><td>snoepen</td></tr>
+      <tr><td class="de">wählen</td><td>kiezen</td></tr>
+      <tr><td class="de">Es hat gut geschmeckt!</td><td>Het heeft goed gesmaakt!</td></tr>
+      <tr><td class="de">Vielen Dank!</td><td>Bedankt!</td></tr>
+    </table>
+  </section>
+
+  <section class="step">
+    <span class="tag">Woordenlijst B</span><h3>In de keuken &amp; bij de pizzeria</h3>
+    <table>
+      <tr><th>Duits</th><th>Nederlands</th></tr>
+      <tr><td class="de der">der Kühlschrank</td><td>de koelkast</td></tr>
+      <tr><td class="de der">der Schinken</td><td>de ham</td></tr>
+      <tr><td class="de der">der Honig</td><td>de honing</td></tr>
+      <tr><td class="de der">der Apfelsaft</td><td>de appelsap</td></tr>
+      <tr><td class="de der">der Lieferservice</td><td>de bezorgdienst</td></tr>
+      <tr><td class="de die">die Birne</td><td>de peer</td></tr>
+      <tr><td class="de die">die Butter</td><td>de boter</td></tr>
+      <tr><td class="de die">die Rechnung</td><td>de rekening</td></tr>
+      <tr><td class="de die">die Serviette</td><td>het servet</td></tr>
+      <tr><td class="de die">die Pizzeria</td><td>de pizzeria</td></tr>
+      <tr><td class="de das">das Glas</td><td>het glas</td></tr>
+      <tr><td class="de das">das Besteck</td><td>het bestek</td></tr>
+      <tr><td class="de das">das Fleisch</td><td>het vlees</td></tr>
+      <tr><td class="de das">das Brot</td><td>het brood</td></tr>
+      <tr><td class="de das">das Lieblingsessen</td><td>het lievelingseten</td></tr>
+      <tr><td class="de die">die Nudeln</td><td>de pasta</td></tr>
+      <tr><td class="de">Guten Appetit!</td><td>Eet smakelijk! / Smakelijk eten!</td></tr>
+      <tr><td class="de">sauer</td><td>zuur</td></tr>
+      <tr><td class="de">scharf</td><td>scherp</td></tr>
+      <tr><td class="de">essen</td><td>eten</td></tr>
+      <tr><td class="de">trinken</td><td>drinken</td></tr>
+      <tr><td class="de">bezahlen</td><td>betalen</td></tr>
+      <tr><td class="de die">die Teigwaren</td><td>de deegwaren</td></tr>
+    </table>
+  </section>
+
+  <div class="round-head">
+    <div class="round-num">✏️</div>
+    <div class="round-title">Oefenen</div>
+  </div>
+
+  <section class="step" id="chooser">
+    <h3>Wat wil je oefenen?</h3>
+    <p style="font-size:14px; color:#5a6b82; margin:0 0 6px;"><strong>1.</strong> Kies een lijstje:</p>
+    <div class="pickset" id="setrow">
+      <button class="setbtn sel" data-set="A" onclick="selSet(this)">📋 Lijst A</button>
+      <button class="setbtn" data-set="B" onclick="selSet(this)">📋 Lijst B</button>
+      <button class="setbtn" data-set="ALL" onclick="selSet(this)">🌟 Alles</button>
+    </div>
+    <p style="font-size:14px; color:#5a6b82; margin:14px 0 6px;"><strong>2.</strong> Kies de richting:</p>
+    <div class="pickset" id="dirrow">
+      <button class="setbtn sel" data-dir="DN" onclick="selDir(this)">🇩🇪 → 🇳🇱 Duits → Nederlands</button>
+      <button class="setbtn" data-dir="ND" onclick="selDir(this)">🇳🇱 → 🇩🇪 Nederlands → Duits</button>
+      <button class="setbtn" data-dir="MIX" onclick="selDir(this)">🔀 Door elkaar</button>
+    </div>
+    <button class="setbtn" style="margin-top:16px; background:#16a766; border-color:#0d8a52; color:#fff;" onclick="startQuiz()">▶ Start oefenen</button>
+  </section>
+
+  <div id="quiz" style="display:none;">
+    <div class="bar"><i id="barfill"></i></div>
+    <div class="card" id="qcard">
+      <div class="counter" id="counter"></div>
+      <div class="q" id="qword"></div>
+      <div id="opts"></div>
+      <div class="fb" id="fb"></div>
+      <button class="next" id="nextbtn" onclick="nextQ()">Volgende →</button>
+    </div>
+  </div>
+
+  <div id="done"></div>
+
+<script>
+var WORDS_A=[
+ {de:"der Apfel",nl:"de appel"},{de:"der Salat",nl:"de salade"},{de:"der Käse",nl:"de kaas"},
+ {de:"der Kaffee",nl:"de koffie"},{de:"der Löffel",nl:"de lepel"},{de:"der Orangensaft",nl:"de sinaasappelsap"},
+ {de:"der Pfannkuchen",nl:"de pannenkoek"},{de:"der Tee",nl:"de thee"},{de:"der Teller",nl:"het bord"},
+ {de:"der Tisch",nl:"de tafel"},{de:"der Zucker",nl:"de suiker"},{de:"die Auswahl",nl:"de keuze"},
+ {de:"die Gabel",nl:"de vork"},{de:"die Gurke",nl:"de komkommer"},{de:"die Kartoffel",nl:"de aardappel"},
+ {de:"die Milch",nl:"de melk"},{de:"die Nachspeise",nl:"het nagerecht"},{de:"die Speisekarte",nl:"de menukaart"},
+ {de:"die Suppe",nl:"de soep"},{de:"die Tasse",nl:"het kopje"},{de:"die Vorspeise",nl:"het voorgerecht"},
+ {de:"das Essen",nl:"het eten"},{de:"das Frühstück",nl:"het ontbijt"},{de:"das Gemüse",nl:"de groente"},
+ {de:"das Messer",nl:"het mes"},{de:"das Obst",nl:"het fruit"},{de:"das Sauerkraut",nl:"de zuurkool"},
+ {de:"das Wasser",nl:"het water"},{de:"die Pommes",nl:"de patat"},{de:"die Süßigkeiten",nl:"de zoetigheden / het snoep"},
+ {de:"naschen",nl:"snoepen"},{de:"wählen",nl:"kiezen"},{de:"Es hat gut geschmeckt!",nl:"Het heeft goed gesmaakt!"},
+ {de:"Vielen Dank!",nl:"Bedankt!"}
+];
+var WORDS_B=[
+ {de:"der Kühlschrank",nl:"de koelkast"},{de:"der Schinken",nl:"de ham"},{de:"der Honig",nl:"de honing"},
+ {de:"der Apfelsaft",nl:"de appelsap"},{de:"der Lieferservice",nl:"de bezorgdienst"},{de:"die Birne",nl:"de peer"},
+ {de:"die Butter",nl:"de boter"},{de:"die Rechnung",nl:"de rekening"},{de:"die Serviette",nl:"het servet"},
+ {de:"die Pizzeria",nl:"de pizzeria"},{de:"das Glas",nl:"het glas"},{de:"das Besteck",nl:"het bestek"},
+ {de:"das Fleisch",nl:"het vlees"},{de:"das Brot",nl:"het brood"},{de:"das Lieblingsessen",nl:"het lievelingseten"},
+ {de:"die Nudeln",nl:"de pasta"},{de:"Guten Appetit!",nl:"Eet smakelijk! / Smakelijk eten!"},{de:"sauer",nl:"zuur"},
+ {de:"scharf",nl:"scherp"},{de:"essen",nl:"eten"},{de:"trinken",nl:"drinken"},{de:"bezahlen",nl:"betalen"},
+ {de:"die Teigwaren",nl:"de deegwaren"}
+];
+var ALL=WORDS_A.concat(WORDS_B);
+var SETS={A:WORDS_A,B:WORDS_B,ALL:ALL};
+
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+var chosenSet='A', chosenDir='DN';
+var workset=[], queue=[], idx=0, score=0, current=null;
+
+function selSet(btn){ chosenSet=btn.dataset.set; var r=document.getElementById('setrow').children; for(var i=0;i<r.length;i++) r[i].classList.remove('sel'); btn.classList.add('sel'); }
+function selDir(btn){ chosenDir=btn.dataset.dir; var r=document.getElementById('dirrow').children; for(var i=0;i<r.length;i++) r[i].classList.remove('sel'); btn.classList.add('sel'); }
+
+function startQuiz(){
+  workset=SETS[chosenSet]||ALL;
+  queue=shuffle(workset).map(function(p){
+    var dir = chosenDir==='MIX' ? (Math.random()<0.5?'DN':'ND') : chosenDir;
+    return {pair:p, dir:dir};
+  });
+  idx=0; score=0;
+  document.getElementById('chooser').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  document.getElementById('done').innerHTML='';
+  render();
+}
+
+function render(){
+  current=queue[idx];
+  var p=current.pair, dir=current.dir;
+  document.getElementById('counter').textContent='Woord '+(idx+1)+' van '+queue.length;
+  document.getElementById('barfill').style.width=Math.round(idx/queue.length*100)+'%';
+  var opts, prompt, hint;
+  if(dir==='DN'){
+    prompt=p.de; hint='Wat betekent dit in het Nederlands?';
+    var pool=shuffle(workset.filter(function(w){return w.nl!==p.nl;}));
+    opts=[p.nl]; var seen={}; seen[p.nl]=1;
+    for(var i=0;i<pool.length && opts.length<4;i++){ if(!seen[pool[i].nl]){opts.push(pool[i].nl); seen[pool[i].nl]=1;} }
+  } else {
+    prompt=p.nl; hint='Hoe zeg je dit in het Duits?';
+    var pool2=shuffle(workset.filter(function(w){return w.nl!==p.nl;}));
+    opts=[p.de]; var seen2={}; seen2[p.de]=1;
+    for(var j=0;j<pool2.length && opts.length<4;j++){ if(!seen2[pool2[j].de]){opts.push(pool2[j].de); seen2[pool2[j].de]=1;} }
+  }
+  opts=shuffle(opts);
+  document.getElementById('qword').innerHTML=prompt+'<small>'+hint+'</small>';
+  var html='';
+  for(var k=0;k<opts.length;k++){ html+='<button class="opt" onclick="pick(this)">'+opts[k]+'</button>'; }
+  document.getElementById('opts').innerHTML=html;
+  document.getElementById('fb').textContent=''; document.getElementById('fb').style.color='';
+  document.getElementById('nextbtn').style.display='none';
+}
+
+// is a given option text the/a correct answer for the current question?
+function isCorrect(txt){
+  var p=current.pair, dir=current.dir; txt=txt.trim();
+  if(dir==='DN'){ return txt===p.nl.trim(); }
+  // ND: any German word in the working set whose nl equals the prompt's nl is correct
+  for(var i=0;i<workset.length;i++){ if(workset[i].de.trim()===txt && workset[i].nl===p.nl) return true; }
+  return false;
+}
+
+function pick(btn){
+  var opts=document.querySelectorAll('#opts .opt');
+  opts.forEach(function(b){ b.disabled=true; if(isCorrect(b.textContent)) b.classList.add('good'); });
+  var fb=document.getElementById('fb');
+  if(isCorrect(btn.textContent)){ fb.textContent='✅ Goed zo!'; fb.style.color='#16a766'; score++; }
+  else{ btn.classList.add('bad'); fb.textContent='❌ Bijna! Het goede antwoord is groen gemarkeerd.'; fb.style.color='#e0564a'; }
+  document.getElementById('nextbtn').style.display='inline-block';
+}
+
+function nextQ(){
+  idx++;
+  if(idx<queue.length){ render(); }
+  else{
+    document.getElementById('barfill').style.width='100%';
+    document.getElementById('quiz').style.display='none';
+    var d=document.getElementById('done');
+    var perfect = score===queue.length;
+    d.innerHTML='<div class="done-msg">🎉 Klaar! Je had '+score+' van '+queue.length+' goed.</div>'+
+      '<div class="cheer">'+(perfect?'Helemaal foutloos — super knap gedaan, Tijn! 🌟':'Goed bezig! Herhalen helpt — probeer het gerust nog een keer. 💪')+'</div>'+
+      '<button class="again" onclick="backToChooser()">↺ Nog een keer oefenen</button>';
+    d.scrollIntoView({behavior:'smooth'});
+  }
+}
+
+function backToChooser(){
+  document.getElementById('done').innerHTML='';
+  document.getElementById('chooser').style.display='block';
+  document.getElementById('chooser').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</div>
+</body>
+</html>
