@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0;padding:16px;color:#1f2a44;background:#fff;line-height:1.55}
+h1{font-size:21px;margin:.2em 0}h2{font-size:17px;margin:.2em 0 .1em}
+.intro{color:#6b7896;font-size:14px;margin-bottom:8px}
+.card{background:#f4f7fb;border-radius:14px;padding:15px 16px;margin:14px 0;box-shadow:0 2px 10px rgba(31,42,68,.06)}
+.tag{display:inline-block;background:#fef1d1;color:#a4690a;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:6px}
+ul{margin:6px 0 6px 18px;padding:0}li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0}td,th{text-align:left;padding:5px 8px;border-bottom:1px solid #e6ecf5}
+.ex{background:#fff;border:1px solid #e6ecf5;border-radius:10px;padding:8px 10px;margin:6px 0;font-size:14px}
+.q{font-weight:700;margin-bottom:8px}
+button.opt{display:block;width:100%;text-align:left;border:2px solid #e6ecf5;background:#fff;border-radius:10px;padding:10px 12px;margin:6px 0;cursor:pointer;font-size:15px}
+button.opt:hover{border-color:#4a86e8}button.opt:disabled{cursor:default}
+button.opt.good{border-color:#16a766;background:#e9f9f0}button.opt.bad{border-color:#e0564a;background:#fde9e7}
+.fb{margin-top:8px;font-size:14px;min-height:18px}.counter{font-size:12px;color:#6b7896;margin-bottom:6px}
+.done-msg{text-align:center;background:#e9f9f0;border-radius:12px;padding:14px;color:#16a766;font-weight:700;margin-top:10px}
+</style></head><body>
+<h1>🇩🇪 Duits — Bezittelijke voornaamwoorden</h1>
+<p class="intro">Bezittelijke voornaamwoorden zeggen <i>van wie</i> iets is: mein (mijn), dein (jouw), sein (zijn), ihr (haar), unser (onze), euer (jullie), ihr (hun), Ihr (uw). Ze horen bij de <b>ein-groep</b> en krijgen dezelfde uitgangen als <i>ein/kein</i>.</p>
+<div class="card"><span class="tag">Uitleg</span><h2>Welke uitgang?</h2>
+<table><tr><th></th><th>mannelijk</th><th>vrouwelijk</th><th>onzijdig</th><th>meervoud</th></tr>
+<tr><td>mijn</td><td>mein Vater</td><td>mein<b>e</b> Mutter</td><td>mein Kind</td><td>mein<b>e</b> Kinder</td></tr>
+<tr><td>jouw</td><td>dein Vater</td><td>dein<b>e</b> Mutter</td><td>dein Kind</td><td>dein<b>e</b> Kinder</td></tr></table>
+<div class="ex">Regel: bij <b>vrouwelijk</b> en <b>meervoud</b> komt er een <b>-e</b> bij. Bij mannelijk en onzijdig niet.</div></div>
+<div class="card" data-q data-correct="meine"><div class="counter">Oefening 1 van 7</div><div class="q">___ Mutter (mijn)</div>
+<button class="opt" onclick="pick(this)">mein</button>
+<button class="opt" onclick="pick(this)">meine</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="mein"><div class="counter">Oefening 2 van 7</div><div class="q">___ Vater (mijn)</div>
+<button class="opt" onclick="pick(this)">mein</button>
+<button class="opt" onclick="pick(this)">meine</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="dein"><div class="counter">Oefening 3 van 7</div><div class="q">___ Kind (jouw)</div>
+<button class="opt" onclick="pick(this)">dein</button>
+<button class="opt" onclick="pick(this)">deine</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="deine"><div class="counter">Oefening 4 van 7</div><div class="q">___ Mutter (jouw)</div>
+<button class="opt" onclick="pick(this)">dein</button>
+<button class="opt" onclick="pick(this)">deine</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="seine"><div class="counter">Oefening 5 van 7</div><div class="q">___ Kinder (zijn)</div>
+<button class="opt" onclick="pick(this)">sein</button>
+<button class="opt" onclick="pick(this)">seine</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="ihr"><div class="counter">Oefening 6 van 7</div><div class="q">___ Vater (haar)</div>
+<button class="opt" onclick="pick(this)">ihr</button>
+<button class="opt" onclick="pick(this)">ihre</button>
+<div class="fb"></div></div>
+<div class="card" data-q data-correct="unsere"><div class="counter">Oefening 7 van 7</div><div class="q">___ Mutter (onze)</div>
+<button class="opt" onclick="pick(this)">unser</button>
+<button class="opt" onclick="pick(this)">unsere</button>
+<div class="fb"></div></div>
+<div id="done"></div><script>
+var qs=document.querySelectorAll("[data-q]"),total=qs.length,score=0,answered=0;
+function pick(btn){var c=btn.closest("[data-q]");if(c.dataset.done)return;c.dataset.done=1;
+var cor=c.dataset.correct.trim(),fb=c.querySelector(".fb");
+c.querySelectorAll(".opt").forEach(function(b){b.disabled=true;if(b.textContent.trim()===cor)b.classList.add("good");});
+if(btn.textContent.trim()===cor){fb.textContent="✅ Goed zo!";fb.style.color="#16a766";score++;}
+else{btn.classList.add("bad");fb.textContent="❌ Bijna! Kijk nog eens naar de uitleg hierboven.";fb.style.color="#e0564a";}
+answered++;if(answered===total){var d=document.getElementById("done");d.innerHTML="<div class=\"done-msg\">🎉 Klaar! Je had "+score+" van "+total+" goed.</div>";d.scrollIntoView({behavior:"smooth"});}}
+</script></body></html>
