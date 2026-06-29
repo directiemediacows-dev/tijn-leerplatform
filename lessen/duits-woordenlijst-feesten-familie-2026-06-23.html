@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0;padding:16px;color:#1f2a44;background:#fff;line-height:1.5}
+h1{font-size:21px;margin:.2em 0}.intro{color:#6b7896;font-size:14px;margin-bottom:10px}
+.pick{display:flex;gap:6px;margin:8px 0}
+.pick button{flex:1;border:2px solid #e6ecf5;background:#fff;border-radius:10px;padding:8px 4px;font-weight:700;cursor:pointer;font-size:13px}
+.pick button.sel{border-color:#4a86e8;background:#eaf2ff;color:#4a86e8}
+.lab{font-size:12px;color:#6b7896;margin:8px 0 2px}
+.bar{height:12px;background:#e6ecf5;border-radius:8px;overflow:hidden;margin:10px 0}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,#4a86e8,#16a766);width:0;transition:.3s}
+.meta{display:flex;justify-content:space-between;font-size:12px;color:#6b7896;margin-bottom:4px}
+.card{background:#f4f7fb;border-radius:16px;padding:20px 16px;box-shadow:0 2px 10px rgba(31,42,68,.06)}
+.flag{text-align:center;font-size:13px;color:#6b7896;margin-bottom:4px}
+.word{font-size:25px;font-weight:800;text-align:center;margin:6px 0 14px}
+button.opt{display:block;width:100%;text-align:left;border:2px solid #e6ecf5;background:#fff;border-radius:10px;padding:11px 13px;margin:7px 0;cursor:pointer;font-size:15px}
+button.opt:hover{border-color:#4a86e8}button.opt:disabled{cursor:default}
+button.opt.good{border-color:#16a766;background:#e9f9f0}button.opt.bad{border-color:#e0564a;background:#fde9e7}
+.next{margin-top:10px;width:100%;border:none;background:#4a86e8;color:#fff;border-radius:10px;padding:12px;font-weight:700;font-size:15px;cursor:pointer;display:none}
+.done-msg{text-align:center;background:#e9f9f0;border-radius:12px;padding:18px;color:#16a766;font-weight:700}
+.again{margin-top:10px;border:none;background:#16a766;color:#fff;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer}
+</style></head><body>
+<h1>🇩🇪 Duits — Woordenlijst (feesten &amp; familie)</h1>
+<p class="intro">Oefen de woorden beide kanten op. Kies eerst de richting, daarna een lijst. Je krijgt directe feedback en een score — zo vaak herhalen als je wilt!</p>
+
+<div class="lab">Richting:</div>
+<div class="pick">
+  <button id="d1" class="sel" onclick="setDir('de2nl')">🇩🇪→🇳🇱 Duits→Ned.</button>
+  <button id="d2" onclick="setDir('nl2de')">🇳🇱→🇩🇪 Ned.→Duits</button>
+  <button id="d3" onclick="setDir('mix')">🔀 Door elkaar</button>
+</div>
+<div class="lab">Welke lijst:</div>
+<div class="pick">
+  <button id="lA" onclick="setList('A')">Lijst A</button>
+  <button id="lB" onclick="setList('B')">Lijst B</button>
+  <button id="lDF" onclick="setList('DF')">Lijst D/F</button>
+  <button id="lG" onclick="setList('G')">Lijst G</button>
+  <button id="lAll" class="sel" onclick="setList('all')">Alles</button>
+</div>
+
+<div class="meta"><span id="prog"></span><span id="score"></span></div>
+<div class="bar"><i id="barfill"></i></div>
+<div id="quiz"></div>
+
+<script>
+var WORDS=[
+{de:"der Geburtstag",nl:"de verjaardag",l:"A"},{de:"der Kuchen",nl:"de taart",l:"A"},{de:"der Karneval",nl:"het carnaval",l:"A"},
+{de:"der Osterhase",nl:"de paashaas",l:"A"},{de:"der Feiertag",nl:"de feestdag",l:"A"},{de:"der Neffe",nl:"de neef (kind van broer/zus)",l:"A"},
+{de:"der Cousin",nl:"de neef (kind van oom/tante)",l:"A"},{de:"die Überraschung",nl:"de verrassing",l:"A"},{de:"die Torte",nl:"de taart (met slagroom)",l:"A"},
+{de:"die Party",nl:"het feestje",l:"A"},{de:"die Nichte",nl:"de nicht (kind van broer/zus)",l:"A"},{de:"die Cousine",nl:"de nicht (kind van oom/tante)",l:"A"},
+{de:"die Familie",nl:"het gezin",l:"A"},{de:"das Geschenk",nl:"het cadeau",l:"A"},{de:"das Einzelkind",nl:"het enig kind",l:"A"},
+{de:"das Fest",nl:"het feest",l:"A"},{de:"das Osterei",nl:"het paasei",l:"A"},{de:"die Geschwister",nl:"de broers en/of zussen",l:"A"},
+{de:"die Verwandten",nl:"de familie",l:"A"},{de:"Ostern",nl:"Pasen",l:"A"},{de:"Ostereier bemalen",nl:"paaseieren beschilderen",l:"A"},
+{de:"bekommen",nl:"krijgen",l:"A"},{de:"kaufen",nl:"kopen",l:"A"},{de:"Ich habe Geburtstag.",nl:"Ik ben jarig.",l:"A"},
+{de:"Herzlichen Glückwunsch!",nl:"Hartelijk gefeliciteerd!",l:"A"},{de:"sich wünschen",nl:"wensen",l:"A"},{de:"mitbringen",nl:"meenemen",l:"A"},
+{de:"feiern",nl:"vieren",l:"A"},{de:"gratulieren",nl:"feliciteren",l:"A"},
+{de:"der Gast",nl:"de gast",l:"B"},{de:"der Onkel",nl:"de oom",l:"B"},{de:"der Großvater",nl:"de opa, de grootvader",l:"B"},
+{de:"der Eingang",nl:"de ingang",l:"B"},{de:"der Rucksack",nl:"de rugtas, de rugzak",l:"B"},{de:"der Vater",nl:"de vader",l:"B"},
+{de:"der Stiefvater",nl:"de stiefvader",l:"B"},{de:"die Tante",nl:"de tante",l:"B"},{de:"die Großmutter",nl:"de oma, de grootmoeder",l:"B"},
+{de:"die Mutter",nl:"de moeder",l:"B"},{de:"die Stiefmutter",nl:"de stiefmoeder",l:"B"},{de:"die Tasche",nl:"de tas",l:"B"},
+{de:"die Ausnahme",nl:"de uitzondering",l:"B"},{de:"das Wochenende",nl:"het weekend",l:"B"},{de:"das Essen",nl:"het eten",l:"B"},
+{de:"das Oktoberfest",nl:"typisch feest in Zuid-Duitsland",l:"B"},{de:"die Gäste",nl:"de gasten",l:"B"},{de:"und",nl:"en",l:"B"},
+{de:"seit",nl:"sinds",l:"B"},{de:"oder",nl:"of",l:"B"},{de:"auch",nl:"ook",l:"B"},{de:"frei haben",nl:"vrij hebben",l:"B"},
+{de:"immer",nl:"altijd",l:"B"},{de:"oft",nl:"vaak",l:"B"},{de:"manchmal",nl:"soms",l:"B"},{de:"nie",nl:"nooit",l:"B"},
+{de:"wieder",nl:"weer",l:"B"},{de:"Hunger haben",nl:"honger hebben",l:"B"},
+{de:"der Advent",nl:"periode van 4 weken tot aan Kerst",l:"DF"},{de:"der Fasching",nl:"het carnaval",l:"DF"},{de:"der Lebkuchen",nl:"de peperkoek",l:"DF"},
+{de:"der Weihnachtsbaum",nl:"de kerstboom",l:"DF"},{de:"die Geburt",nl:"de geboorte",l:"DF"},{de:"die Hochzeit",nl:"de bruiloft",l:"DF"},
+{de:"die Verlobung",nl:"de verloving",l:"DF"},{de:"das Zuckerfest",nl:"het Suikerfeest",l:"DF"},{de:"die Bräuche",nl:"de gebruiken",l:"DF"},
+{de:"die Leute",nl:"de mensen",l:"DF"},{de:"sich verkleiden",nl:"zich verkleden",l:"DF"},{de:"erkennen",nl:"herkennen",l:"DF"},
+{de:"verstehen",nl:"begrijpen",l:"DF"},{de:"frech",nl:"brutaal",l:"DF"},{de:"Heiligabend",nl:"kerstavond",l:"DF"},
+{de:"Neujahr",nl:"Nieuwjaar",l:"DF"},{de:"Silvester",nl:"oud en nieuw",l:"DF"},{de:"Weihnachten",nl:"Kerst",l:"DF"},
+{de:"der Ausflug",nl:"het uitstapje",l:"G"},{de:"der Urlaub",nl:"de vakantie",l:"G"},{de:"die Einladung",nl:"de uitnodiging",l:"G"},
+{de:"die Ferien",nl:"de vakantie",l:"G"},{de:"die Wunschliste",nl:"het verlanglijstje",l:"G"},{de:"ausgeben",nl:"trakteren",l:"G"},
+{de:"einladen",nl:"uitnodigen",l:"G"},{de:"überraschen",nl:"verrassen",l:"G"},{de:"sich freuen",nl:"zich verheugen",l:"G"},
+{de:"aber",nl:"maar",l:"G"},{de:"für",nl:"voor",l:"G"},{de:"man",nl:"men",l:"G"},{de:"nichts",nl:"niets",l:"G"},
+{de:"um",nl:"om",l:"G"},{de:"zum Beispiel",nl:"bijvoorbeeld",l:"G"},{de:"am Wochenende",nl:"in het weekend",l:"G"},
+{de:"Spaß machen",nl:"plezier hebben/maken",l:"G"},{de:"heute",nl:"vandaag",l:"G"},{de:"gestern",nl:"gisteren",l:"G"},
+{de:"süß",nl:"zoet",l:"G"},{de:"salzig",nl:"zout",l:"G"}
+];
+
+// synoniem-maps: meerdere Duitse woorden kunnen dezelfde NL hebben en omgekeerd
+var nl2de={}, de2nl={};
+WORDS.forEach(function(w){ (nl2de[w.nl]=nl2de[w.nl]||[]).push(w.de); (de2nl[w.de]=de2nl[w.de]||[]).push(w.nl); });
+
+var dir='de2nl', curList='all', pool=[], queue=[], idx=0, score=0;
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function setDir(d){dir=d;['d1','d2','d3'].forEach(function(id,i){document.getElementById(id).className=(['de2nl','nl2de','mix'][i]===d)?'sel':'';});start();}
+function setList(l){curList=l;['A','B','DF','G','all'].forEach(function(k){document.getElementById('l'+k).className=(k===l?'sel':'');});start();}
+function start(){pool=WORDS.filter(function(w){return curList==='all'||w.l===curList;});queue=shuffle(pool.slice());idx=0;score=0;render();}
+
+function render(){
+  var q=document.getElementById('quiz');
+  if(idx>=queue.length){
+    document.getElementById('prog').textContent='Klaar!';document.getElementById('barfill').style.width='100%';
+    q.innerHTML='<div class="done-msg">🎉 Klaar! Je had '+score+' van '+queue.length+' goed.<br>Top gedaan, Tijn!</div><button class="again" onclick="start()">🔄 Opnieuw oefenen</button>';return;
+  }
+  var w=queue[idx];
+  var thisDir = dir==='mix' ? (Math.random()<0.5?'de2nl':'nl2de') : dir;
+  var srcKey = thisDir==='de2nl'?'de':'nl', tgtKey = thisDir==='de2nl'?'nl':'de';
+  var prompt=w[srcKey], correct=w[tgtKey];
+  // alle correcte doel-antwoorden (synoniemen) voor deze prompt
+  var correctSet = thisDir==='de2nl' ? de2nl[w.de] : nl2de[w.nl];
+  document.getElementById('prog').textContent='Woord '+(idx+1)+' van '+queue.length;
+  document.getElementById('score').textContent='Goed: '+score;
+  document.getElementById('barfill').style.width=(idx/queue.length*100)+'%';
+  var allTargets=WORDS.map(function(x){return x[tgtKey];});
+  var distract=shuffle(allTargets.filter(function(t){return correctSet.indexOf(t)===-1;}));
+  var seen={}, wrong=[];
+  for(var i=0;i<distract.length && wrong.length<3;i++){ if(!seen[distract[i]]){seen[distract[i]]=1;wrong.push(distract[i]);} }
+  var opts=shuffle([correct].concat(wrong));
+  var langLbl = thisDir==='de2nl' ? 'Wat betekent dit in het Nederlands?' : 'Hoe zeg je dit in het Duits?';
+  var html='<div class="card"><div class="flag">Lijst '+w.l+' · '+langLbl+'</div><div class="word">'+prompt+'</div>';
+  opts.forEach(function(o){html+='<button class="opt" onclick="answer(this)" data-v="'+o.replace(/"/g,'&quot;')+'">'+o+'</button>';});
+  html+='<button class="next" id="nextBtn" onclick="idx++;render();">Volgende →</button></div>';
+  q.innerHTML=html;
+  q._correctSet=correctSet; q._correct=correct;
+}
+function answer(btn){
+  var q=document.getElementById('quiz'), chosen=btn.getAttribute('data-v');
+  document.querySelectorAll('.opt').forEach(function(b){b.disabled=true; if(q._correctSet.indexOf(b.getAttribute('data-v'))>-1)b.classList.add('good');});
+  if(q._correctSet.indexOf(chosen)>-1) score++; else btn.classList.add('bad');
+  document.getElementById('score').textContent='Goed: '+score;
+  document.getElementById('nextBtn').style.display='block';
+}
+start();
+</script></body></html>
