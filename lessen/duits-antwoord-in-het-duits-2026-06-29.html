@@ -1,12 +1,17 @@
 <!DOCTYPE html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0;padding:16px;color:#1f2a44;background:#fff;line-height:1.55}
-h1{font-size:21px;margin:.2em 0}.intro{color:#6b7896;font-size:14px;margin-bottom:8px}
+h1{font-size:21px;margin:.2em 0}h2{font-size:17px;margin:.2em 0 .4em}.intro{color:#6b7896;font-size:14px;margin-bottom:8px}
+.leerlijst{background:#f4f7fb;border-radius:14px;padding:14px 16px;margin:10px 0 18px;box-shadow:0 2px 10px rgba(31,42,68,.06)}
+.leerlijst .tag{display:inline-block;background:#eaf2ff;color:#4a86e8;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:8px}
+.li{padding:8px 0;border-bottom:1px solid #e6ecf5}.li:last-child{border-bottom:0}
+.li .de{font-weight:800;color:#1f2a44}.li .nl{color:#6b7896;font-size:14px}
+.li .frage{color:#4a86e8;font-weight:700;font-size:14px}
+.toggle{cursor:pointer;color:#4a86e8;font-weight:700;font-size:13px;margin-top:6px;display:inline-block}
 .meta{display:flex;justify-content:space-between;font-size:12px;color:#6b7896;margin-bottom:4px}
 .bar{height:12px;background:#e6ecf5;border-radius:8px;overflow:hidden;margin:8px 0 14px}.bar>i{display:block;height:100%;background:linear-gradient(90deg,#4a86e8,#16a766);width:0;transition:.3s}
 .card{background:#f4f7fb;border-radius:16px;padding:18px 16px;box-shadow:0 2px 10px rgba(31,42,68,.06)}
 .tag{display:inline-block;background:#fef1d1;color:#a4690a;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:8px}
-.vraag{font-size:18px;color:#4a86e8;font-weight:800;margin:4px 0 2px}
-.vraagnl{font-size:14px;color:#6b7896;margin-bottom:10px}
+.vraag{font-size:18px;color:#4a86e8;font-weight:800;margin:4px 0 2px}.vraagnl{font-size:14px;color:#6b7896;margin-bottom:10px}
 .cue{font-size:18px;font-weight:800;margin:6px 0 12px}
 textarea{width:100%;border:2px solid #e6ecf5;border-radius:10px;padding:10px;font-size:16px;font-family:inherit;box-sizing:border-box;min-height:54px}
 textarea:focus{outline:none;border-color:#4a86e8}
@@ -16,14 +21,24 @@ textarea:focus{outline:none;border-color:#4a86e8}
 .answer .lbl{font-size:12px;color:#6b7896}.answer .de{font-size:18px;font-weight:800;color:#16a766;margin-top:2px}
 .selfrow{display:flex;gap:8px;margin-top:10px}.selfrow button{flex:1}
 .good{background:#16a766;color:#fff}.again{background:#eef2f7;color:#1f2a44}
+.startbtn{width:100%;border:none;background:#16a766;color:#fff;border-radius:12px;padding:13px;font-weight:800;font-size:16px;cursor:pointer;margin:6px 0 14px}
 .done-msg{text-align:center;background:#e9f9f0;border-radius:12px;padding:16px;color:#16a766;font-weight:700}
 .restart{margin-top:10px;border:none;background:#16a766;color:#fff;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer}
 </style></head><body>
 <h1>🇩🇪 Duits — Antwoord geven in het Duits</h1>
-<p class="intro">Je krijgt een Duitse vraag (met de Nederlandse vertaling erbij) of een Nederlandse zin. <b>Schrijf zelf het Duitse antwoord</b> op. Klik daarna op <b>"Toon antwoord"</b> om te checken en geef eerlijk aan of je het goed had. Deze zinnen moet je uit je hoofd kunnen opschrijven.</p>
-<div class="meta"><span id="prog"></span><span id="score"></span></div>
-<div class="bar"><i id="barfill"></i></div>
-<div id="quiz"></div>
+<p class="intro">Leer eerst de zinnen hieronder uit je hoofd. Daarna oefen je: je krijgt de Duitse vraag (of een Nederlandse zin) en <b>schrijft zelf het Duitse antwoord</b> op.</p>
+
+<div class="leerlijst"><span class="tag">📚 Zinnen om te leren</span>
+<div id="leerlijst"></div>
+</div>
+<button class="startbtn" onclick="startOefenen()">✏️ Start met oefenen</button>
+
+<div id="oefenblok" style="display:none">
+  <div class="meta"><span id="prog"></span><span id="score"></span></div>
+  <div class="bar"><i id="barfill"></i></div>
+  <div id="quiz"></div>
+</div>
+
 <script>
 var ITEMS=[
 {q:"Sie wünschen bitte?",qnl:"Kan ik u helpen?",de:"Ich möchte vier Brötchen."},
@@ -42,12 +57,27 @@ var ITEMS=[
 {nl:"Van mijn ouders heb ik een laptop gekregen.",de:"Von meinen Eltern habe ich einen Laptop bekommen."},
 {nl:"Ik houd van de gezelligheid.",de:"Ich liebe die Gemütlichkeit."}
 ];
+
+// Bouw de leerlijst bovenaan
+(function(){
+  var L=document.getElementById("leerlijst"),h="";
+  ITEMS.forEach(function(it){
+    h+='<div class="li">';
+    if(it.q){h+='<div class="frage">Frage: '+it.q+' <span style="color:#6b7896;font-weight:400">('+it.qnl+')</span></div>';}
+    h+='<div class="de">'+it.de+'</div>';
+    if(!it.q){h+='<div class="nl">'+it.nl+'</div>';}
+    h+='</div>';
+  });
+  L.innerHTML=h;
+})();
+
 function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
-var queue=shuffle(ITEMS.slice()),idx=0,score=0;
+var queue=[],idx=0,score=0;
+function startOefenen(){queue=shuffle(ITEMS.slice());idx=0;score=0;document.getElementById("oefenblok").style.display="block";render();document.getElementById("oefenblok").scrollIntoView({behavior:"smooth"});}
 function render(){
   var Q=document.getElementById("quiz");
   if(idx>=queue.length){document.getElementById("prog").textContent="Klaar!";document.getElementById("barfill").style.width="100%";
-    Q.innerHTML='<div class="done-msg">🎉 Klaar! Je had er '+score+' van '+queue.length+' goed.<br>Top, Tijn — herhaal gerust!</div><button class="restart" onclick="queue=shuffle(ITEMS.slice());idx=0;score=0;render();">🔄 Opnieuw</button>';return;}
+    Q.innerHTML='<div class="done-msg">🎉 Klaar! Je had er '+score+' van '+queue.length+' goed.<br>Top, Tijn — herhaal gerust!</div><button class="restart" onclick="startOefenen()">🔄 Opnieuw</button>';return;}
   var it=queue[idx];
   document.getElementById("prog").textContent="Zin "+(idx+1)+" van "+queue.length;
   document.getElementById("score").textContent="Goed: "+score;
@@ -63,5 +93,4 @@ function render(){
 }
 function reveal(){document.getElementById("ans").style.display="block";}
 function mark(ok){if(ok)score++;idx++;render();}
-render();
 </script></body></html>
