@@ -5,42 +5,44 @@ h1{font-size:21px;margin:.2em 0}.intro{color:#6b7896;font-size:14px;margin-botto
 .bar{height:12px;background:#e6ecf5;border-radius:8px;overflow:hidden;margin:8px 0 14px}.bar>i{display:block;height:100%;background:linear-gradient(90deg,#4a86e8,#16a766);width:0;transition:.3s}
 .card{background:#f4f7fb;border-radius:16px;padding:18px 16px;box-shadow:0 2px 10px rgba(31,42,68,.06)}
 .tag{display:inline-block;background:#fef1d1;color:#a4690a;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-bottom:8px}
-.vraag{font-size:15px;color:#4a86e8;font-weight:700;margin-bottom:2px}
-.cue{font-size:18px;font-weight:800;margin:6px 0 12px}
+.cue{font-size:20px;font-weight:800;margin:6px 0 12px}
 textarea{width:100%;border:2px solid #e6ecf5;border-radius:10px;padding:10px;font-size:16px;font-family:inherit;box-sizing:border-box;min-height:54px}
 textarea:focus{outline:none;border-color:#4a86e8}
 .btn{border:none;border-radius:10px;padding:11px 14px;font-weight:700;font-size:15px;cursor:pointer}
 .show{background:#4a86e8;color:#fff;width:100%;margin-top:10px}
 .answer{margin-top:12px;background:#fff;border:1px solid #e6ecf5;border-radius:10px;padding:12px;display:none}
 .answer .lbl{font-size:12px;color:#6b7896}.answer .de{font-size:18px;font-weight:800;color:#16a766;margin-top:2px}
-.selfrow{display:flex;gap:8px;margin-top:10px}
-.selfrow button{flex:1}
+.selfrow{display:flex;gap:8px;margin-top:10px}.selfrow button{flex:1}
 .good{background:#16a766;color:#fff}.again{background:#eef2f7;color:#1f2a44}
 .done-msg{text-align:center;background:#e9f9f0;border-radius:12px;padding:16px;color:#16a766;font-weight:700}
 .restart{margin-top:10px;border:none;background:#16a766;color:#fff;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer}
 </style></head><body>
-<h1>🇩🇪 Duits — Zelf antwoord geven</h1>
-<p class="intro">Deze zinnen moet je <b>letterlijk in het Duits</b> kunnen zeggen. Lees de vraag of de Nederlandse zin, typ zelf het Duitse antwoord, en klik daarna op <b>"Toon antwoord"</b> om te checken. Geef eerlijk aan of je het goed had.</p>
+<h1>🇩🇪→🇳🇱 Duits — Zinnen begrijpen</h1>
+<p class="intro">Je ziet een <b>Duitse zin</b>. Zeg of typ wat het <b>in het Nederlands</b> betekent. Klik daarna op <b>"Toon antwoord"</b> om te checken, en geef eerlijk aan of je het goed had.</p>
 <div class="meta"><span id="prog"></span><span id="score"></span></div>
 <div class="bar"><i id="barfill"></i></div>
 <div id="quiz"></div>
 <script>
 var ITEMS=[
-{q:"Sie wünschen bitte?",nl:"(zeg dat je vier broodjes wilt)",de:"Ich möchte vier Brötchen."},
-{q:"Sonst noch etwas?",nl:"(en ook nog drie pretzels)",de:"Und auch noch drei Brezeln, bitte."},
-{q:"Wo finde ich die Süßigkeiten?",nl:"(bij de kassa)",de:"Die findest du bei der Kasse."},
-{q:"Wie viel kostet der Döner?",nl:"(drie euro)",de:"Der kostet drei Euro."},
-{q:"Das macht acht Euro zehn.",nl:"(je wilt met de kaart betalen)",de:"Ich möchte bitte mit Karte bezahlen."},
-{q:"",nl:"Ik heb twee zussen.",de:"Ich habe zwei Schwestern."},
-{q:"",nl:"Nee, ik heb geen broers en zussen.",de:"Nein, ich habe keine Geschwister."},
-{q:"",nl:"Dat is mijn opa.",de:"Das ist mein Opa."},
-{q:"",nl:"Mijn broer is veertien jaar oud.",de:"Mein Bruder ist vierzehn Jahre alt."},
-{q:"",nl:"Dank je wel!",de:"Danke schön!"},
-{q:"",nl:"Ik wil graag geld (als cadeau).",de:"Ich wünsche mir Geld."},
-{q:"",nl:"Ja, ik kom graag.",de:"Ja, ich komme gerne."},
-{q:"",nl:"Ik vier het met mijn familie.",de:"Ich feiere mit meiner Familie."},
-{q:"",nl:"Van mijn ouders heb ik een laptop gekregen.",de:"Von meinen Eltern habe ich einen Laptop bekommen."},
-{q:"",nl:"Ik houd van de gezelligheid.",de:"Ich liebe die Gemütlichkeit."}
+{de:"Sie wünschen bitte?",nl:"Wat wilt u graag? / Kan ik u helpen?"},
+{de:"Sonst noch etwas?",nl:"Anders nog iets?"},
+{de:"Ich möchte vier Brötchen.",nl:"Ik wil graag vier broodjes."},
+{de:"Und auch noch drei Brezeln, bitte.",nl:"En ook nog drie pretzels, graag."},
+{de:"Wo finde ich die Süßigkeiten?",nl:"Waar vind ik de snoepjes?"},
+{de:"Die findest du bei der Kasse.",nl:"Die vind je bij de kassa."},
+{de:"Wie viel kostet der Döner?",nl:"Hoeveel kost de döner?"},
+{de:"Der kostet drei Euro.",nl:"Die kost drie euro."},
+{de:"Ich möchte bitte mit Karte bezahlen.",nl:"Ik wil graag met de kaart betalen."},
+{de:"Ich habe zwei Schwestern.",nl:"Ik heb twee zussen."},
+{de:"Nein, ich habe keine Geschwister.",nl:"Nee, ik heb geen broers en zussen."},
+{de:"Das ist mein Opa.",nl:"Dat is mijn opa."},
+{de:"Mein Bruder ist vierzehn Jahre alt.",nl:"Mijn broer is veertien jaar oud."},
+{de:"Danke schön!",nl:"Dank je wel!"},
+{de:"Ich wünsche mir Geld.",nl:"Ik wil graag geld (als cadeau)."},
+{de:"Ja, ich komme gerne.",nl:"Ja, ik kom graag."},
+{de:"Ich feiere mit meiner Familie.",nl:"Ik vier het met mijn familie."},
+{de:"Von meinen Eltern habe ich einen Laptop bekommen.",nl:"Van mijn ouders heb ik een laptop gekregen."},
+{de:"Ich liebe die Gemütlichkeit.",nl:"Ik houd van de gezelligheid."}
 ];
 function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 var queue=shuffle(ITEMS.slice()),idx=0,score=0;
@@ -52,12 +54,11 @@ function render(){
   document.getElementById("prog").textContent="Zin "+(idx+1)+" van "+queue.length;
   document.getElementById("score").textContent="Goed: "+score;
   document.getElementById("barfill").style.width=(idx/queue.length*100)+"%";
-  var h='<div class="card"><span class="tag">Zeg het in het Duits</span>';
-  if(it.q) h+='<div class="vraag">Vraag: '+it.q+'</div>';
-  h+='<div class="cue">'+it.nl+'</div>';
-  h+='<textarea id="inp" placeholder="Typ hier je Duitse antwoord..."></textarea>';
+  var h='<div class="card"><span class="tag">Wat betekent dit in het Nederlands?</span>';
+  h+='<div class="cue">'+it.de+'</div>';
+  h+='<textarea id="inp" placeholder="Typ hier de Nederlandse betekenis..."></textarea>';
   h+='<button class="btn show" onclick="reveal()">Toon antwoord</button>';
-  h+='<div class="answer" id="ans"><div class="lbl">Juiste antwoord:</div><div class="de">'+it.de+'</div>'+
+  h+='<div class="answer" id="ans"><div class="lbl">Juiste betekenis:</div><div class="de">'+it.nl+'</div>'+
      '<div class="selfrow"><button class="btn good" onclick="mark(true)">✅ Had ik goed</button><button class="btn again" onclick="mark(false)">🔁 Nog oefenen</button></div></div>';
   h+='</div>';
   Q.innerHTML=h;
